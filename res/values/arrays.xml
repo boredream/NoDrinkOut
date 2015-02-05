@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- 弹幕 -->
+    <string-array name="danmus">
+        <item>快喝啊孙子,不来虚的</item>
+        <item>喝我!喝我!喝我!</item>
+        <item>小婊砸快来啊!么么哒!</item>
+        <item>大王喊你来喝我</item>
+        <item>女王大人快点来</item>
+        <item>不喝不是中国人!</item>
+        <item>喝我大家还是盆友</item>
+        <item>真（喝）的（了）好（会）喝（美）</item>
+        <item>赵日天都要喝的咖啡</item>
+        <item>咖啡好喝，外卖小哥更帅哦【哦呵呵</item>
+        <item>喝了就会迎娶白富美，走上人生巅峰</item>
+        <item>买买买！喝喝喝！</item>
+        <item>咖啡技术哪家强！</item>
+        <item>那么问题来了，你喝还是不喝？！</item>
+        <item>十杯咖啡！有钱任性！</item>
+    </string-array>
+
+</resources>
