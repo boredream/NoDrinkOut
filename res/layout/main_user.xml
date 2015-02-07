@@ -1,18 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:paddingTop="6dp" >
 
     <TextView
+        android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="MORE"
-        android:textSize="40sp" />
-    
-    <EditText 
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_centerHorizontal="true"
+        android:text="我"
+        android:textSize="20dp" />
 
+    <ImageView
+        android:id="@+id/shezhi_button"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginRight="14dp"
+        android:src="@drawable/shezhio" />
+
+
+    <ImageView
+        android:id="@+id/person_photo"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/title"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="18dp"
+        android:src="@drawable/ic_launcher" />
+	<LinearLayout 
+	    android:id="@+id/l1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_below="@id/person_photo"
+	    android:paddingTop="15dp"
+	    android:paddingLeft="10dp"
+	    android:background="@drawable/person_background_press"
+	    >
+	 <ImageView 
+	    android:id="@+id/person_ziliao"
+	    android:src="@drawable/geren"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	     />
+	  <TextView 
+	      android:text="个人资料"
+	      android:textSize="15dp"
+	      android:layout_width="wrap_content"
+	      android:layout_height="wrap_content"
+	      
+	      />  
+	</LinearLayout>
+  <View
+  android:id="@+id/xian1"
+  android:layout_width="fill_parent"
+  android:layout_height="0.5dip"
+  android:layout_below="@id/l1"
+  android:background="#FF909090"/>
+
+
+  <LinearLayout
+      android:id="@+id/l2"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/l1"
+      
+      android:paddingLeft="10dp"
+      android:paddingTop="15dp" >
+
+      <ImageView
+          android:id="@+id/person_like"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/geren" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="我的喜好"
+          android:textSize="15dp" />
+  </LinearLayout>
+       <View
+           android:id="@+id/xian2"
+  	android:layout_width="fill_parent"
+  	android:layout_height="0.5dip"
+  	android:layout_below="@id/l2"
+  	android:background="#FF909090"/>
+         <LinearLayout
+      android:id="@+id/l3"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_alignParentLeft="true"
+      android:layout_below="@+id/xian2"
+     
+      android:paddingLeft="10dp"
+      android:paddingTop="15dp" >
+
+      <ImageView
+          android:id="@+id/person_like"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:src="@drawable/geren" />
+
+      <TextView
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"
+          android:text="购买记录"
+          android:textSize="15dp" />
 </LinearLayout>
+       <View
+    android:id="@+id/xian3"
+  	android:layout_width="fill_parent"
+  	android:layout_height="0.5dip"
+  	android:layout_below="@id/l3"
+  	android:background="#FF909090"/>
+</RelativeLayout>
