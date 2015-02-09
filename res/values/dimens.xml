@@ -1,3 +1,4 @@
 <resources>
     <dimen name="txtsize_common">22sp</dimen>
+    <dimen name="txtsize_big">28sp</dimen>
 </resources>

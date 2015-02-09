@@ -2,13 +2,14 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
+    android:background="@drawable/bg"
     android:orientation="vertical" >
 
     <FrameLayout
         android:id="@+id/main_fl_content"
         android:layout_width="fill_parent"
-        android:layout_height="0dip"
-        android:layout_weight="1.0" />
+        android:layout_height="0dp"
+        android:layout_weight="1" />
 
     <RadioGroup
         android:id="@+id/main_rg"
@@ -20,35 +21,20 @@
 
         <RadioButton
             android:id="@+id/main_rb_home"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/more_item_press"
-            android:button="@null"
+            style="@style/RadioButtonTab"
             android:checked="true"
-            android:drawableTop="@drawable/ic_launcher"
             android:gravity="center"
             android:text="首页" />
 
         <RadioButton
             android:id="@+id/main_rb_catagory"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/more_item_press"
-            android:button="@null"
-            android:drawableTop="@drawable/ic_launcher"
+            style="@style/RadioButtonTab"
             android:gravity="center"
             android:text="购买页面" />
 
         <RadioButton
             android:id="@+id/main_rb_user"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/more_item_press"
-            android:button="@null"
-            android:drawableTop="@drawable/ic_launcher"
+            style="@style/RadioButtonTab"
             android:gravity="center"
             android:text="个人中心" />
     </RadioGroup>
