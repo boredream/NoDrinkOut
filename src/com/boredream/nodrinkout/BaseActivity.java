@@ -8,6 +8,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.boredream.baas.BDBaaS;
+import com.boredream.baas.BDBaseObj;
+import com.boredream.baas.abs.BDAbsObjHelper;
+import com.boredream.nodrinkout.utils.CommonConstants;
+
 public abstract class BaseActivity extends Activity {
 
 	protected String TAG;
@@ -15,8 +20,10 @@ public abstract class BaseActivity extends Activity {
 	protected ProgressDialog progressDialog;
 	protected BaseApplication application;
 	protected Bundle bundle;
-	protected SharedPreferences preferences;
+	protected SharedPreferences sp;
 	protected Uri pickImageUri;
+	
+	protected BDAbsObjHelper<BDBaseObj> helper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -28,12 +35,11 @@ public abstract class BaseActivity extends Activity {
 		if (getIntent() != null) {
 			bundle = getIntent().getExtras();
 		}
-		preferences = getSharedPreferences(CommonConstants.SP_NAME,
-				MODE_PRIVATE);
-
+		sp = getSharedPreferences(CommonConstants.SP_NAME, MODE_PRIVATE);
 		progressDialog = new ProgressDialog(this);
-
 		application.addActivity(this);
+		
+		helper = BDBaaS.getObjHelper(this);
 	}
 
 	@Override

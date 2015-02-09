@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout;
+package com.boredream.nodrinkout.utils;
 
 public class CommonConstants {
 

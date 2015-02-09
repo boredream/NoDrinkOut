@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -40,20 +41,21 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.login_btn_register:
-			BmobUser rUser = new BmobUser();
-			rUser.setUsername(et_username.getText().toString());
-			rUser.setPassword(et_psw.getText().toString());
-			rUser.signUp(this, new SaveListener() {
-				@Override
-				public void onSuccess() {
-					showToast("注册成功");
-				}
-				
-				@Override
-				public void onFailure(int arg0, String arg1) {
-					showToast(arg1);
-				}
-			});
+			showToast("测试，直接用默认账号密码登陆即可");
+//			BmobUser rUser = new BmobUser();
+//			rUser.setUsername(et_username.getText().toString());
+//			rUser.setPassword(et_psw.getText().toString());
+//			rUser.signUp(this, new SaveListener() {
+//				@Override
+//				public void onSuccess() {
+//					showToast("注册成功");
+//				}
+//				
+//				@Override
+//				public void onFailure(int arg0, String arg1) {
+//					showToast(arg1);
+//				}
+//			});
 			break;
 		case R.id.login_btn_login:
 			BmobUser user = new BmobUser();

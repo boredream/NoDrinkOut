@@ -1,11 +1,10 @@
 package com.boredream.baas;
 
 import android.content.Context;
+import cn.bmob.v3.Bmob;
 
-import com.avos.avoscloud.AVOSCloud;
-import com.avos.avoscloud.AVObject;
 import com.boredream.baas.abs.BDAbsObjHelper;
-import com.boredream.baas.avosimpl.AVOSObjHelper;
+import com.boredream.baas.bmobimpl.BmobObjHelper;
 
 public class BDBaaS {
 	
@@ -17,16 +16,16 @@ public class BDBaaS {
 	
 	public static BDAbsObjHelper getObjHelper(Context context) {
 		if(helper == null) {
-			helper = new AVOSObjHelper<BDBaseObj>();
-//			helper = new BmobObjHelper<BDBaseObj>(context);
+//			helper = new AVOSObjHelper<BDBaseObj>();
+			helper = new BmobObjHelper<BDBaseObj>(context);
 		}
 		return helper;
 	}
 	
 	public static void init(Context context) {
-//		Bmob.initialize(context, BMOB_APP_ID);
+		Bmob.initialize(context, BMOB_APP_ID);
 		
-		AVOSCloud.initialize(context, AVOS_APP_ID, AVOS_APP_KEY);
-		AVObject.registerSubclass(BDBaseObj.class);
+//		AVOSCloud.initialize(context, AVOS_APP_ID, AVOS_APP_KEY);
+//		AVObject.registerSubclass(BDBaseObj.class);
 	}
 }
