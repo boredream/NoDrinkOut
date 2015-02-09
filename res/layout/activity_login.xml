@@ -11,6 +11,22 @@
 
     <EditText
         android:id="@+id/login_et_psw"
-		style="@style/EditText1Line"/>
+        style="@style/EditText1Line"
+        android:layout_below="@id/login_et_username" />
+
+    <Button
+        android:id="@+id/login_btn_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/login_et_psw"
+        android:text="注册" />
+
+    <Button
+        android:id="@+id/login_btn_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/login_et_psw"
+        android:text="登录" />
 
 </RelativeLayout>

@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
 
+import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.danmu.DanMu;
 import com.boredream.nodrinkout.danmu.DanMuLayout;
 
@@ -39,7 +40,7 @@ public class SplashActivity extends Activity {
 			public void onClick(View v) {
 				dmlLayout.stopShowDanMu();
 				
-				Intent intent = new Intent(SplashActivity.this, MainActivity.class);
+				Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
 				startActivity(intent);
 			}
 		});

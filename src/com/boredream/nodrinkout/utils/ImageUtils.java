@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.home.personalcentre;
+package com.boredream.nodrinkout.utils;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

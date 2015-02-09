@@ -1,42 +1,93 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:background="@drawable/bg"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
     android:orientation="vertical" >
 
-    <FrameLayout
-        android:id="@+id/main_fl_content"
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1" />
-
-    <RadioGroup
-        android:id="@+id/main_rg"
+    <TextView
+        android:id="@+id/tv_title"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:orientation="horizontal" >
+        android:gravity="center"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:text="饮否"
+        android:textSize="20sp" />
 
-        <RadioButton
-            android:id="@+id/main_rb_home"
-            style="@style/RadioButtonTab"
-            android:checked="true"
-            android:gravity="center"
-            android:text="首页" />
+    <View
+        android:layout_width="fill_parent"
+        android:layout_height="0.5dip"
+        android:background="#FF909090" />
 
-        <RadioButton
-            android:id="@+id/main_rb_catagory"
-            style="@style/RadioButtonTab"
-            android:gravity="center"
-            android:text="购买页面" />
+    <android.support.v4.view.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:paddingTop="5dp" >
+    </android.support.v4.view.ViewPager>
 
-        <RadioButton
-            android:id="@+id/main_rb_user"
-            style="@style/RadioButtonTab"
-            android:gravity="center"
-            android:text="个人中心" />
-    </RadioGroup>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e9e2e2"
+        android:padding="5dp"
+        android:text="  Coffee Time" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp" >
+
+        <TextView
+            android:id="@+id/bigger"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/bigger"
+            android:gravity="center_horizontal"
+            android:text="Bigger" />
+
+        <TextView
+            android:id="@+id/zishi"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/know"
+            android:gravity="center_horizontal"
+            android:text="Knowledge" />
+
+        <TextView
+            android:id="@+id/huodong"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/party"
+            android:gravity="center_horizontal"
+            android:text="Party" />
+
+        <TextView
+            android:id="@+id/dian"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableTop="@drawable/shop"
+            android:gravity="center_horizontal"
+            android:text="Shop" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#e9e2e2"
+        android:padding="5dp"
+        android:text="今日精选" />
+
+    <ListView
+        android:id="@+id/jingxuan"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+    </ListView>
 
 </LinearLayout>

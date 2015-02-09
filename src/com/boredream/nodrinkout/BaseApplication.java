@@ -7,10 +7,9 @@ import android.app.Activity;
 import android.app.Application;
 import android.util.Log;
 
-public class BaseApplication extends Application {
+import com.boredream.baas.BDBaaS;
 
-	//public UserInfo userInfo;
-	//public BDLocation myLocation;
+public class BaseApplication extends Application {
 
 	private List<Activity> activityList = new LinkedList<Activity>();
 
@@ -27,6 +26,8 @@ public class BaseApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		Log.i("DDD", "oncreate app");
+		
+		BDBaaS.init(this);
 	}
 
 	// Ìí¼ÓActivity µ½ÈÝÆ÷ÖÐ

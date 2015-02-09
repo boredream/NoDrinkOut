@@ -6,5 +6,6 @@
     <color name="alpha_black">#1fff</color>
     <color name="alpha_light_black">#2fff</color>
     <color name="coffee">#e2843a</color>
+    <color name="light_blue">#44baff</color>
 
 </resources>
