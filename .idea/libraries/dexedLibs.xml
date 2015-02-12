@@ -1,0 +1,19 @@
+<component name="libraryTable">
+  <library name="dexedLibs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/fastjson-904c9d4ad4d133022ff74d1e0ca66b8b.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/avoscloud-sdk-v2.6.10.4-5157b7ceda058d377e498020f3721667.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-async-http-1.4.6-0e6626da1d1e94476c7e5ee5f874c84c.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/httpmime-4.2.4-f965ace3124d297d028df617c78220b4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/gson-1.7.1-20bd515937838c24d5fd9e750f2e32a4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/volley-ffe4c650727aaf6851cc27923dc30d66.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/BmobPush_V0.5beta_1027-4ee05974266aa2d44832874dae9bb0e6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/BmobSDK_V3.3.2_0127-c64ea11296ca874ddc465ce0dde9b904.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/universal-image-loader-1.9.3-with-sources-177a059aef65d78fe95c19ab412a1c92.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/android-support-v4-f3b990437023b39bcd19f024d487d393.jar!/" />
+      <root url="jar://$PROJECT_DIR$/bin/dexedLibs/annotations-2b9df868312cd1defc406a7a5f598252.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
