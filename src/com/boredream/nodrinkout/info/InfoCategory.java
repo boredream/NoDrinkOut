@@ -2,9 +2,9 @@ package com.boredream.nodrinkout.info;
 
 import cn.bmob.v3.datatype.BmobRelation;
 
-import com.boredream.baas.BDBaseObj;
+import com.boredream.baas.bmobimpl.BmobBaseObj;
 
-public class InfoCategory extends BDBaseObj {
+public class InfoCategory extends BmobBaseObj {
 
 	private String name;
 	private int cateId;

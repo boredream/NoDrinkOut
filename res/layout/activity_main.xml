@@ -21,7 +21,7 @@
         android:background="#FF909090" />
 
     <android.support.v4.view.ViewPager
-        android:id="@+id/viewpager"
+        android:id="@+id/vp_gallery"
         android:layout_width="wrap_content"
         android:layout_height="200dp"
         android:paddingTop="5dp" >
@@ -41,7 +41,7 @@
         android:padding="10dp" >
 
         <TextView
-            android:id="@+id/bigger"
+            android:id="@+id/tv_bigger"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -50,7 +50,7 @@
             android:text="Bigger" />
 
         <TextView
-            android:id="@+id/zishi"
+            android:id="@+id/tv_zishi"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -59,7 +59,7 @@
             android:text="Knowledge" />
 
         <TextView
-            android:id="@+id/huodong"
+            android:id="@+id/tv_huodong"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -68,7 +68,7 @@
             android:text="Party" />
 
         <TextView
-            android:id="@+id/dian"
+            android:id="@+id/tv_dian"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -85,7 +85,7 @@
         android:text="今日精选" />
 
     <ListView
-        android:id="@+id/jingxuan"
+        android:id="@+id/lv_jingxuan"
         android:layout_width="match_parent"
         android:layout_height="match_parent" >
     </ListView>

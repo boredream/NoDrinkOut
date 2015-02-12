@@ -1,13 +1,8 @@
-package com.boredream.baas.abs;
+package com.boredream.baas;
 
 import java.util.List;
 
-public abstract class BDAbsBaasQueryHelper<T> {
-
-	/**
-	 * 设置查询条件
-	 */
-	public abstract void initQueryParams();
+public abstract class BDAbsQueryHelper<T> {
 
 	/**
 	 * 同步查询

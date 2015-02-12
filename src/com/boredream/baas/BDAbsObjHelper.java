@@ -1,6 +1,6 @@
-package com.boredream.baas.abs;
+package com.boredream.baas;
 
-public abstract class BDAbsObjHelper<T> {
+public abstract class BDAbsObjHelper<T extends BDObjable> {
 
 	public abstract void save(T data);
 	public abstract void save(T data, BDObjListener<T> listener);

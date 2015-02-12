@@ -1,4 +1,4 @@
-package com.boredream.baas.abs;
+package com.boredream.baas;
 
 public interface BDObjListener<T> {
 

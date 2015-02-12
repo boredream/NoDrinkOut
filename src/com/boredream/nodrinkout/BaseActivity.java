@@ -8,9 +8,9 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.boredream.baas.BDAbsObjHelper;
 import com.boredream.baas.BDBaaS;
-import com.boredream.baas.BDBaseObj;
-import com.boredream.baas.abs.BDAbsObjHelper;
+import com.boredream.baas.BDObjable;
 import com.boredream.nodrinkout.utils.CommonConstants;
 
 public abstract class BaseActivity extends Activity {
@@ -23,7 +23,7 @@ public abstract class BaseActivity extends Activity {
 	protected SharedPreferences sp;
 	protected Uri pickImageUri;
 	
-	protected BDAbsObjHelper<BDBaseObj> helper;
+	protected BDAbsObjHelper<? extends BDObjable> objHelper;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public abstract class BaseActivity extends Activity {
 		progressDialog = new ProgressDialog(this);
 		application.addActivity(this);
 		
-		helper = BDBaaS.getObjHelper(this);
+		objHelper = BDBaaS.getObjHelper(this);
 	}
 
 	@Override

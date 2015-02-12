@@ -2,9 +2,9 @@ package com.boredream.nodrinkout.info;
 
 import cn.bmob.v3.datatype.BmobRelation;
 
-import com.boredream.baas.BDBaseObj;
+import com.boredream.nodrinkout.BaseObject;
 
-public class InfoBean extends BDBaseObj {
+public class InfoBean extends BaseObject {
 	private String title;
 	private String content;
 	private String imgName;

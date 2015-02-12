@@ -3,7 +3,6 @@ package com.boredream.baas;
 import android.content.Context;
 import cn.bmob.v3.Bmob;
 
-import com.boredream.baas.abs.BDAbsObjHelper;
 import com.boredream.baas.bmobimpl.BmobObjHelper;
 
 public class BDBaaS {
@@ -12,12 +11,12 @@ public class BDBaaS {
 	public static final String AVOS_APP_ID = "0z4jhm8zyhlujpqfj7n7yuvh8ckdp5s78h1puqmtwj3badx9";
 	public static final String AVOS_APP_KEY = "ri39c28wwfzkp5e3cgupwqagcntfez7djy98kc7nge5bm789";
 	
-	private static BDAbsObjHelper<BDBaseObj> helper;
+	private static BDAbsObjHelper<? extends BDObjable> helper;
 	
-	public static BDAbsObjHelper getObjHelper(Context context) {
+	public static BDAbsObjHelper<? extends BDObjable> getObjHelper(Context context) {
 		if(helper == null) {
-//			helper = new AVOSObjHelper<BDBaseObj>();
-			helper = new BmobObjHelper<BDBaseObj>(context);
+//			helper = new AVOSObjHelper();
+			helper = new BmobObjHelper(context);
 		}
 		return helper;
 	}
