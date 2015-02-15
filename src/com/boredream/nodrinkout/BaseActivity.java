@@ -8,9 +8,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
-import com.boredream.baas.BDAbsObjHelper;
-import com.boredream.baas.BDBaaS;
-import com.boredream.baas.BDObjable;
 import com.boredream.nodrinkout.utils.CommonConstants;
 
 public abstract class BaseActivity extends Activity {
@@ -23,8 +20,6 @@ public abstract class BaseActivity extends Activity {
 	protected SharedPreferences sp;
 	protected Uri pickImageUri;
 	
-	protected BDAbsObjHelper<? extends BDObjable> objHelper;
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -38,8 +33,6 @@ public abstract class BaseActivity extends Activity {
 		sp = getSharedPreferences(CommonConstants.SP_NAME, MODE_PRIVATE);
 		progressDialog = new ProgressDialog(this);
 		application.addActivity(this);
-		
-		objHelper = BDBaaS.getObjHelper(this);
 	}
 
 	@Override

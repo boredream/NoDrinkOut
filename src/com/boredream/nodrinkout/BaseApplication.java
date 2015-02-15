@@ -8,7 +8,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import com.boredream.baas.BDBaaS;
+import com.boredream.nodrinkout.http.BmobInit;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 
@@ -30,7 +30,7 @@ public class BaseApplication extends Application {
 		super.onCreate();
 		Log.i("DDD", "oncreate app");
 		
-		BDBaaS.init(this);
+		BmobInit.init(this);
 		initImageLoader(this);
 	}
 	

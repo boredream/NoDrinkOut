@@ -2,7 +2,7 @@ package com.boredream.nodrinkout.info;
 
 import cn.bmob.v3.datatype.BmobRelation;
 
-import com.boredream.baas.bmobimpl.BmobBaseObj;
+import com.boredream.nodrinkout.http.BmobBaseObj;
 
 public class InfoCategory extends BmobBaseObj {
 

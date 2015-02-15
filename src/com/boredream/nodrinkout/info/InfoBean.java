@@ -1,7 +1,5 @@
 package com.boredream.nodrinkout.info;
 
-import cn.bmob.v3.datatype.BmobRelation;
-
 import com.boredream.nodrinkout.BaseObject;
 
 public class InfoBean extends BaseObject {
@@ -11,7 +9,6 @@ public class InfoBean extends BaseObject {
 	private String imgUrl;
 	private String imgCompleteUrl;
 	private int cateId;
-	private BmobRelation comments;
 
 	public String getTitle() {
 		return title;
@@ -59,14 +56,6 @@ public class InfoBean extends BaseObject {
 
 	public void setCateId(int cateId) {
 		this.cateId = cateId;
-	}
-
-	public BmobRelation getComments() {
-		return comments;
-	}
-
-	public void setComments(BmobRelation comments) {
-		this.comments = comments;
 	}
 
 }
