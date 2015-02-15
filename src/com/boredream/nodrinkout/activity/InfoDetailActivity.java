@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.detail;
+package com.boredream.nodrinkout.activity;
 
 import java.util.List;
 
@@ -15,7 +15,9 @@ import cn.bmob.v3.listener.FindListener;
 import com.bmob.BmobProFile;
 import com.bmob.btp.callback.DownloadListener;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.info.InfoBean;
+import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
+import com.boredream.nodrinkout.entity.InfoBean;
+import com.boredream.nodrinkout.entity.InfoComment;
 
 public class InfoDetailActivity extends Activity {
 	private TextView infodetail_tv_title;

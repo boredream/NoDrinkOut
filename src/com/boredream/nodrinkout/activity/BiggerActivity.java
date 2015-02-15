@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.bigger;
+package com.boredream.nodrinkout.activity;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import cn.bmob.v3.listener.FindListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.info.InfoAdapter;
-import com.boredream.nodrinkout.info.InfoBean;
+import com.boredream.nodrinkout.adapter.InfoAdapter;
+import com.boredream.nodrinkout.entity.InfoBean;
 
 public class BiggerActivity extends BaseActivity {
 	

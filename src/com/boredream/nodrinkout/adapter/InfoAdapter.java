@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.detail;
+package com.boredream.nodrinkout.adapter;
 
 import java.util.List;
 
@@ -10,15 +10,19 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.entity.InfoBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class InfoCommentAdapter extends BaseAdapter {
+public class InfoAdapter extends BaseAdapter {
 
 	private Context context;
-	private List<InfoComment> datas;
+	private List<InfoBean> datas;
+	private ImageLoader imageLoader;
 
-	public InfoCommentAdapter(Context context, List<InfoComment> datas) {
+	public InfoAdapter(Context context, List<InfoBean> datas) {
 		this.context = context;
 		this.datas = datas;
+		this.imageLoader = ImageLoader.getInstance();
 	}
 
 	@Override
@@ -27,7 +31,7 @@ public class InfoCommentAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public InfoComment getItem(int position) {
+	public InfoBean getItem(int position) {
 		return datas.get(position);
 	}
 
@@ -53,9 +57,11 @@ public class InfoCommentAdapter extends BaseAdapter {
 		}
 
 		// set data
-		InfoComment bean = getItem(position);
-		holder.infoitem_tv_title.setText(bean.getUser().getUsername());
+		InfoBean bean = getItem(position);
+		holder.infoitem_tv_title.setText(bean.getTitle());
 		holder.infoitem_tv_content.setText(bean.getContent());
+		imageLoader.displayImage(bean.getImgCompleteUrl(), holder.infoitem_iv);
+		
 		return convertView;
 	}
 

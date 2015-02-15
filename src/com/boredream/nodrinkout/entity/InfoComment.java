@@ -1,9 +1,8 @@
-package com.boredream.nodrinkout.detail;
+package com.boredream.nodrinkout.entity;
 
 import cn.bmob.v3.BmobUser;
 
 import com.boredream.nodrinkout.http.BmobBaseObj;
-import com.boredream.nodrinkout.info.InfoBean;
 
 public class InfoComment extends BmobBaseObj {
 

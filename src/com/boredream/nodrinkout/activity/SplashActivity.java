@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout;
+package com.boredream.nodrinkout.activity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -11,6 +11,9 @@ import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.R.array;
+import com.boredream.nodrinkout.R.id;
+import com.boredream.nodrinkout.R.layout;
 import com.boredream.nodrinkout.danmu.DanMu;
 import com.boredream.nodrinkout.danmu.DanMuLayout;
 

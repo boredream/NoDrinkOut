@@ -1,18 +1,25 @@
-package com.boredream.nodrinkout;
+package com.boredream.nodrinkout.activity;
 
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 
+import com.boredream.nodrinkout.BaseActivity;
+import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.R.id;
+import com.boredream.nodrinkout.R.layout;
+import com.boredream.nodrinkout.adapter.InfoAdapter;
+import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.http.FindSimpleListener;
-import com.boredream.nodrinkout.info.InfoAdapter;
-import com.boredream.nodrinkout.info.InfoBean;
 
-public class MainActivity extends BaseActivity {
+public class MainActivity extends BaseActivity implements OnClickListener {
 	private TextView tv_title;
 	private ViewPager vp_gallery;
 	private TextView tv_bigger;
@@ -57,7 +64,20 @@ public class MainActivity extends BaseActivity {
 		tv_dian = (TextView) findViewById(R.id.tv_dian);
 		lv_jingxuan = (ListView) findViewById(R.id.lv_jingxuan);
 		
-		tv_bigger.settext
+		tv_bigger.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.tv_bigger:
+			Intent intent = new Intent(this, BiggerActivity.class);
+			startActivity(intent);
+			break;
+
+		default:
+			break;
+		}
 	}
 
 }

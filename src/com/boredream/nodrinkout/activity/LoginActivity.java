@@ -1,4 +1,9 @@
-package com.boredream.nodrinkout;
+package com.boredream.nodrinkout.activity;
+
+import com.boredream.nodrinkout.BaseActivity;
+import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.R.id;
+import com.boredream.nodrinkout.R.layout;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.boredream.nodrinkout.SplashActivity" >
+    tools:context="com.boredream.nodrinkout.activity.SplashActivity" >
 
     <com.boredream.nodrinkout.danmu.DanMuLayout 
         android:id="@+id/splash_dm"

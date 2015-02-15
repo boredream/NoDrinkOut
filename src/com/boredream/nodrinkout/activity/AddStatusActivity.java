@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.addstatus;
+package com.boredream.nodrinkout.activity;
 
 import com.boredream.nodrinkout.BaseActivity;
 

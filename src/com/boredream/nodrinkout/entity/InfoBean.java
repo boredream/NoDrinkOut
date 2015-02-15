@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.info;
+package com.boredream.nodrinkout.entity;
 
 import com.boredream.nodrinkout.BaseObject;
 

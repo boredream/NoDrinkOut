@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.detail;
+package com.boredream.nodrinkout.activity;
 
 import android.os.Bundle;
 import android.widget.ImageView;
