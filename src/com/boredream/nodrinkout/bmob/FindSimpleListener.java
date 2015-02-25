@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.http;
+package com.boredream.nodrinkout.bmob;
 
 import java.util.List;
 

@@ -5,6 +5,7 @@ import cn.bmob.v3.BmobUser;
 public class UserBean extends BmobUser {
 
 	private String avatarUrl;
+	private String nickName;
 	private String detail;
 	private boolean isMale;
 	private int age;
@@ -16,6 +17,14 @@ public class UserBean extends BmobUser {
 
 	public void setAvatarUrl(String avatarUrl) {
 		this.avatarUrl = avatarUrl;
+	}
+
+	public String getNickName() {
+		return nickName;
+	}
+
+	public void setNickName(String nickName) {
+		this.nickName = nickName;
 	}
 
 	public String getDetail() {

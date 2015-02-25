@@ -8,7 +8,7 @@ import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
-import com.boredream.nodrinkout.http.BmobInit;
+import com.boredream.nodrinkout.bmob.BmobInit;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 

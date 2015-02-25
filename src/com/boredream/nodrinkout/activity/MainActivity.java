@@ -1,5 +1,6 @@
 package com.boredream.nodrinkout.activity;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -9,14 +10,19 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
-import cn.bmob.v3.BmobQuery;
+
+import cn.bmob.v3.datatype.BmobPointer;
+import cn.bmob.v3.datatype.BmobRelation;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoAdapter;
+import com.boredream.nodrinkout.adapter.RecInfoAdapter;
 import com.boredream.nodrinkout.adapter.VpAdapter;
+import com.boredream.nodrinkout.bmob.BmobApi;
+import com.boredream.nodrinkout.bmob.FindSimpleListener;
 import com.boredream.nodrinkout.entity.InfoBean;
-import com.boredream.nodrinkout.http.FindSimpleListener;
+import com.boredream.nodrinkout.entity.InfoRecommend;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
 	private TextView tv_title;
@@ -27,8 +33,8 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private TextView tv_dian;
 	private ListView lv_jingxuan;
 
-	private InfoAdapter infoAdapter;
-	private VpAdapter vpAdapter;
+	private RecInfoAdapter recJxAdapter;
+	private VpAdapter recVpAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -38,20 +44,17 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		initView();
 
 		progressDialog.show();
-		BmobQuery<InfoBean> query = new BmobQuery<InfoBean>();
-		query.addWhereEqualTo("cateId", 1);
-		query.findObjects(this, new FindSimpleListener<InfoBean>(this,
-				progressDialog) {
+		BmobApi.queryRecomendInfo(this, 1, new FindSimpleListener<InfoRecommend>(this, progressDialog) {
 
 			@Override
-			public void onSuccess(List<InfoBean> arg0) {
+			public void onSuccess(List<InfoRecommend> arg0) {
 				super.onSuccess(arg0);
 				
-				infoAdapter = new InfoAdapter(MainActivity.this, arg0);
-				lv_jingxuan.setAdapter(infoAdapter);
+				recJxAdapter = new RecInfoAdapter(MainActivity.this, arg0);
+				lv_jingxuan.setAdapter(recJxAdapter);
 				
-				vpAdapter = new VpAdapter(MainActivity.this, arg0);
-				vp_gallery.setAdapter(vpAdapter);
+				recVpAdapter = new VpAdapter(MainActivity.this, arg0);
+				vp_gallery.setAdapter(recVpAdapter);
 			}
 
 		});

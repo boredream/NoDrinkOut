@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.http;
+package com.boredream.nodrinkout.bmob;
 
 import android.content.Context;
 import cn.bmob.v3.Bmob;

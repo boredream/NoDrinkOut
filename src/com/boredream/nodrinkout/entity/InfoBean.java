@@ -1,22 +1,16 @@
 package com.boredream.nodrinkout.entity;
 
-import cn.bmob.v3.datatype.BmobRelation;
-
 public class InfoBean extends BmobBaseObj {
 	private String title;
 	private String content;
-	private String imgCompleteUrl;
+	private String imgUrl;
 	/**
-	 * 资讯类型
+	 * 资讯类型 1-bigger
 	 */
-	private int cateId;
-	/**
-	 * 推荐类型 1-首页海报推荐 2-首页热点推荐 3-新品推荐
-	 */
-	private int recommendType;
+	private int category;
 
-	private BmobRelation comments;
-	private BmobRelation likes;
+	private UserBean user;
+	private InterActive interAct;
 
 	public String getTitle() {
 		return title;
@@ -34,44 +28,36 @@ public class InfoBean extends BmobBaseObj {
 		this.content = content;
 	}
 
-	public String getImgCompleteUrl() {
-		return imgCompleteUrl;
+	public String getImgUrl() {
+		return imgUrl;
 	}
 
-	public void setImgCompleteUrl(String imgCompleteUrl) {
-		this.imgCompleteUrl = imgCompleteUrl;
+	public void setImgUrl(String imgUrl) {
+		this.imgUrl = imgUrl;
+	}
+	
+	public int getCategory() {
+		return category;
 	}
 
-	public int getCateId() {
-		return cateId;
+	public UserBean getUser() {
+		return user;
 	}
 
-	public void setCateId(int cateId) {
-		this.cateId = cateId;
+	public void setUser(UserBean user) {
+		this.user = user;
 	}
 
-	public int getRecommendType() {
-		return recommendType;
+	public void setCategory(int category) {
+		this.category = category;
 	}
 
-	public void setRecommendType(int recommendType) {
-		this.recommendType = recommendType;
+	public InterActive getInterAct() {
+		return interAct;
 	}
 
-	public BmobRelation getComments() {
-		return comments;
-	}
-
-	public void setComments(BmobRelation comments) {
-		this.comments = comments;
-	}
-
-	public BmobRelation getLikes() {
-		return likes;
-	}
-
-	public void setLikes(BmobRelation likes) {
-		this.likes = likes;
+	public void setInterAct(InterActive interAct) {
+		this.interAct = interAct;
 	}
 
 }

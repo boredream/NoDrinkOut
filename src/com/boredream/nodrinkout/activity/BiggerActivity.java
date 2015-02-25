@@ -1,6 +1,5 @@
 package com.boredream.nodrinkout.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -9,10 +8,12 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
+import cn.bmob.v3.listener.FindListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoAdapter;
+import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.utils.ViewUtils;
 
@@ -41,28 +42,27 @@ public class BiggerActivity extends BaseActivity {
 		
 		progressDialog.show();
 		
-		List<InfoBean> infos = new ArrayList<InfoBean>();
-		InfoBean info = new InfoBean();
-		info.setTitle("猜猜我是谁");
-		info.setContent("扎西德勒！");
-		infos.add(info);
-		adapter = new InfoAdapter(BiggerActivity.this, infos);
-		lv_bigger.setAdapter(adapter);
+//		List<InfoBean> infos = new ArrayList<InfoBean>();
+//		InfoBean info = new InfoBean();
+//		info.setTitle("猜猜我是谁");
+//		info.setContent("扎西德勒！");
+//		infos.add(info);
+//		adapter = new InfoAdapter(BiggerActivity.this, infos);
+//		lv_bigger.setAdapter(adapter);
 		
-//		BmobQuery<InfoBean> query = new BmobQuery<InfoBean>();
-//		query.findObjects(this, new FindListener<InfoBean>() {
-//			@Override
-//			public void onSuccess(List<InfoBean> arg0) {
-//				progressDialog.dismiss();
-//				adapter = new InfoAdapter(BiggerActivity.this, arg0);
-//				lv_bigger.setAdapter(adapter);
-//			}
-//			
-//			@Override
-//			public void onError(int arg0, String arg1) {
-//				progressDialog.dismiss();
-//				showToast(arg1);
-//			}
-//		});
+		BmobApi.queryInfoByCategory(this, 1, 0, 10, new FindListener<InfoBean>() {
+			@Override
+			public void onSuccess(List<InfoBean> arg0) {
+				progressDialog.dismiss();
+				adapter = new InfoAdapter(BiggerActivity.this, arg0);
+				lv_bigger.setAdapter(adapter);
+			}
+			
+			@Override
+			public void onError(int arg0, String arg1) {
+				progressDialog.dismiss();
+				showToast(arg1);
+			}
+		});
 	}
 }

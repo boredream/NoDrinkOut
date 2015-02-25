@@ -12,16 +12,17 @@ import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.InfoBean;
+import com.boredream.nodrinkout.entity.InfoRecommend;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class VpAdapter extends PagerAdapter {
 
 	private Context context;
-	private List<InfoBean> infos;
+	private List<InfoRecommend> infos;
 	private List<View> views;
 	private ImageLoader imageLoader;
 
-	public VpAdapter(Context context, List<InfoBean> infos) {
+	public VpAdapter(Context context, List<InfoRecommend> infos) {
 		this.context = context;
 		this.infos = infos;
 		this.imageLoader = ImageLoader.getInstance();
@@ -58,8 +59,9 @@ public class VpAdapter extends PagerAdapter {
 		ImageView iv = (ImageView) view.findViewById(R.id.vpitem_iv);
 		TextView tv = (TextView) view.findViewById(R.id.vpitem_tv);
 		
-		InfoBean info = infos.get(position);
-		imageLoader.displayImage(info.getImgCompleteUrl(), iv);
+		InfoRecommend rec = infos.get(position);
+		InfoBean info = rec.getInfo();
+		imageLoader.displayImage(info.getImgUrl(), iv);
 		tv.setText(info.getTitle());
 		
 		container.addView(view);
