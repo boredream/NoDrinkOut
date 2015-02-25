@@ -61,7 +61,7 @@ public class VpAdapter extends PagerAdapter {
 		
 		InfoRecommend rec = infos.get(position);
 		InfoBean info = rec.getInfo();
-		imageLoader.displayImage(info.getImgUrl(), iv);
+		imageLoader.displayImage(info.getImgCompleteUrl(), iv);
 		tv.setText(info.getTitle());
 		
 		container.addView(view);

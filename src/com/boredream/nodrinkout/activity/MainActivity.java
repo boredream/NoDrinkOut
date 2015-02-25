@@ -49,14 +49,23 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			@Override
 			public void onSuccess(List<InfoRecommend> arg0) {
 				super.onSuccess(arg0);
-				
-				recJxAdapter = new RecInfoAdapter(MainActivity.this, arg0);
-				lv_jingxuan.setAdapter(recJxAdapter);
-				
+
 				recVpAdapter = new VpAdapter(MainActivity.this, arg0);
 				vp_gallery.setAdapter(recVpAdapter);
 			}
 
+		});
+		
+		BmobApi.queryRecomendInfo(this, 2, new FindSimpleListener<InfoRecommend>(this, progressDialog) {
+			
+			@Override
+			public void onSuccess(List<InfoRecommend> arg0) {
+				super.onSuccess(arg0);
+				
+				recJxAdapter = new RecInfoAdapter(MainActivity.this, arg0);
+				lv_jingxuan.setAdapter(recJxAdapter);
+			}
+			
 		});
 
 	}

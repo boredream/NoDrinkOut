@@ -59,6 +59,6 @@ public class InfoDetailActivity extends Activity {
 		
 		infodetail_tv_title.setText(info.getTitle());
 		infodetail_tv_content.setText(info.getContent());
-		ImageLoader.getInstance().displayImage(info.getImgUrl(), infodetail_iv);
+		ImageLoader.getInstance().displayImage(info.getImgCompleteUrl(), infodetail_iv);
 	}
 }

@@ -7,6 +7,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import cn.bmob.v3.BmobUser;
+
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.Logger;
@@ -40,7 +42,10 @@ public abstract class BaseActivity extends Activity {
 		application.addActivity(this);
 		
 		// custom data
-		user = (UserBean) UserBean.getCurrentUser(this);
+		BmobUser u = UserBean.getCurrentUser(this);
+		if(u instanceof UserBean) {
+			user = (UserBean) UserBean.getCurrentUser(this);
+		}
 		imageLoader = ImageLoader.getInstance();
 	}
 	

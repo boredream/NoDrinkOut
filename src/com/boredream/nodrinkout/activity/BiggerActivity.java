@@ -50,7 +50,7 @@ public class BiggerActivity extends BaseActivity {
 //		adapter = new InfoAdapter(BiggerActivity.this, infos);
 //		lv_bigger.setAdapter(adapter);
 		
-		BmobApi.queryInfoByCategory(this, 1, 0, 10, new FindListener<InfoBean>() {
+		BmobApi.queryInfoByCategory(this, 1, new FindListener<InfoBean>() {
 			@Override
 			public void onSuccess(List<InfoBean> arg0) {
 				progressDialog.dismiss();

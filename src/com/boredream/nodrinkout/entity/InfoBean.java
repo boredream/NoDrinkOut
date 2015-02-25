@@ -3,11 +3,11 @@ package com.boredream.nodrinkout.entity;
 public class InfoBean extends BmobBaseObj {
 	private String title;
 	private String content;
-	private String imgUrl;
+	private String imgCompleteUrl;
 	/**
 	 * 资讯类型 1-bigger
 	 */
-	private int category;
+	private int cateId;
 
 	private UserBean user;
 	private InterActive interAct;
@@ -28,16 +28,20 @@ public class InfoBean extends BmobBaseObj {
 		this.content = content;
 	}
 
-	public String getImgUrl() {
-		return imgUrl;
+	public String getImgCompleteUrl() {
+		return imgCompleteUrl;
 	}
 
-	public void setImgUrl(String imgUrl) {
-		this.imgUrl = imgUrl;
+	public void setImgCompleteUrl(String imgCompleteUrl) {
+		this.imgCompleteUrl = imgCompleteUrl;
 	}
-	
-	public int getCategory() {
-		return category;
+
+	public int getCateId() {
+		return cateId;
+	}
+
+	public void setCateId(int cateId) {
+		this.cateId = cateId;
 	}
 
 	public UserBean getUser() {
@@ -46,10 +50,6 @@ public class InfoBean extends BmobBaseObj {
 
 	public void setUser(UserBean user) {
 		this.user = user;
-	}
-
-	public void setCategory(int category) {
-		this.category = category;
 	}
 
 	public InterActive getInterAct() {

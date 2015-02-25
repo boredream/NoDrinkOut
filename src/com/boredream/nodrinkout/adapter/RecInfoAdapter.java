@@ -67,7 +67,7 @@ public class RecInfoAdapter extends BaseAdapter {
 		// set data
 		InfoRecommend rec = getItem(position);
 		InfoBean bean = rec.getInfo();
-		imageLoader.displayImage(bean.getImgUrl(), holder.iv_content);
+		imageLoader.displayImage(bean.getImgCompleteUrl(), holder.iv_content);
 		holder.tv_title.setText(bean.getTitle());
 		holder.tv_content.setText(bean.getContent());
 		

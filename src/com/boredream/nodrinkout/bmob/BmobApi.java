@@ -7,7 +7,6 @@ import cn.bmob.v3.listener.FindListener;
 import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InfoRecommend;
-import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.entity.UserBean;
 
 public class BmobApi {
@@ -40,16 +39,16 @@ public class BmobApi {
 	 * 根据类型查资讯
 	 * 
 	 * @param context
-	 * @param category
+	 * @param cateId
 	 *            资讯类型 1-bigger
 	 * @param listener
 	 */
-	public static void queryInfoByCategory(Context context, int category,
+	public static void queryInfoByCategory(Context context, int cateId,
 			FindListener<InfoBean> listener) {
 		BmobQuery<InfoBean> query = new BmobQuery<InfoBean>();
 		query.include("user");
 		query.include("interAct");
-		query.addWhereEqualTo("category", category);
+		query.addWhereEqualTo("cateId", cateId);
 		query.findObjects(context, listener);
 	}
 
@@ -57,7 +56,7 @@ public class BmobApi {
 	 * 根据类型查资讯(多页)
 	 * 
 	 * @param context
-	 * @param category
+	 * @param cateId
 	 *            资讯类型 1-bigger
 	 * @param page
 	 *            页数
@@ -65,12 +64,12 @@ public class BmobApi {
 	 *            每页显示数量
 	 * @param listener
 	 */
-	public static void queryInfoByCategory(Context context, int category,
+	public static void queryInfoByCategory(Context context, int cateId,
 			int page, int limit, FindListener<InfoBean> listener) {
 		BmobQuery<InfoBean> query = new BmobQuery<InfoBean>();
 		query.include("user");
 		query.include("interAct");
-		query.addWhereEqualTo("category", category);
+		query.addWhereEqualTo("cateId", cateId);
 		query.setLimit(limit);
 		query.setSkip(page * limit);
 		query.findObjects(context, listener);
