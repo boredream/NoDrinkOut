@@ -117,7 +117,6 @@ public class BmobApi {
 	public static void insertCommentOfInfo(Context context, InfoBean info, String comment,
 			SaveSimpleListener listener) {
 		InfoComment infoComment = new InfoComment();
-		infoComment.getInterAct().increment("count");
 		infoComment.setContent(comment);
 		infoComment.setUser((UserBean) UserBean.getCurrentUser(context));
 		infoComment.setInfo(info);
