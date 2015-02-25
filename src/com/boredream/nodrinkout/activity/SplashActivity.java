@@ -7,13 +7,11 @@ import java.util.Random;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.R.array;
-import com.boredream.nodrinkout.R.id;
-import com.boredream.nodrinkout.R.layout;
 import com.boredream.nodrinkout.danmu.DanMu;
 import com.boredream.nodrinkout.danmu.DanMuLayout;
 
@@ -45,6 +43,8 @@ public class SplashActivity extends Activity {
 				
 				Intent intent = new Intent(SplashActivity.this, LoginActivity.class);
 				startActivity(intent);
+				
+				SplashActivity.this.finish();
 			}
 		});
 	}

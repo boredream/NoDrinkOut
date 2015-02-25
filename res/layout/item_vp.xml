@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="200dp" >
+
+    <ImageView
+        android:id="@+id/vpitem_iv"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop" />
+
+    <TextView
+        android:id="@+id/vpitem_tv"
+        android:layout_width="match_parent"
+        android:gravity="center_vertical"
+        android:layout_height="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/alpha_black"
+        android:text="balblabla"
+        android:textColor="@color/white" />
+
+</RelativeLayout>

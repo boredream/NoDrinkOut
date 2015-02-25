@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical" >
+
+    <include layout="@layout/layout_title" />
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_margin="10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/coffee1" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextViewCommon"
+        android:text="小便annten" />
+
+    <RadioGroup
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <RadioButton
+            android:id="@+id/rb_male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@null"
+            android:text="男神" />
+
+        <RadioButton
+            android:id="@+id/rb_female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:button="@null"
+            android:text="女神" />
+    </RadioGroup>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingLeft="40dp"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical" >
+
+        <TextView
+            style="@style/TextViewLittle"
+            android:text="个人介绍" />
+
+        <TextView
+            android:id="@+id/tv_personal_detail"
+            style="@style/TextViewCommon"
+            android:layout_marginTop="20dp"
+            android:text="谁能告诉我几千万怎么花啊？" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/TextViewLittle"
+                android:layout_width="150dp"
+                android:text="年龄" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                style="@style/TextViewCommon"
+                android:text="25" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                style="@style/TextViewLittle"
+                android:layout_width="150dp"
+                android:text="居住地" />
+
+            <TextView
+                android:id="@+id/tv_age"
+                style="@style/TextViewCommon"
+                android:text="南京" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

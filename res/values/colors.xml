@@ -3,8 +3,8 @@
 
     <color name="transparent">#0fff</color>
     <color name="white">#fff</color>
-    <color name="alpha_black">#1fff</color>
-    <color name="alpha_light_black">#2fff</color>
+    <color name="alpha_black">#8000</color>
+    <color name="alpha_light_black">#4000</color>
     <color name="coffee">#e2843a</color>
     <color name="light_blue">#44baff</color>
 

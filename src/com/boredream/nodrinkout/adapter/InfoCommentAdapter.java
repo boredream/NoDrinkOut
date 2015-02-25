@@ -11,15 +11,19 @@ import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.InfoComment;
+import com.boredream.nodrinkout.entity.UserBean;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class InfoCommentAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<InfoComment> datas;
+	private ImageLoader imageLoader;
 
 	public InfoCommentAdapter(Context context, List<InfoComment> datas) {
 		this.context = context;
 		this.datas = datas;
+		this.imageLoader = ImageLoader.getInstance();
 	}
 
 	@Override
@@ -42,28 +46,31 @@ public class InfoCommentAdapter extends BaseAdapter {
 	public View getView(int position, View convertView, ViewGroup parent) {
 		if (convertView == null) {
 			holder = new ViewHolder();
-			convertView = View.inflate(context, R.layout.item_info, null);
-			holder.infoitem_iv = (ImageView) convertView
-					.findViewById(R.id.infoitem_iv);
-			holder.infoitem_tv_title = (TextView) convertView
-					.findViewById(R.id.infoitem_tv_title);
-			holder.infoitem_tv_content = (TextView) convertView
-					.findViewById(R.id.infoitem_tv_content);
+			convertView = View.inflate(context, R.layout.item_comment, null);
+			holder.iv_avatar = (ImageView) convertView
+					.findViewById(R.id.iv_avatar);
+			holder.tv_title = (TextView) convertView
+					.findViewById(R.id.tv_title);
+			holder.tv_content = (TextView) convertView
+					.findViewById(R.id.tv_content);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
 		// set data
 		InfoComment bean = getItem(position);
-		holder.infoitem_tv_title.setText(bean.getUser().getUsername());
-		holder.infoitem_tv_content.setText(bean.getContent());
+		UserBean user = bean.getUser();
+		
+		imageLoader.displayImage(user.getAvatarUrl(), holder.iv_avatar);
+		holder.tv_title.setText(user.getUsername());
+		holder.tv_content.setText(bean.getContent());
 		return convertView;
 	}
 
 	public static class ViewHolder {
-		public ImageView infoitem_iv;
-		public TextView infoitem_tv_title;
-		public TextView infoitem_tv_content;
+		public ImageView iv_avatar;
+		public TextView tv_title;
+		public TextView tv_content;
 	}
 
 }

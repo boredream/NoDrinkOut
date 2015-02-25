@@ -2,72 +2,78 @@ package com.boredream.nodrinkout;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
+import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.utils.CommonConstants;
+import com.boredream.nodrinkout.utils.Logger;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public abstract class BaseActivity extends Activity {
 
 	protected String TAG;
 
-	protected ProgressDialog progressDialog;
 	protected BaseApplication application;
-	protected Bundle bundle;
 	protected SharedPreferences sp;
-	protected Uri pickImageUri;
+	protected Intent intent;
+	protected ProgressDialog progressDialog;
 	
+	// custom data
+	protected UserBean user;
+	protected ImageLoader imageLoader;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
 		TAG = this.getClass().getSimpleName();
-		showLog("onCreate()", 2);
+		showLog("onCreate()");
+		
 		application = (BaseApplication) getApplication();
-		if (getIntent() != null) {
-			bundle = getIntent().getExtras();
-		}
 		sp = getSharedPreferences(CommonConstants.SP_NAME, MODE_PRIVATE);
+		intent = getIntent();
 		progressDialog = new ProgressDialog(this);
+		
 		application.addActivity(this);
+		
+		// custom data
+		user = (UserBean) UserBean.getCurrentUser(this);
+		imageLoader = ImageLoader.getInstance();
 	}
-
+	
 	@Override
 	protected void onStart() {
 		super.onStart();
-		showLog("onStart()", 2);
+		showLog("onStart()");
 	}
 
 	@Override
 	protected void onResume() {
 		super.onResume();
-
-		showLog("onResume()", 2);
+		showLog("onResume()");
 	}
 
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-
-		application.removeActivity(this);
+		showLog("onDestroy()");
 		
-		showLog("onDestroy()", 2);
+		application.removeActivity(this);
 	}
 
 	@Override
 	protected void onStop() {
 		super.onStop();
-
-		showLog("onStop()", 2);
+		showLog("onStop()");
 	}
 
 	@Override
 	protected void onPause() {
 		super.onPause();
-		showLog("onPause()", 2);
+		showLog("onPause()");
 	}
 
 	protected void finishActivity() {
@@ -78,32 +84,8 @@ public abstract class BaseActivity extends Activity {
 		Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
 	}
 
-	protected void showLog(String log) {
-		showLog(log, 1);
-	}
-
-	/**
-	 * œ‘ ælog
-	 * 
-	 * @param log
-	 * @param level
-	 *            1-info; 2-debug; 3-verbose
-	 */
-	protected void showLog(String log, int level) {
-		switch (level) {
-		case 1:
-			Log.i(TAG, log);
-			break;
-		case 2:
-			Log.d(TAG, log);
-			break;
-		case 3:
-			Log.v(TAG, log);
-			break;
-		default:
-			Log.i(TAG, log);
-			break;
-		}
+	protected void showLog(String msg) {
+		Logger.show(TAG, msg);
 	}
 
 }

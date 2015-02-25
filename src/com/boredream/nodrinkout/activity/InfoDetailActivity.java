@@ -3,8 +3,6 @@ package com.boredream.nodrinkout.activity;
 import java.util.List;
 
 import android.app.Activity;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -12,12 +10,11 @@ import android.widget.TextView;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 
-import com.bmob.BmobProFile;
-import com.bmob.btp.callback.DownloadListener;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
 import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.entity.InfoComment;
+import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class InfoDetailActivity extends Activity {
 	private TextView infodetail_tv_title;
@@ -62,22 +59,6 @@ public class InfoDetailActivity extends Activity {
 		
 		infodetail_tv_title.setText(info.getTitle());
 		infodetail_tv_content.setText(info.getContent());
-		BmobProFile.getInstance(this).download(info.getImgName(), new DownloadListener() {
-			@Override
-			public void onError(int arg0, String arg1) {
-				
-			}
-			
-			@Override
-			public void onSuccess(String arg0) {
-				Bitmap bm = BitmapFactory.decodeFile(arg0);
-				infodetail_iv.setImageBitmap(bm);
-			}
-			
-			@Override
-			public void onProgress(String arg0, int arg1) {
-				
-			}
-		});
+		ImageLoader.getInstance().displayImage(info.getImgCompleteUrl(), infodetail_iv);
 	}
 }

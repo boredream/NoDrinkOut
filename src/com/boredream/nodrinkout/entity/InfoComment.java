@@ -1,20 +1,17 @@
 package com.boredream.nodrinkout.entity;
 
-import cn.bmob.v3.BmobUser;
-
-import com.boredream.nodrinkout.http.BmobBaseObj;
 
 public class InfoComment extends BmobBaseObj {
 
-	private BmobUser user;
+	private UserBean user;
 	private InfoBean info;
 	private String content;
 
-	public BmobUser getUser() {
+	public UserBean getUser() {
 		return user;
 	}
 
-	public void setUser(BmobUser user) {
+	public void setUser(UserBean user) {
 		this.user = user;
 	}
 

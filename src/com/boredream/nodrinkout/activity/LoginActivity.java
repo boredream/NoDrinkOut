@@ -1,10 +1,5 @@
 package com.boredream.nodrinkout.activity;
 
-import com.boredream.nodrinkout.BaseActivity;
-import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.R.id;
-import com.boredream.nodrinkout.R.layout;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +8,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
+
+import com.boredream.nodrinkout.BaseActivity;
+import com.boredream.nodrinkout.R;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 	private EditText et_username;

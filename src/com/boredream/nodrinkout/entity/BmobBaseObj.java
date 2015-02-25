@@ -1,4 +1,4 @@
-package com.boredream.nodrinkout.http;
+package com.boredream.nodrinkout.entity;
 
 import cn.bmob.v3.BmobObject;
 
