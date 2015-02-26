@@ -19,6 +19,7 @@ import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.PullToRefreshBase.Mode;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener2;
 
 public class InfoListActivity extends BaseActivity {
@@ -58,6 +59,7 @@ public class InfoListActivity extends BaseActivity {
 				startActivity(intent);
 			}
 		});
+		lv_info.setMode(Mode.BOTH);
 		lv_info.setOnRefreshListener(new OnRefreshListener2<ListView>() {
 
 			@Override
@@ -74,6 +76,8 @@ public class InfoListActivity extends BaseActivity {
 		});
 		
 		infos = new ArrayList<InfoBean>();
+		adapter = new InfoAdapter(InfoListActivity.this, infos);
+		lv_info.setAdapter(adapter);
 	}
 
 	private void loadData() {
@@ -85,9 +89,8 @@ public class InfoListActivity extends BaseActivity {
 				} else {
 					infos.addAll(arg0);
 				}
-				adapter = new InfoAdapter(InfoListActivity.this, infos);
-				lv_info.setAdapter(adapter);
-				
+				adapter.setDatas(infos);
+				adapter.notifyDataSetChanged();
 				lv_info.onRefreshComplete();
 			}
 			

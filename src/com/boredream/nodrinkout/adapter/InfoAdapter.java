@@ -25,6 +25,10 @@ public class InfoAdapter extends BaseAdapter {
 		this.imageLoader = ImageLoader.getInstance();
 	}
 
+	public void setDatas(List<InfoBean> datas) {
+		this.datas = datas;
+	}
+
 	@Override
 	public int getCount() {
 		return datas.size();
