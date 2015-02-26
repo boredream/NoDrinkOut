@@ -42,7 +42,7 @@ public class InfoAdapter extends BaseAdapter {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		ViewHolder holder;
+		ViewHolder holder = null;
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = View.inflate(context, R.layout.item_info, null);
@@ -56,6 +56,7 @@ public class InfoAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_comment);
 			holder.tv_like = (TextView) convertView
 					.findViewById(R.id.tv_like);
+			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}

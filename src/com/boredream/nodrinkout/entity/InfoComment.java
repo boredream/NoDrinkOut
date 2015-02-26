@@ -1,9 +1,7 @@
 package com.boredream.nodrinkout.entity;
 
-import android.provider.ContactsContract.CommonDataKinds.Relation;
-
+@SuppressWarnings("serial")
 public class InfoComment extends BmobBaseObj {
-
 	private UserBean user;
 	private InfoBean info;
 	private String content;

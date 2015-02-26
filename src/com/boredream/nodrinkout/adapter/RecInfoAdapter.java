@@ -57,6 +57,7 @@ public class RecInfoAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_comment);
 			holder.tv_like = (TextView) convertView
 					.findViewById(R.id.tv_like);
+			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}

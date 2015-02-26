@@ -36,6 +36,10 @@ public class RecVpAdapter extends PagerAdapter {
 			views.add(view);
 		}
 	}
+	
+	public InfoRecommend getItem(int position) {
+		return infos.get(position);
+	}
 
 	@Override
 	public int getCount() {
@@ -67,7 +71,5 @@ public class RecVpAdapter extends PagerAdapter {
 		container.addView(view);
 		return view;
 	}
-	
-	
 
 }

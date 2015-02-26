@@ -1,6 +1,5 @@
 package com.boredream.nodrinkout.activity;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Intent;
@@ -13,18 +12,12 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import cn.bmob.v3.Bmob;
-import cn.bmob.v3.datatype.BmobPointer;
-import cn.bmob.v3.datatype.BmobRelation;
-
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.adapter.InfoAdapter;
 import com.boredream.nodrinkout.adapter.RecInfoAdapter;
 import com.boredream.nodrinkout.adapter.RecVpAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.bmob.FindSimpleListener;
-import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.entity.InfoRecommend;
 
 public class MainActivity extends BaseActivity implements OnClickListener {
@@ -82,6 +75,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		tv_dian = (TextView) findViewById(R.id.tv_dian);
 		lv_jingxuan = (ListView) findViewById(R.id.lv_jingxuan);
 		
+		vp_gallery.setOnClickListener(this);
 		tv_bigger.setOnClickListener(this);
 		tv_zishi.setOnClickListener(this);
 		tv_huodong.setOnClickListener(this);
@@ -91,35 +85,46 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				InfoRecommend recommend = recJxAdapter.getItem(position);
-				Intent intent = new Intent(MainActivity.this, DetailActivity.class);
-				intent.putExtra("info", recommend.getInfo());
-				startActivity(intent);
+				intent2detail(recommend);
 			}
 		});
+	}
+	
+	private void intent2detail(InfoRecommend recommend) {
+		Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+		intent.putExtra("info", recommend.getInfo());
+		startActivity(intent);
+	}
+	
+	private void intent2list(int cateId) {
+		Intent intent = new Intent(MainActivity.this, InfoListActivity.class);
+		intent.putExtra("cateId", cateId);
+		startActivity(intent);
 	}
 
 	@Override
 	public void onClick(View v) {
-		Intent intent = new Intent(this, InfoListActivity.class);
-		int cateId = 1;
 		switch (v.getId()) {
+		case R.id.vp_gallery:
+			int position = vp_gallery.getCurrentItem();
+			InfoRecommend recommend = recVpAdapter.getItem(position);
+			intent2detail(recommend);
+			break;
 		case R.id.tv_bigger:
-			cateId = 1;
+			intent2list(1);
 			break;
 		case R.id.tv_zishi:
-			cateId = 2;
+			intent2list(2);
 			break;
 		case R.id.tv_huodong:
-			cateId = 3;
+			intent2list(3);
 			break;
 		case R.id.tv_dian:
-			cateId = 4;
+			intent2list(4);
 			break;
 		default:
 			break;
 		}
-		intent.putExtra("cateId", cateId);
-		startActivity(intent);
 	}
 
 }

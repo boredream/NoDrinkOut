@@ -1,5 +1,6 @@
 package com.boredream.nodrinkout.entity;
 
+@SuppressWarnings("serial")
 public class InfoLike extends BmobBaseObj {
 	private UserBean user;
 	private InfoBean info;

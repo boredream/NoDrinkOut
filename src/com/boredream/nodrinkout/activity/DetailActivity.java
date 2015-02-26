@@ -127,11 +127,11 @@ public class DetailActivity extends BaseActivity implements OnClickListener {
 		BmobApi.insertComment(this, info, comment, 
 				new UpdateSimpleListener(DetailActivity.this, progressDialog){
 
-					@Override
-					public void onSuccess() {
-						super.onSuccess();
-						showToast("评论成功");
-					}
+			@Override
+			public void onSuccess() {
+				super.onSuccess();
+				showToast("评论成功");
+			}
 			
 		});
 	}

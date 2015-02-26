@@ -73,7 +73,6 @@ public class BmobApi {
 	 * @param cateId
 	 *            资讯类型 1-bigger
 	 * @param page
-	 *            页数
 	 * @param limit
 	 *            每页显示数量
 	 * @param listener
@@ -86,7 +85,7 @@ public class BmobApi {
 		query.include("likes");
 		query.addWhereEqualTo("cateId", cateId);
 		query.setLimit(limit);
-		query.setSkip(page * limit);
+		query.setSkip((page-1) * limit);
 		query.findObjects(context, listener);
 	}
 
@@ -120,10 +119,6 @@ public class BmobApi {
 		query.include("info");
 		query.addWhereEqualTo("info", info);
 		query.findObjects(context, listener);
-		
-//		// 查询这个微博的所有评论,注意：这里的第一个参数是Weibo表中的comments字段
-//		query.addWhereRelatedTo("comments", new BmobPointer(info));		
-//		query.include("author");
 	}
 	
 	/**

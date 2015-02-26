@@ -1,6 +1,6 @@
 package com.boredream.nodrinkout.entity;
 
-
+@SuppressWarnings("serial")
 public class InfoRecommend extends BmobBaseObj {
 	/**
 	 * 推荐类型 1-首页海报推荐 2-首页热门推荐

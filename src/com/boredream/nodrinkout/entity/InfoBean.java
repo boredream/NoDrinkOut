@@ -1,7 +1,6 @@
 package com.boredream.nodrinkout.entity;
 
-import cn.bmob.v3.datatype.BmobRelation;
-
+@SuppressWarnings("serial")
 public class InfoBean extends BmobBaseObj {
 	private String title;
 	private String content;
