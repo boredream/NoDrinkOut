@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.datatype.BmobRelation;
 
@@ -18,7 +21,7 @@ import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoAdapter;
 import com.boredream.nodrinkout.adapter.RecInfoAdapter;
-import com.boredream.nodrinkout.adapter.VpAdapter;
+import com.boredream.nodrinkout.adapter.RecVpAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.bmob.FindSimpleListener;
 import com.boredream.nodrinkout.entity.InfoBean;
@@ -34,7 +37,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	private ListView lv_jingxuan;
 
 	private RecInfoAdapter recJxAdapter;
-	private VpAdapter recVpAdapter;
+	private RecVpAdapter recVpAdapter;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +45,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 
 		setContentView(R.layout.activity_main);
 		initView();
-
+		
 		progressDialog.show();
 		BmobApi.queryRecomendInfo(this, 1, new FindSimpleListener<InfoRecommend>(this, progressDialog) {
 
@@ -50,7 +53,7 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 			public void onSuccess(List<InfoRecommend> arg0) {
 				super.onSuccess(arg0);
 
-				recVpAdapter = new VpAdapter(MainActivity.this, arg0);
+				recVpAdapter = new RecVpAdapter(MainActivity.this, arg0);
 				vp_gallery.setAdapter(recVpAdapter);
 			}
 
@@ -80,19 +83,43 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		lv_jingxuan = (ListView) findViewById(R.id.lv_jingxuan);
 		
 		tv_bigger.setOnClickListener(this);
+		tv_zishi.setOnClickListener(this);
+		tv_huodong.setOnClickListener(this);
+		tv_dian.setOnClickListener(this);
+		lv_jingxuan.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				InfoRecommend recommend = recJxAdapter.getItem(position);
+				Intent intent = new Intent(MainActivity.this, DetailActivity.class);
+				intent.putExtra("info", recommend.getInfo());
+				startActivity(intent);
+			}
+		});
 	}
 
 	@Override
 	public void onClick(View v) {
+		Intent intent = new Intent(this, InfoListActivity.class);
+		int cateId = 1;
 		switch (v.getId()) {
 		case R.id.tv_bigger:
-			Intent intent = new Intent(this, BiggerActivity.class);
-			startActivity(intent);
+			cateId = 1;
 			break;
-
+		case R.id.tv_zishi:
+			cateId = 2;
+			break;
+		case R.id.tv_huodong:
+			cateId = 3;
+			break;
+		case R.id.tv_dian:
+			cateId = 4;
+			break;
 		default:
 			break;
 		}
+		intent.putExtra("cateId", cateId);
+		startActivity(intent);
 	}
 
 }

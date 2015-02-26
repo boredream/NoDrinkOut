@@ -59,4 +59,5 @@ public class UserBean extends BmobUser {
 		this.address = address;
 	}
 
+	
 }

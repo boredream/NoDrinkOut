@@ -17,10 +17,15 @@ import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.utils.ViewUtils;
 
-public class BiggerActivity extends BaseActivity {
+public class InfoListActivity extends BaseActivity {
 	
 	private ListView lv_bigger;
 	private InfoAdapter adapter;
+	
+	/**
+	 * 资讯类型 1-bigger 2-knowledge
+	 */
+	private int cateId;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,27 +39,21 @@ public class BiggerActivity extends BaseActivity {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Intent intent = new Intent(BiggerActivity.this, DetailActivity.class);
+				Intent intent = new Intent(InfoListActivity.this, DetailActivity.class);
 				intent.putExtra("info", adapter.getItem(position));
 				startActivity(intent);
 			}
 		});
 		
+
+		cateId = intent.getIntExtra("cateId", 1);
+		
 		progressDialog.show();
-		
-//		List<InfoBean> infos = new ArrayList<InfoBean>();
-//		InfoBean info = new InfoBean();
-//		info.setTitle("猜猜我是谁");
-//		info.setContent("扎西德勒！");
-//		infos.add(info);
-//		adapter = new InfoAdapter(BiggerActivity.this, infos);
-//		lv_bigger.setAdapter(adapter);
-		
-		BmobApi.queryInfoByCategory(this, 1, new FindListener<InfoBean>() {
+		BmobApi.queryInfoByCategory(this, cateId, new FindListener<InfoBean>() {
 			@Override
 			public void onSuccess(List<InfoBean> arg0) {
 				progressDialog.dismiss();
-				adapter = new InfoAdapter(BiggerActivity.this, arg0);
+				adapter = new InfoAdapter(InfoListActivity.this, arg0);
 				lv_bigger.setAdapter(adapter);
 			}
 			

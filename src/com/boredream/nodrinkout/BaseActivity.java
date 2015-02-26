@@ -42,10 +42,7 @@ public abstract class BaseActivity extends Activity {
 		application.addActivity(this);
 		
 		// custom data
-		BmobUser u = UserBean.getCurrentUser(this);
-		if(u instanceof UserBean) {
-			user = (UserBean) UserBean.getCurrentUser(this);
-		}
+		user = UserBean.getCurrentUser(this, UserBean.class);
 		imageLoader = ImageLoader.getInstance();
 	}
 	

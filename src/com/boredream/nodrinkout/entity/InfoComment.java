@@ -1,10 +1,11 @@
 package com.boredream.nodrinkout.entity;
 
+import android.provider.ContactsContract.CommonDataKinds.Relation;
+
 public class InfoComment extends BmobBaseObj {
 
 	private UserBean user;
 	private InfoBean info;
-	private InterActive interAct;
 	private String content;
 
 	public UserBean getUser() {
@@ -21,14 +22,6 @@ public class InfoComment extends BmobBaseObj {
 
 	public void setInfo(InfoBean info) {
 		this.info = info;
-	}
-
-	public InterActive getInterAct() {
-		return interAct;
-	}
-
-	public void setInterAct(InterActive interAct) {
-		this.interAct = interAct;
 	}
 
 	public String getContent() {

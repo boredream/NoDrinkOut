@@ -51,7 +51,7 @@
             android:layout_height="1dp"
             android:layout_weight="1" />
 
-        <TextView
+        <com.boredream.nodrinkout.view.DrawableTextView
             android:id="@+id/tv_like"
             style="@style/TextViewLittle"
             android:layout_marginLeft="20dp"
@@ -89,30 +89,24 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal" >
-
-        <com.boredream.nodrinkout.view.DrawableTextView
-            android:id="@+id/tv_comment"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
+        
+        <ImageView 
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:src="@drawable/say"
+            />
+        
+        <EditText 
+            android:id="@+id/et_comment"
             android:layout_weight="1"
-            android:drawableLeft="@drawable/say"
-            android:text="评论" />
+            style="@style/EditText1Line"
+            />
 
-        <com.boredream.nodrinkout.view.DrawableTextView
-            android:id="@+id/tv_like"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/like"
-            android:text="赞" />
-
-        <com.boredream.nodrinkout.view.DrawableTextView
-            android:id="@+id/tv_share"
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:drawableLeft="@drawable/say"
-            android:text="分享" />
+        <Button
+            android:id="@+id/btn_comment_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="发布" />
     </LinearLayout>
 
 </RelativeLayout>

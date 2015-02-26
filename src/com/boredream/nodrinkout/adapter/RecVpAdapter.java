@@ -15,14 +15,14 @@ import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.entity.InfoRecommend;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
-public class VpAdapter extends PagerAdapter {
+public class RecVpAdapter extends PagerAdapter {
 
 	private Context context;
 	private List<InfoRecommend> infos;
 	private List<View> views;
 	private ImageLoader imageLoader;
 
-	public VpAdapter(Context context, List<InfoRecommend> infos) {
+	public RecVpAdapter(Context context, List<InfoRecommend> infos) {
 		this.context = context;
 		this.infos = infos;
 		this.imageLoader = ImageLoader.getInstance();

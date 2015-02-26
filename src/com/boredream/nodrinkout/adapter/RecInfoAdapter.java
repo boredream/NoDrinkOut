@@ -9,11 +9,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import cn.bmob.v3.datatype.BmobPointer;
-
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.InfoBean;
-import com.boredream.nodrinkout.entity.InfoRecommend;
 import com.boredream.nodrinkout.entity.InfoRecommend;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -70,12 +67,8 @@ public class RecInfoAdapter extends BaseAdapter {
 		imageLoader.displayImage(bean.getImgCompleteUrl(), holder.iv_content);
 		holder.tv_title.setText(bean.getTitle());
 		holder.tv_content.setText(bean.getContent());
-		
-//		List<BmobPointer> commentsObjs = bean.getComments().getObjects();
-//		holder.tv_comment.setText(commentsObjs.size()+"");
-//		
-//		List<BmobPointer> likesObjs = bean.getLikes().getObjects();
-//		holder.tv_like.setText(likesObjs.size()+"");
+		holder.tv_comment.setText(String.valueOf(bean.getCommentsCount()));
+		holder.tv_like.setText(String.valueOf(bean.getLikesCount()));
 
 		return convertView;
 	}
