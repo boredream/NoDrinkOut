@@ -5,6 +5,7 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.SaveListener;
 
+import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.entity.InfoBean;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InfoLike;
@@ -13,7 +14,9 @@ import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.utils.Logger;
 
 public class BmobApi {
-
+	
+	////////////////////////////// 个人 //////////////////////////////
+	
 	/**
 	 * 查询个人信息
 	 * 
@@ -27,6 +30,51 @@ public class BmobApi {
 		query.addWhereEqualTo("objectId", objectId);
 		query.findObjects(context, listener);
 	}
+	
+	////////////////////////////// 咖啡店 //////////////////////////////
+	
+	/**
+	 * 查询全部咖啡店
+	 * @param context
+	 * @param listener
+	 */
+	public static void queryAllShops(Context context, FindListener<CoffeeShop> listener) {
+		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
+		query.include("user");
+		query.findObjects(context, listener);
+	}
+	
+	/**
+	 * 查询全部咖啡店(根据评论数排序)
+	 * @param context
+	 * @param listener
+	 */
+	public static void queryShopsOrderByComment(Context context, FindListener<CoffeeShop> listener) {
+		queryShopsOrderBy(context, "commentCount", listener);
+	}
+	
+	/**
+	 * 查询全部咖啡店(根据关注数排序)
+	 * @param context
+	 * @param listener
+	 */
+	public static void queryShopsOrderByFollow(Context context, FindListener<CoffeeShop> listener) {
+		queryShopsOrderBy(context, "followCount", listener);
+	}
+	
+	/**
+	 * 查询全部咖啡店(根据指定条件排序)
+	 * @param context
+	 * @param order 排序条件
+	 * @param listener
+	 */
+	public static void queryShopsOrderBy(Context context, String order, FindListener<CoffeeShop> listener) {
+		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
+		query.include("user");
+		query.order(order);
+		query.findObjects(context, listener);
+	}
+	
 
 	public static void insertInfo(Context context) {
 		InfoBean info = new InfoBean();

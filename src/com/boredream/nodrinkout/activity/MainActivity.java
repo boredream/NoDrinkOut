@@ -75,7 +75,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 		tv_dian = (TextView) findViewById(R.id.tv_dian);
 		lv_jingxuan = (ListView) findViewById(R.id.lv_jingxuan);
 		
-		vp_gallery.setOnClickListener(this);
 		tv_bigger.setOnClickListener(this);
 		tv_zishi.setOnClickListener(this);
 		tv_huodong.setOnClickListener(this);
@@ -105,11 +104,6 @@ public class MainActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.vp_gallery:
-			int position = vp_gallery.getCurrentItem();
-			InfoRecommend recommend = recVpAdapter.getItem(position);
-			intent2detail(recommend);
-			break;
 		case R.id.tv_bigger:
 			intent2list(1);
 			break;

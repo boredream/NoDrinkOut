@@ -2,6 +2,7 @@ package com.boredream.nodrinkout.entity;
 
 @SuppressWarnings("serial")
 public class InfoBean extends BmobBaseObj {
+
 	private String title;
 	private String content;
 	private String imgCompleteUrl;

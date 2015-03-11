@@ -3,9 +3,15 @@
 
     <color name="transparent">#0fff</color>
     <color name="white">#fff</color>
-    <color name="alpha_black">#8000</color>
-    <color name="alpha_light_black">#4000</color>
-    <color name="coffee">#e2843a</color>
-    <color name="light_blue">#44baff</color>
+    
+    <color name="txt_black">#de000000</color>
+    <color name="txt_gray">#8d000000</color>
+    <color name="txt_light_gray">#49000000</color>
+    
+    <color name="coffee">#5d4037</color>
+    <color name="coffee_dark">#795548</color>
+    <color name="coffee_light">#d7ccc8</color>
+    
+    <color name="orange">#ff5722</color>
 
 </resources>
