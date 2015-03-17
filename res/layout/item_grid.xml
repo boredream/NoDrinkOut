@@ -15,7 +15,7 @@
     
     <TextView 
         android:id="@+id/griditem_tv"
-        style="@style/TextViewCommon"
+        style="@style/TextViewBody"
         android:text="猫屎咖啡"
         />
 

@@ -56,7 +56,7 @@ public class Logger {
 	/**
 	 * 将 log 打印到指定的文件中
 	 */
-	public static void saveToFile(String log, String fileName) {
+	static void saveToFile(String log, String fileName) {
 		if(!CommonConstants.isSaveLog2File) {
 			return;
 		}

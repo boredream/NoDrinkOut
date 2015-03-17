@@ -10,14 +10,14 @@ import com.boredream.nodrinkout.R;
 public class ViewUtils {
 
 	public static void initTitle(final Activity activity, String title) {
-		activity.findViewById(R.id.title_iv_left).setOnClickListener(
+		activity.findViewById(R.id.titlebar_iv_left).setOnClickListener(
 				new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				activity.finish();
 			}
 		});
-		TextView title_tv = (TextView) activity.findViewById(R.id.title_tv);
+		TextView title_tv = (TextView) activity.findViewById(R.id.titlebar_tv);
 		title_tv.setText(title);
 	}
 	

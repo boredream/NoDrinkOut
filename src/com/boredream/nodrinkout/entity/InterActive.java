@@ -12,7 +12,7 @@ public class InterActive extends BmobBaseObj {
 	/**
 	 * 互动目标id,根据类型不同对应不同实体类的id
 	 */
-	private int tarId;
+	private String tarId;
 	private UserBean user;
 
 	public String getId() {
@@ -31,11 +31,11 @@ public class InterActive extends BmobBaseObj {
 		this.type = type;
 	}
 
-	public int getTarId() {
+	public String getTarId() {
 		return tarId;
 	}
 
-	public void setTarId(int tarId) {
+	public void setTarId(String tarId) {
 		this.tarId = tarId;
 	}
 

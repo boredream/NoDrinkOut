@@ -1,5 +1,7 @@
 package com.boredream.nodrinkout.bmob;
 
+import com.boredream.nodrinkout.utils.Logger;
+
 import android.app.Dialog;
 import android.content.Context;
 import android.widget.Toast;
@@ -26,6 +28,7 @@ public class SaveSimpleListener extends SaveListener {
 
 	@Override
 	public void onSuccess() {
+		Logger.show("DDD", "save success");
 		if(loadDialog != null) {
 			loadDialog.dismiss();
 		}

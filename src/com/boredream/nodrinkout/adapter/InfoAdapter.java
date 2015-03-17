@@ -31,12 +31,12 @@ public class InfoAdapter extends BaseAdapter {
 
 	@Override
 	public int getCount() {
-		return datas.size();
+		return 5;
 	}
 
 	@Override
 	public InfoBean getItem(int position) {
-		return datas.get(position);
+		return null;
 	}
 
 	@Override
@@ -50,28 +50,28 @@ public class InfoAdapter extends BaseAdapter {
 		if (convertView == null) {
 			holder = new ViewHolder();
 			convertView = View.inflate(context, R.layout.item_info, null);
-			holder.iv_content = (ImageView) convertView
-					.findViewById(R.id.iv_content);
-			holder.tv_title = (TextView) convertView
-					.findViewById(R.id.tv_title);
-			holder.tv_content = (TextView) convertView
-					.findViewById(R.id.tv_content);
-			holder.tv_comment = (TextView) convertView
-					.findViewById(R.id.tv_comment);
-			holder.tv_like = (TextView) convertView
-					.findViewById(R.id.tv_like);
+//			holder.iv_content = (ImageView) convertView
+//					.findViewById(R.id.iv_content);
+//			holder.tv_title = (TextView) convertView
+//					.findViewById(R.id.tv_title);
+//			holder.tv_content = (TextView) convertView
+//					.findViewById(R.id.tv_content);
+//			holder.tv_comment = (TextView) convertView
+//					.findViewById(R.id.tv_comment);
+//			holder.tv_like = (TextView) convertView
+//					.findViewById(R.id.tv_like);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
 		}
 
 		// set data
-		InfoBean bean = getItem(position);
-		imageLoader.displayImage(bean.getImgCompleteUrl(), holder.iv_content);
-		holder.tv_title.setText(bean.getTitle());
-		holder.tv_content.setText(bean.getContent());
-		holder.tv_comment.setText(String.valueOf(bean.getCommentsCount()));
-		holder.tv_like.setText(String.valueOf(bean.getLikesCount()));
+//		InfoBean bean = getItem(position);
+//		imageLoader.displayImage(bean.getImgCompleteUrl(), holder.iv_content);
+//		holder.tv_title.setText(bean.getTitle());
+//		holder.tv_content.setText(bean.getContent());
+//		holder.tv_comment.setText(String.valueOf(bean.getCommentsCount()));
+//		holder.tv_like.setText(String.valueOf(bean.getLikesCount()));
 
 		return convertView;
 	}

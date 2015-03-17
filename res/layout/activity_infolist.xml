@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <include layout="@layout/layout_title"/>
+    <include layout="@layout/include_titlebar"/>
 
     <com.boredream.nodrinkout.view.Pull2RefreshListView
         android:id="@+id/lv_info"

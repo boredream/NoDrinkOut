@@ -2,41 +2,45 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@drawable/bg"
     android:orientation="vertical" >
 
     <FrameLayout
-        android:id="@+id/main_fl_content"
+        android:id="@+id/fl_content"
         android:layout_width="fill_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
     <RadioGroup
-        android:id="@+id/main_rg"
+        android:id="@+id/rg_tab"
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="48dp"
         android:layout_gravity="bottom"
         android:gravity="bottom"
         android:orientation="horizontal" >
 
         <RadioButton
-            android:id="@+id/main_rb_home"
+            android:id="@+id/rb_home"
             style="@style/RadioButtonTab"
-            android:checked="true"
             android:gravity="center"
             android:text="首页" />
 
         <RadioButton
-            android:id="@+id/main_rb_catagory"
+            android:id="@+id/rb_shop"
             style="@style/RadioButtonTab"
             android:gravity="center"
-            android:text="购买页面" />
+            android:text="咖店" />
 
         <RadioButton
-            android:id="@+id/main_rb_user"
+            android:id="@+id/rb_search"
             style="@style/RadioButtonTab"
             android:gravity="center"
-            android:text="个人中心" />
+            android:text="发现" />
+
+        <RadioButton
+            android:id="@+id/rb_user"
+            style="@style/RadioButtonTab"
+            android:gravity="center"
+            android:text="我" />
     </RadioGroup>
 
 </LinearLayout>

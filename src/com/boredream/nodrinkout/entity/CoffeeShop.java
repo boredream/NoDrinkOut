@@ -5,7 +5,7 @@ public class CoffeeShop extends BmobBaseObj {
 	private String address;
 	private String geo;
 	private String imgUrl;
-	private int commentCount;
+	private int infoCount;
 	private int followCount;
 
 	public String getName() {
@@ -39,13 +39,13 @@ public class CoffeeShop extends BmobBaseObj {
 	public void setImgUrl(String imgUrl) {
 		this.imgUrl = imgUrl;
 	}
-
-	public int getCommentCount() {
-		return commentCount;
+	
+	public int getInfoCount() {
+		return infoCount;
 	}
 
-	public void setCommentCount(int commentCount) {
-		this.commentCount = commentCount;
+	public void setInfoCount(int infoCount) {
+		this.infoCount = infoCount;
 	}
 
 	public int getFollowCount() {

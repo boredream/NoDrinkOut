@@ -31,5 +31,4 @@ public class Pull2RefreshListView extends PullToRefreshListView {
 		// TODO Auto-generated constructor stub
 	}
 
-	
 }

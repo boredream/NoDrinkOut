@@ -66,7 +66,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			user.login(this, new SaveListener() {
 				@Override
 				public void onSuccess() {
-					Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+					Intent intent = new Intent(LoginActivity.this, MainTabActivity.class);
 					startActivity(intent);
 				}
 				
