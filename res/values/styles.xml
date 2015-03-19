@@ -9,6 +9,21 @@
         <item name="android:windowFullscreen">true</item>
     </style>
 
+    <style name="TextViewDisplay1">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">@color/txt_white</item>
+        <item name="android:textSize">@dimen/txtsize_display1</item>
+    </style>
+
+    <style name="TextViewHeadline">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:textColor">@color/txt_white</item>
+        <item name="android:textSize">@dimen/txtsize_headline</item>
+    </style>
+
     <style name="TextViewTitle">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
@@ -42,6 +57,12 @@
         <item name="android:layout_width">48dp</item>
         <item name="android:layout_height">48dp</item>
         <item name="android:padding">12dp</item>
+    </style>
+
+    <style name="ImageViewIcon16">
+        <item name="android:layout_width">48dp</item>
+        <item name="android:layout_height">48dp</item>
+        <item name="android:padding">16dp</item>
     </style>
 
     <style name="ImageViewImage40">

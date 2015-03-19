@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="72dp"
+    android:background="@color/white"
     android:orientation="horizontal" >
 
     <ImageView
@@ -9,12 +10,13 @@
         style="@style/ImageViewImage40"
         android:layout_gravity="center_vertical"
         android:layout_marginLeft="16dp"
+        android:scaleType="centerCrop"
         android:src="@drawable/ic_launcher" />
 
     <RelativeLayout
         android:id="@+id/rl_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="72dp"
         android:padding="16dp" >
 
         <TextView
@@ -28,6 +30,13 @@
             android:layout_alignParentBottom="true"
             android:text="没错,我就是油坊桥吴彦祖"
             android:textColor="@color/txt_gray" />
+
+        <TextView
+            android:id="@+id/tv_caption"
+            style="@style/TextViewCaption"
+            android:layout_alignParentRight="true"
+            android:text="100m"
+            android:visibility="gone" />
     </RelativeLayout>
 
 </LinearLayout>

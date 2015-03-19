@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/bg_light_gray"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_titlebar" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="72dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
+
+        <ImageView
+            style="@style/ImageViewImage40"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="16dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_launcher" />
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="72dp"
+            android:layout_weight="1"
+            android:padding="16dp" >
+
+            <TextView
+                style="@style/TextViewSubhead"
+                android:text="吴彦祖" />
+
+            <TextView
+                style="@style/TextViewBody"
+                android:layout_alignParentBottom="true"
+                android:text="没错,我就是油坊桥吴彦祖"
+                android:textColor="@color/txt_gray" />
+        </RelativeLayout>
+
+        <ImageView
+            style="@style/ImageViewIcon24"
+            android:src="@drawable/ic_arrow_right_grey" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/ImageViewIcon24"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                style="@style/TextViewSubhead"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="关于我们" />
+
+            <ImageView
+                style="@style/ImageViewIcon24"
+                android:src="@drawable/ic_arrow_right_grey" />
+        </LinearLayout>
+
+        <include layout="@layout/include_divider" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@color/white"
+            android:gravity="center_vertical"
+            android:orientation="horizontal" >
+
+            <ImageView
+                style="@style/ImageViewIcon24"
+                android:layout_marginLeft="4dp"
+                android:src="@drawable/ic_launcher" />
+
+            <TextView
+                style="@style/TextViewSubhead"
+                android:layout_marginLeft="20dp"
+                android:layout_weight="1"
+                android:text="检查更新" />
+
+            <ImageView
+                style="@style/ImageViewIcon24"
+                android:src="@drawable/ic_arrow_right_grey" />
+        </LinearLayout>
+    </LinearLayout>
+    
+    <Button 
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:textSize="@dimen/txtsize_subhead"
+        android:textColor="@color/txt_white"
+        android:text="退出登录"
+        android:background="@color/coffee"
+        android:layout_margin="16dp"
+        />
+
+</LinearLayout>

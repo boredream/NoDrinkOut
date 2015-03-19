@@ -1,8 +1,5 @@
 package com.boredream.nodrinkout.bmob;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.content.Context;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
@@ -35,48 +32,6 @@ public class BmobApi {
 	////////////////////////////// 咖啡店 //////////////////////////////
 	
 	/**
-	 * 查询全部咖啡店
-	 * @param context
-	 * @param listener
-	 */
-	public static void queryAllShops(Context context, FindListener<CoffeeShop> listener) {
-		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
-		query.include("user");
-		query.findObjects(context, listener);
-	}
-	
-	/**
-	 * 查询全部咖啡店(根据评论数排序)
-	 * @param context
-	 * @param listener
-	 */
-	public static void queryShopsOrderByComment(Context context, FindListener<CoffeeShop> listener) {
-		queryShopsOrderBy(context, "commentCount", listener);
-	}
-	
-	/**
-	 * 查询全部咖啡店(根据关注数排序)
-	 * @param context
-	 * @param listener
-	 */
-	public static void queryShopsOrderByFollow(Context context, FindListener<CoffeeShop> listener) {
-		queryShopsOrderBy(context, "followCount", listener);
-	}
-	
-	/**
-	 * 查询全部咖啡店(根据指定条件排序)
-	 * @param context
-	 * @param order 排序条件,前缀加-时为倒序
-	 * @param listener
-	 */
-	public static void queryShopsOrderBy(Context context, String order, FindListener<CoffeeShop> listener) {
-		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
-		query.include("user");
-		query.order(order);
-		query.findObjects(context, listener);
-	}
-	
-	/**
 	 * 查询咖啡店(根据咖啡店名模糊查询)
 	 * @param context
 	 * @param nameLike 模糊查询的咖啡店名
@@ -86,6 +41,27 @@ public class BmobApi {
 		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
 		query.include("user");
 		query.addWhereContains("name", nameLike);
+		query.findObjects(context, listener);
+	}
+	
+	
+	/**
+	 * 查询咖啡店(根据全部条件过滤,不需要改条件时传null)
+	 * @param context
+	 * @param order
+	 * @param page 
+	 * @param listener
+	 */
+	public static void queryShopsWhere(Context context,
+			String order, int page, FindListener<CoffeeShop> listener) {
+		
+		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
+		if(order != null) {
+			query.order(order);
+		}
+		query.include("user,shop");
+		query.setLimit(CommonConstants.COUNT_PER_PAGE);
+		query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
 		query.findObjects(context, listener);
 	}
 	
@@ -174,54 +150,24 @@ public class BmobApi {
 	 * 查询图文状态(根据全部条件过滤,不需要改条件时传null)
 	 * @param context
 	 * @param shop
-	 * @param isChecked
 	 * @param order
 	 * @param page 
 	 * @param listener
 	 */
-	public static void queryInfosWhere(Context context, CoffeeShop shop, Boolean isChecked,
+	public static void queryInfosWhere(Context context, CoffeeShop shop,
 			String order, int page, FindListener<CoffeeInfo> listener) {
-
-		BmobQuery<CoffeeInfo> queryInfo = new BmobQuery<CoffeeInfo>();
-		queryInfo.addWhereEqualTo("shop", shop);
 		
-		BmobQuery<CoffeeInfo> queryChecked = new BmobQuery<CoffeeInfo>();
-		queryInfo.addWhereEqualTo("isChecked", isChecked);
-		
-		if(shop != null && isChecked != null) {
-			BmobQuery<CoffeeInfo> queryAnd = new BmobQuery<CoffeeInfo>();
-			queryAnd.include("user,shop");
-			if(order != null) {
-				queryAnd.order(order);
-			}
-			
-			List<BmobQuery<CoffeeInfo>> queries = new ArrayList<BmobQuery<CoffeeInfo>>();
-			queries.add(queryInfo);
-			queries.add(queryChecked);
-			
-			queryAnd.and(queries);
-			queryAnd.setLimit(CommonConstants.COUNT_PER_PAGE);
-			queryAnd.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
-			queryAnd.findObjects(context, listener);
-		} else if(shop != null) {
-			queryInfo.include("user,shop");
-			if(order != null) {
-				queryInfo.order(order);
-			}
-			
-			queryInfo.setLimit(CommonConstants.COUNT_PER_PAGE);
-			queryInfo.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
-			queryInfo.findObjects(context, listener);
-		} else if(isChecked != null) {
-			queryChecked.include("user,shop");
-			if(order != null) {
-				queryChecked.order(order);
-			}
-			
-			queryChecked.setLimit(CommonConstants.COUNT_PER_PAGE);
-			queryChecked.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
-			queryChecked.findObjects(context, listener);
+		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
+		if(order != null) {
+			query.order(order);
 		}
+		if(shop != null) {
+			query.addWhereEqualTo("shop", shop);
+		}
+		query.include("user,shop");
+		query.setLimit(CommonConstants.COUNT_PER_PAGE);
+		query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
+		query.findObjects(context, listener);
 	}
 
 	////////////////////////////// 评论 //////////////////////////////

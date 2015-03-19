@@ -10,14 +10,15 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/bg_light_gray"
-        android:padding="8dp" >
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
 
         <com.boredream.nodrinkout.view.Pull2RefreshListView
             android:id="@+id/plv_home"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:dividerPadding="8dp"
-            android:divider="@null" >
+            android:divider="@null"
+            android:dividerHeight="8dp" >
         </com.boredream.nodrinkout.view.Pull2RefreshListView>
     </RelativeLayout>
 
