@@ -20,12 +20,12 @@
 
         <TextView
             android:id="@+id/tv_title"
-            style="@style/TextViewCommon"
+            style="@style/TextViewBody"
             android:text="高逼格是一种态度" />
 
         <TextView
             android:id="@+id/tv_content"
-            style="@style/TextViewLittle"
+            style="@style/TextViewBody"
             android:text="blablablablabla" />
     </LinearLayout>
 

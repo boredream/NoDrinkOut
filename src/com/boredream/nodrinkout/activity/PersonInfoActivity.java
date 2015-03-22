@@ -5,12 +5,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
-import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.BmobUser;
-
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.entity.UserBean;
 
 public class PersonInfoActivity extends BaseActivity {
 

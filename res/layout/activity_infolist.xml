@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
     
-    <include layout="@layout/layout_title"/>
+    <include layout="@layout/include_titlebar"/>
 
-    <ListView
-        android:id="@+id/lv_bigger"
+    <com.boredream.nodrinkout.view.Pull2RefreshListView
+        android:id="@+id/lv_info"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:paddingTop="10dp" >
-    </ListView>
+    </com.boredream.nodrinkout.view.Pull2RefreshListView>
 
 </LinearLayout>

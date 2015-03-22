@@ -2,8 +2,8 @@ package com.boredream.nodrinkout.entity;
 
 import cn.bmob.v3.BmobUser;
 
+@SuppressWarnings("serial")
 public class UserBean extends BmobUser {
-
 	private String avatarUrl;
 	private String nickName;
 	private String detail;
@@ -59,4 +59,5 @@ public class UserBean extends BmobUser {
 		this.address = address;
 	}
 
+	
 }

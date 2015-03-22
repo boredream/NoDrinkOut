@@ -5,7 +5,7 @@
     android:gravity="center_horizontal"
     android:orientation="vertical" >
 
-    <include layout="@layout/layout_title" />
+    <include layout="@layout/include_titlebar" />
 
     <ImageView
         android:id="@+id/iv_avatar"
@@ -17,7 +17,7 @@
 
     <TextView
         android:id="@+id/tv_name"
-        style="@style/TextViewCommon"
+        style="@style/TextViewBody"
         android:text="小便annten" />
 
     <RadioGroup
@@ -49,12 +49,12 @@
         android:orientation="vertical" >
 
         <TextView
-            style="@style/TextViewLittle"
+            style="@style/TextViewBody"
             android:text="个人介绍" />
 
         <TextView
             android:id="@+id/tv_personal_detail"
-            style="@style/TextViewCommon"
+            style="@style/TextViewBody"
             android:layout_marginTop="20dp"
             android:text="谁能告诉我几千万怎么花啊？" />
 
@@ -65,13 +65,13 @@
             android:orientation="horizontal" >
 
             <TextView
-                style="@style/TextViewLittle"
+                style="@style/TextViewBody"
                 android:layout_width="150dp"
                 android:text="年龄" />
 
             <TextView
                 android:id="@+id/tv_age"
-                style="@style/TextViewCommon"
+                style="@style/TextViewBody"
                 android:text="25" />
         </LinearLayout>
 
@@ -82,13 +82,12 @@
             android:orientation="horizontal" >
 
             <TextView
-                style="@style/TextViewLittle"
+                style="@style/TextViewBody"
                 android:layout_width="150dp"
                 android:text="居住地" />
 
             <TextView
-                android:id="@+id/tv_age"
-                style="@style/TextViewCommon"
+                style="@style/TextViewBody"
                 android:text="南京" />
         </LinearLayout>
     </LinearLayout>

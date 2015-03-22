@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <include layout="@layout/include_titlebar" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/bg_light_gray"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp" >
+
+        <com.boredream.nodrinkout.view.Pull2RefreshListView
+            android:id="@+id/plv_home"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="@null"
+            android:dividerHeight="8dp" >
+        </com.boredream.nodrinkout.view.Pull2RefreshListView>
+    </RelativeLayout>
+
+</LinearLayout>

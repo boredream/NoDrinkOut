@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main_rg"
+    android:layout_width="fill_parent"
+    android:layout_height="56dp"
+    android:layout_gravity="bottom"
+    android:gravity="bottom"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:id="@+id/main_rb_home"
+        style="@style/RadioButtonTab"
+        android:checked="true"
+        android:gravity="center"
+        android:text="首页" />
+
+    <RadioButton
+        android:id="@+id/main_rb_catagory"
+        style="@style/RadioButtonTab"
+        android:gravity="center"
+        android:text="购买页面" />
+
+    <RadioButton
+        android:id="@+id/main_rb_user"
+        style="@style/RadioButtonTab"
+        android:gravity="center"
+        android:text="个人中心" />
+</RadioGroup>
+

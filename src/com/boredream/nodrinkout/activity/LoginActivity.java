@@ -6,11 +6,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
-import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.entity.UserBean;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 	private EditText et_username;
@@ -35,7 +35,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		btn_login = (Button) findViewById(R.id.login_btn_login);
 		btn_login.setOnClickListener(this);
 		
-		et_username.setText("boredream");
+		et_username.setText("loveghs");
 		et_psw.setText("58421314");
 	}
 
@@ -43,30 +43,30 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.login_btn_register:
-			showToast("测试，直接用默认账号密码登陆即可");
-//			BmobUser rUser = new BmobUser();
-//			rUser.setUsername(et_username.getText().toString());
-//			rUser.setPassword(et_psw.getText().toString());
-//			rUser.signUp(this, new SaveListener() {
-//				@Override
-//				public void onSuccess() {
-//					showToast("注册成功");
-//				}
-//				
-//				@Override
-//				public void onFailure(int arg0, String arg1) {
-//					showToast(arg1);
-//				}
-//			});
+			UserBean rUser = new UserBean();
+			rUser.setUsername(et_username.getText().toString());
+			rUser.setPassword(et_psw.getText().toString());
+			rUser.setAge(24);
+			rUser.signUp(this, new SaveListener() {
+				@Override
+				public void onSuccess() {
+					showToast("注册成功");
+				}
+				
+				@Override
+				public void onFailure(int arg0, String arg1) {
+					showToast(arg1);
+				}
+			});
 			break;
 		case R.id.login_btn_login:
-			BmobUser user = new BmobUser();
+			UserBean user = new UserBean();
 			user.setUsername(et_username.getText().toString());
 			user.setPassword(et_psw.getText().toString());
 			user.login(this, new SaveListener() {
 				@Override
 				public void onSuccess() {
-					Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+					Intent intent = new Intent(LoginActivity.this, MainTabActivity.class);
 					startActivity(intent);
 				}
 				
