@@ -8,10 +8,11 @@
     <include layout="@layout/include_titlebar" />
 
     <LinearLayout
+        android:id="@+id/ll_userinfo"
         android:layout_width="match_parent"
         android:layout_height="72dp"
         android:layout_marginTop="8dp"
-        android:background="@color/white"
+        android:background="@drawable/bg_white2gray_selector"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
@@ -52,9 +53,10 @@
         android:orientation="vertical" >
 
         <LinearLayout
+            android:id="@+id/ll_about_us"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/white"
+            android:background="@drawable/bg_white2gray_selector"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
@@ -77,9 +79,10 @@
         <include layout="@layout/include_divider" />
 
         <LinearLayout
+            android:id="@+id/ll_check_update"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:background="@color/white"
+            android:background="@drawable/bg_white2gray_selector"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
@@ -101,12 +104,9 @@
     </LinearLayout>
     
     <Button 
+        style="@style/ButtonPrimaryColor"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
-        android:textSize="@dimen/txtsize_subhead"
-        android:textColor="@color/txt_white"
         android:text="退出登录"
-        android:background="@color/coffee"
         android:layout_margin="16dp"
         />
 
