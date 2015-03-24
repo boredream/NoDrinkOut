@@ -44,7 +44,6 @@ public class BmobApi {
 		query.findObjects(context, listener);
 	}
 	
-	
 	/**
 	 * 查询咖啡店(根据全部条件过滤,不需要改条件时传null)
 	 * @param context
@@ -54,7 +53,6 @@ public class BmobApi {
 	 */
 	public static void queryShopsWhere(Context context,
 			String order, int page, FindListener<CoffeeShop> listener) {
-		
 		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
 		if(order != null) {
 			query.order(order);
@@ -150,11 +148,12 @@ public class BmobApi {
 	 * 查询图文状态(根据全部条件过滤,不需要改条件时传null)
 	 * @param context
 	 * @param shop
+	 * @param user
 	 * @param order
 	 * @param page 
 	 * @param listener
 	 */
-	public static void queryInfosWhere(Context context, CoffeeShop shop,
+	public static void queryInfosWhere(Context context, CoffeeShop shop, UserBean user,
 			String order, int page, FindListener<CoffeeInfo> listener) {
 		
 		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
@@ -163,6 +162,9 @@ public class BmobApi {
 		}
 		if(shop != null) {
 			query.addWhereEqualTo("shop", shop);
+		}
+		if(shop != null) {
+			query.addWhereEqualTo("user", user);
 		}
 		query.include("user,shop");
 		query.setLimit(CommonConstants.COUNT_PER_PAGE);

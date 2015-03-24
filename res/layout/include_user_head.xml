@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content" >
+
+    <FrameLayout
+        android:id="@+id/fl1"
+        android:layout_width="match_parent"
+        android:layout_height="240dp" >
+
+        <ImageView
+            android:id="@+id/iv_userinfo_head"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/bg_head"
+            android:scaleType="centerCrop" />
+
+        <!-- <View
+            android:layout_width="match_parent"
+            android:background="#f4795548"
+            android:layout_height="match_parent" /> -->
+    </FrameLayout>
+
+    <ImageView
+        android:id="@+id/iv_avatar"
+        android:layout_width="96dp"
+        android:layout_height="96dp"
+        android:layout_alignBottom="@+id/fl1"
+        android:layout_marginBottom="-48dp"
+        android:layout_marginLeft="16dp"
+        android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        style="@style/TextViewTitle"
+        android:layout_alignBottom="@+id/fl1"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@+id/iv_avatar"
+        android:text="吴彦祖" />
+
+    <TextView
+        android:id="@+id/tv_intro"
+        style="@style/TextViewBody"
+        android:layout_below="@+id/fl1"
+        android:layout_margin="8dp"
+        android:layout_toRightOf="@+id/iv_avatar"
+        android:text="没错,我就是油坊桥吴彦祖"
+        android:textColor="@color/txt_gray" />
+
+</RelativeLayout>

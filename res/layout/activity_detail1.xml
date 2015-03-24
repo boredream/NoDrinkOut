@@ -21,17 +21,17 @@
 
         <TextView
             android:id="@+id/detail_tv_view"
-            style="@style/RadioButtonTab"
+            style="@style/RadioButtonBottomTab"
             android:text="107" />
 
         <TextView
             android:id="@+id/detail_tv_love"
-            style="@style/RadioButtonTab"
+            style="@style/RadioButtonBottomTab"
             android:text="24" />
 
         <TextView
             android:id="@+id/detail_tv_comment"
-            style="@style/RadioButtonTab"
+            style="@style/RadioButtonBottomTab"
             android:text="44" />
     </LinearLayout>
 
