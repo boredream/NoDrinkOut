@@ -25,6 +25,19 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 	private TextView tv_intro;
 	private LinearLayout ll_about_us;
 	private LinearLayout ll_check_update;
+
+	private void initView() {
+		ll_userinfo = (LinearLayout) view.findViewById(R.id.ll_userinfo);
+		iv_avatar = (ImageView) view.findViewById(R.id.iv_avatar);
+		tv_name = (TextView) view.findViewById(R.id.tv_name);
+		tv_intro = (TextView) view.findViewById(R.id.tv_intro);
+		ll_about_us = (LinearLayout) view.findViewById(R.id.ll_about_us);
+		ll_check_update = (LinearLayout) view.findViewById(R.id.ll_check_update);
+
+		ll_userinfo.setOnClickListener(this);
+		ll_about_us.setOnClickListener(this);
+		ll_check_update.setOnClickListener(this);
+	}
 	
 	private UserBean user;
 
@@ -39,18 +52,6 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 		return view;
 	}
 
-	private void initView() {
-		ll_userinfo = (LinearLayout) view.findViewById(R.id.ll_userinfo);
-		iv_avatar = (ImageView) view.findViewById(R.id.iv_avatar);
-		tv_name = (TextView) view.findViewById(R.id.tv_name);
-		tv_intro = (TextView) view.findViewById(R.id.tv_intro);
-		ll_about_us = (LinearLayout) view.findViewById(R.id.ll_about_us);
-		ll_check_update = (LinearLayout) view.findViewById(R.id.ll_check_update);
-
-		ll_userinfo.setOnClickListener(this);
-		ll_about_us.setOnClickListener(this);
-		ll_check_update.setOnClickListener(this);
-	}
 	
 	private void setData() {
 		user = getCurrentUser();

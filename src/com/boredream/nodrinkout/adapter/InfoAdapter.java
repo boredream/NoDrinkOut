@@ -55,7 +55,7 @@ public class InfoAdapter extends BaseAdapter {
 		ViewHolder holder;
 		if(convertView == null) {
 			holder = new ViewHolder();
-			convertView = View.inflate(context, R.layout.item_card, null);
+			convertView = View.inflate(context, R.layout.item_info, null);
 			holder.iv_avatar = (ImageView) convertView.findViewById(R.id.iv_avatar);
 			holder.rl_content = (RelativeLayout) convertView.findViewById(R.id.rl_content);
 			holder.tv_subhead = (TextView) convertView.findViewById(R.id.tv_subhead);

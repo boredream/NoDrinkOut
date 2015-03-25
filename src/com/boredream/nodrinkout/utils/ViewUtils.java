@@ -9,7 +9,7 @@ import com.boredream.nodrinkout.R;
 
 public class ViewUtils {
 
-	public static void initTitle(final Activity activity, String title) {
+	public static View initTitle(final Activity activity, String title) {
 		activity.findViewById(R.id.titlebar_iv_left).setOnClickListener(
 				new OnClickListener() {
 			@Override
@@ -19,6 +19,7 @@ public class ViewUtils {
 		});
 		TextView title_tv = (TextView) activity.findViewById(R.id.titlebar_tv);
 		title_tv.setText(title);
+		return activity.findViewById(R.id.ll_titlebar);
 	}
 	
 }

@@ -38,5 +38,17 @@ public class ImageOptionsHelper {
 		}
 		return avatarOptions;
 	}
+	
+	
+	public static DisplayImageOptions getCornerOptions(int cornerRadiusPixels) {
+		DisplayImageOptions options = new DisplayImageOptions.Builder()
+				.cacheOnDisk(true).cacheInMemory(true)
+				.bitmapConfig(Bitmap.Config.RGB_565)
+				.showImageForEmptyUri(R.drawable.ic_launcher)
+				.showImageOnFail(R.drawable.ic_launcher)
+				.showImageOnLoading(R.drawable.ic_launcher)
+				.displayer(new RoundedBitmapDisplayer(cornerRadiusPixels)).build();
+		return options;
+	}
 
 }

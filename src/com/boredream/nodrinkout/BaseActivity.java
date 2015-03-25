@@ -44,6 +44,11 @@ public abstract class BaseActivity extends Activity {
 		imageLoader = ImageLoader.getInstance();
 	}
 	
+	// custom
+	protected UserBean getCurrentUser() {
+		return UserBean.getCurrentUser(this, UserBean.class);
+	}
+	
 	@Override
 	protected void onStart() {
 		super.onStart();

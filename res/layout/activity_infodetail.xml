@@ -1,28 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
-    <TextView
-        android:id="@+id/infodetail_tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ImageView
-        android:id="@+id/infodetail_iv"
-        android:layout_width="200dp"
-        android:layout_height="200dp" />
-
-    <TextView
-        android:id="@+id/infodetail_tv_content"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
-
-    <ListView
-        android:id="@+id/infodetail_lv"
+    <LinearLayout
+        android:id="@+id/ll_bottom_control"
         android:layout_width="match_parent"
-        android:layout_height="200dp" >
-    </ListView>
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal" >
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/tv_share"
+            style="@style/TextViewSubhead"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="转发" />
+
+        <TextView
+            android:id="@+id/tv_comment"
+            style="@style/TextViewSubhead"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="评论" />
+
+        <TextView
+            android:id="@+id/tv_like"
+            style="@style/TextViewSubhead"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="赞" />
+    </LinearLayout>
+
+    <com.boredream.nodrinkout.view.Pull2RefreshListView
+        android:id="@+id/plv_comment"
+        style="@style/ListViewCommon"
+        android:layout_above="@id/ll_bottom_control" >
+    </com.boredream.nodrinkout.view.Pull2RefreshListView>
+
+</RelativeLayout>
