@@ -16,6 +16,7 @@ import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
 import com.boredream.nodrinkout.adapter.InfoImagesAdapter;
+import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.utils.CommonConstants;
@@ -133,12 +134,10 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		plv_comment.getRefreshableView().addHeaderView(include_tv_subhead);
 	}
 
-
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.tv_share:
-			
 			break;
 		case R.id.tv_comment:
 			

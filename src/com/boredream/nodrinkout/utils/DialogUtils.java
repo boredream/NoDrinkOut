@@ -11,4 +11,11 @@ public class DialogUtils {
 		return progressDialog;
 	}
 	
+	public static Dialog createCommentDialog(Context context) {
+		Dialog dialog = new Dialog(context);
+
+		
+		
+		return dialog;
+	}
 }

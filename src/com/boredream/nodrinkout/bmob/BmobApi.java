@@ -271,22 +271,6 @@ public class BmobApi {
 			
 		});
 	}
-	
-	/**
-	 * µ„‘ﬁ∆¿¬€
-	 * 
-	 * @param context
-	 * @param info
-	 * @param listener
-	 */
-	public static void insertCommentOfInfo(Context context, CoffeeInfo info, String comment,
-			SaveSimpleListener listener) {
-		InfoComment infoComment = new InfoComment();
-		infoComment.setContent(comment);
-		infoComment.setUser((UserBean) UserBean.getCurrentUser(context));
-		infoComment.setInfo(info);
-		infoComment.save(context, listener);
-	}
 		
 	public static void likeComment(final Context context, final InfoComment comment,
 			final UpdateSimpleListener listener) {
