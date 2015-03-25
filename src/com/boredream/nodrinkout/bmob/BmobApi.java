@@ -1,7 +1,13 @@
 package com.boredream.nodrinkout.bmob;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import org.json.JSONArray;
+
 import android.content.Context;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.listener.FindCallback;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -198,6 +204,28 @@ public class BmobApi {
 			}
 			
 		});
+	}
+	
+	public static void isLikeInfo(Context context, CoffeeInfo info,
+			FindListener<InterActive> listener) {
+		BmobQuery<InterActive> query = new BmobQuery<InterActive>();
+		
+		BmobQuery<InterActive> query1 = new BmobQuery<InterActive>();
+		query1.addWhereEqualTo("user", UserBean.getCurrentUser(context, UserBean.class));
+		
+		BmobQuery<InterActive> query2 = new BmobQuery<InterActive>();
+		query2.addWhereEqualTo("type", "1");
+		
+		BmobQuery<InterActive> query3 = new BmobQuery<InterActive>();
+		query3.addWhereEqualTo("tarId", info.getObjectId());
+		
+		List<BmobQuery<InterActive>> queries = new ArrayList<BmobQuery<InterActive>>();
+		queries.add(query1);
+		queries.add(query2);
+		queries.add(query3);
+		query.and(queries);
+		
+		query.findObjects(context, listener);
 	}
 	
 	/**

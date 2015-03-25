@@ -172,6 +172,19 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 					}
 		});
 	}
+
+	private void sendLike() {
+		progressDialog.show();
+		BmobApi.likeInfo(this, info, 
+				new UpdateSimpleListener(this, progressDialog){
+			@Override
+			public void onSuccess() {
+				super.onSuccess();
+				
+				
+			}
+		});
+	}
 	
 	private void loadComments() {
 		progressDialog.show();
@@ -201,7 +214,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 			sendComment();
 			break;
 		case R.id.tv_like:
-			
+			sendLike();
 			break;
 
 		default:
