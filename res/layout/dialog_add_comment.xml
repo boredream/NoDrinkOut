@@ -1,23 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="56dp"
-    android:gravity="center_vertical"
-    android:orientation="horizontal"
-    android:background="@color/bg_light_gray"
-    android:padding="4dp" >
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
 
-    <EditText
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:background="@color/transparent"
-        android:hint="添加评论"
-        android:padding="8dp"
-        android:singleLine="true" />
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#888"
+        />
 
-    <Button
-        style="@style/ButtonPrimaryColor"
-        android:layout_marginLeft="4dp" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@color/bg_light_gray"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="4dp" >
+
+        <EditText
+            android:id="@+id/et_comment"
+            style="@style/TextViewSubhead"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@drawable/shape_gray_white_correct"
+            android:hint="添加评论"
+            android:padding="8dp"
+            android:singleLine="true" />
+
+        <Button
+            android:id="@+id/btn_send"
+            style="@style/ButtonPrimaryColor"
+            android:layout_marginLeft="4dp"
+            android:text="发送" />
+    </LinearLayout>
 
 </LinearLayout>

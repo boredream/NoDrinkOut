@@ -3,10 +3,13 @@ package com.boredream.nodrinkout.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -17,9 +20,12 @@ import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
 import com.boredream.nodrinkout.adapter.InfoImagesAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
+import com.boredream.nodrinkout.bmob.FindSimpleListener;
+import com.boredream.nodrinkout.bmob.UpdateSimpleListener;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.utils.CommonConstants;
+import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.ImageOptionsHelper;
 import com.boredream.nodrinkout.view.DrawableTextView;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
@@ -48,10 +54,13 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 	private TextView bottom_tv_comment;
 	private TextView bottom_tv_like;
 	
+	private Dialog addCommentDialog;
+	private EditText et_comment;
+	private Button btn_send;
+	
 	private List<InfoComment> comments;
 	private InfoCommentAdapter adapter;
 	private CoffeeInfo info;
-
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +73,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		info = (CoffeeInfo) intent.getSerializableExtra("info");
 		
 		setData();
+		
+		loadComments();
 	}
 
 
@@ -92,6 +103,11 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		bottom_tv_share.setOnClickListener(this);
 		bottom_tv_comment.setOnClickListener(this);
 		bottom_tv_like.setOnClickListener(this);
+		
+		addCommentDialog = DialogUtils.createCommentDialog(this);
+		et_comment = (EditText) addCommentDialog.findViewById(R.id.et_comment);
+		btn_send = (Button) addCommentDialog.findViewById(R.id.btn_send);
+		btn_send.setOnClickListener(this);
 	}
 	
 	private void setData() {
@@ -133,6 +149,45 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		plv_comment.getRefreshableView().addHeaderView(include_card_content);
 		plv_comment.getRefreshableView().addHeaderView(include_tv_subhead);
 	}
+	
+	private void sendComment() {
+		String comment = et_comment.getText().toString().trim();
+		if(TextUtils.isEmpty(comment)) {
+			showToast("评论不能为空");
+			return;
+		}
+		
+		progressDialog.show();
+		BmobApi.insertComment(this, info, comment, 
+				new UpdateSimpleListener(this, progressDialog){
+
+					@Override
+					public void onSuccess() {
+						super.onSuccess();
+						
+						et_comment.setText("");
+						addCommentDialog.dismiss();
+						
+						loadComments();
+					}
+		});
+	}
+	
+	private void loadComments() {
+		progressDialog.show();
+		BmobApi.queryComments(this, info, 
+				new FindSimpleListener<InfoComment>(this, progressDialog){
+
+					@Override
+					public void onSuccess(List<InfoComment> arg0) {
+						super.onSuccess(arg0);
+						
+						comments.clear();
+						comments.addAll(arg0);
+						adapter.notifyDataSetChanged();
+					}
+		});
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -140,7 +195,10 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		case R.id.tv_share:
 			break;
 		case R.id.tv_comment:
-			
+			addCommentDialog.show();
+			break;
+		case R.id.btn_send:
+			sendComment();
 			break;
 		case R.id.tv_like:
 			

@@ -3,6 +3,7 @@ package com.boredream.nodrinkout.bmob;
 import android.content.Context;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
@@ -37,7 +38,8 @@ public class BmobApi {
 	 * @param nameLike 模糊查询的咖啡店名
 	 * @param listener
 	 */
-	public static void queryShopsNameLike(Context context, String nameLike, FindListener<CoffeeShop> listener) {
+	public static void queryShopsNameLike(Context context, String nameLike, 
+			FindListener<CoffeeShop> listener) {
 		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
 		query.include("user");
 		query.addWhereContains("name", nameLike);
@@ -65,65 +67,12 @@ public class BmobApi {
 	
 	////////////////////////////// 图文状态 //////////////////////////////
 
-//	/**
-//	 * 查询全部图文状态
-//	 * @param context
-//	 * @param listener
-//	 */
-//	public static void queryAllInfos(Context context, FindListener<CoffeeInfo> listener) {
-//		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
-//		query.include("user,shop");
-//		query.findObjects(context, listener);
-//	}
-//	
-//	/**
-//	 * 查询全部图文状态(根据指定条件排序)
-//	 * @param context
-//	 * @param order 排序条件,前缀加-时为倒序
-//	 * @param listener
-//	 */
-//	public static void queryInfosEqualAndOrderBy(Context context, String order, 
-//			String equalKey, String equalValue, FindListener<CoffeeInfo> listener) {
-//		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
-//		query.include("user,shop");
-//		query.order(order);
-//		query.addWhereEqualTo(equalKey, equalValue);
-//		query.findObjects(context, listener);
-//	}
-//	
-//	/**
-//	 * 查询某个咖啡店所属全部图文状态
-//	 * @param context
-//	 * @param listener
-//	 */
-//	public static void queryShopInfos(Context context, CoffeeShop shop, 
-//			FindListener<CoffeeInfo> listener) {
-//		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
-//		query.include("user,shop");
-//		query.addWhereEqualTo("shop", shop);
-//		query.findObjects(context, listener);
-//	}
-//	
-//	/**
-//	 * 查询某个咖啡店所属全部图文状态(根据指定条件排序)
-//	 * @param context
-//	 * @param order 排序条件,前缀加-时为倒序
-//	 * @param listener
-//	 */
-//	public static void queryShopInfosEqualAndOrderBy(Context context, String order, 
-//			FindListener<CoffeeInfo> listener) {
-//		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
-//		query.include("user,shop");
-//		query.order(order);
-//		query.findObjects(context, listener);
-//	}
-	
 	/**
 	 * 发表某个咖啡店所属全部图文状态
 	 * @param context
 	 */
 	public static void insertInfo(final Context context, final CoffeeInfo info,
-			final UpdateSimpleListener updateListener) {
+			final UpdateListener updateListener) {
 		info.save(context, new SaveSimpleListener(context, null){
 
 			@Override
@@ -146,6 +95,9 @@ public class BmobApi {
 	
 	/**
 	 * 查询图文状态(根据全部条件过滤,不需要改条件时传null)
+	 * 
+	 * <br>
+	 * 注意: shop和user最多只有一者非空
 	 * @param context
 	 * @param shop
 	 * @param user
@@ -182,7 +134,7 @@ public class BmobApi {
 	 * @param listener
 	 */
 	public static void insertComment(final Context context, final CoffeeInfo info, String comment,
-			final UpdateSimpleListener listener) {
+			final UpdateListener listener) {
 		final InfoComment infoComment = new InfoComment();
 		infoComment.setContent(comment);
 		infoComment.setInfo(info);
@@ -206,6 +158,14 @@ public class BmobApi {
 		});
 	}
 	
+	public static void queryComments(Context context, CoffeeInfo info,
+			FindListener<InfoComment> listener) {
+		BmobQuery<InfoComment> query = new BmobQuery<InfoComment>();
+		query.include("user,info");
+		query.addWhereEqualTo("info", info);
+		query.findObjects(context, listener);
+	}
+	
 	//////////////////////////////互动 //////////////////////////////
 	
 	/**
@@ -216,7 +176,7 @@ public class BmobApi {
 	 * @param listener
 	 */
 	public static void likeInfo(final Context context, final CoffeeInfo info,
-			final UpdateSimpleListener listener) {
+			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
 		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
 		interActive.setType(1);
@@ -248,7 +208,7 @@ public class BmobApi {
 	 * @param listener
 	 */
 	public static void followShop(final Context context, final CoffeeShop shop,
-			final UpdateSimpleListener listener) {
+			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
 		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
 		interActive.setType(2);
@@ -273,7 +233,7 @@ public class BmobApi {
 	}
 		
 	public static void likeComment(final Context context, final InfoComment comment,
-			final UpdateSimpleListener listener) {
+			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
 		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
 		interActive.setType(3);

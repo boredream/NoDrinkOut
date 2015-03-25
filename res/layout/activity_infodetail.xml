@@ -36,6 +36,7 @@
     <com.boredream.nodrinkout.view.Pull2RefreshListView
         android:id="@+id/plv_comment"
         style="@style/ListViewCommon"
+        android:divider="@color/divider_black"
         android:layout_above="@id/ll_bottom_control" >
     </com.boredream.nodrinkout.view.Pull2RefreshListView>
 
