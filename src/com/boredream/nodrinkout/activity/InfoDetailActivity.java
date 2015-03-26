@@ -15,7 +15,6 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
@@ -30,6 +29,7 @@ import com.boredream.nodrinkout.listener.UpdateSimpleListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
+import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 
@@ -90,6 +90,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 
 
 	private void initView() {
+		ViewUtils.initTitleBack(this, "øß—∂œÍ«È", simpleOnClickListener);
+		
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
 		include_card_content = View.inflate(this, R.layout.include_card_content, null);
 		include_card_content.setBackgroundResource(R.color.transparent);

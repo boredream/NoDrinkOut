@@ -44,7 +44,7 @@ public class UserActivity extends BaseActivity {
 	}
 
 	private void initView() {
-		View titlebar = ViewUtils.initTitle(this, "个人信息");
+		View titlebar = ViewUtils.initTitleBack(this, "个人信息", simpleOnClickListener);
 		titlebar.setBackgroundColor(getResources().getColor(R.color.transparent));
 		
 		headView = View.inflate(this, R.layout.include_user_head, null);

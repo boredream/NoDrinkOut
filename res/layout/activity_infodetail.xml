@@ -2,6 +2,10 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
+    
+    <include 
+        android:id="@+id/include_titlebar"
+        layout="@layout/include_titlebar"/>
 
     <LinearLayout
         android:id="@+id/ll_bottom_control"
@@ -96,6 +100,7 @@
 
     <com.boredream.nodrinkout.view.Pull2RefreshListView
         android:id="@+id/plv_comment"
+        android:layout_below="@id/include_titlebar"
         style="@style/ListViewCommon"
         android:layout_above="@id/ll_bottom_control"
         android:divider="@color/divider_black" >

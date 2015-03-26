@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.listener.SimpleOnClickListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.Logger;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -24,6 +25,7 @@ public abstract class BaseActivity extends Activity {
 	// custom data
 	protected UserBean user;
 	protected ImageLoader imageLoader;
+	protected SimpleOnClickListener simpleOnClickListener;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +44,7 @@ public abstract class BaseActivity extends Activity {
 		// custom data
 		user = UserBean.getCurrentUser(this, UserBean.class);
 		imageLoader = ImageLoader.getInstance();
+		simpleOnClickListener = new SimpleOnClickListener(this);
 	}
 	
 	// custom

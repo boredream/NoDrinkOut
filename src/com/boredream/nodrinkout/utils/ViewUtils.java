@@ -10,16 +10,18 @@ import com.boredream.nodrinkout.R;
 public class ViewUtils {
 
 	public static View initTitle(final Activity activity, String title) {
-		activity.findViewById(R.id.titlebar_iv_left).setOnClickListener(
-				new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				activity.finish();
-			}
-		});
 		TextView title_tv = (TextView) activity.findViewById(R.id.titlebar_tv);
 		title_tv.setText(title);
-		return activity.findViewById(R.id.ll_titlebar);
+		return activity.findViewById(R.id.rl_titlebar);
+	}
+	
+	public static View initTitleBack(final Activity activity, String title, OnClickListener onClickListener) {
+		View leftView = activity.findViewById(R.id.titlebar_iv_left);
+		leftView.setVisibility(View.VISIBLE);
+		leftView.setOnClickListener(onClickListener);
+		TextView title_tv = (TextView) activity.findViewById(R.id.titlebar_tv);
+		title_tv.setText(title);
+		return activity.findViewById(R.id.rl_titlebar);
 	}
 	
 }
