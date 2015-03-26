@@ -11,15 +11,16 @@
         android:id="@+id/ll_userinfo"
         android:layout_width="match_parent"
         android:layout_height="72dp"
-        android:clickable="true"
         android:layout_marginTop="8dp"
         android:background="@drawable/bg_white2gray_selector"
+        android:clickable="true"
         android:gravity="center_vertical"
         android:orientation="horizontal" >
 
         <ImageView
             android:id="@+id/iv_avatar"
-            style="@style/ImageViewImage40"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_gravity="center_vertical"
             android:layout_marginLeft="16dp"
             android:scaleType="centerCrop"
@@ -45,7 +46,9 @@
         </RelativeLayout>
 
         <ImageView
-            style="@style/ImageViewIcon24"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="16dp"
             android:src="@drawable/ic_arrow_right_grey" />
     </LinearLayout>
 
@@ -58,26 +61,30 @@
 
         <LinearLayout
             android:id="@+id/ll_about_us"
-            android:clickable="true"
             android:layout_width="match_parent"
             android:layout_height="48dp"
             android:background="@drawable/bg_white2gray_selector"
+            android:clickable="true"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <ImageView
-                style="@style/ImageViewIcon24"
-                android:layout_marginLeft="4dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:src="@drawable/ic_launcher" />
 
             <TextView
                 style="@style/TextViewSubhead"
-                android:layout_marginLeft="20dp"
+                android:layout_marginLeft="16dp"
                 android:layout_weight="1"
                 android:text="关于我们" />
 
             <ImageView
-                style="@style/ImageViewIcon24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="16dp"
                 android:src="@drawable/ic_arrow_right_grey" />
         </LinearLayout>
 
@@ -87,14 +94,16 @@
             android:id="@+id/ll_check_update"
             android:layout_width="match_parent"
             android:layout_height="48dp"
-            android:clickable="true"
             android:background="@drawable/bg_white2gray_selector"
+            android:clickable="true"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
             <ImageView
-                style="@style/ImageViewIcon24"
-                android:layout_marginLeft="4dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
                 android:src="@drawable/ic_launcher" />
 
             <TextView
@@ -104,16 +113,17 @@
                 android:text="检查更新" />
 
             <ImageView
-                style="@style/ImageViewIcon24"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginRight="16dp"
                 android:src="@drawable/ic_arrow_right_grey" />
         </LinearLayout>
     </LinearLayout>
-    
-    <Button 
+
+    <Button
         style="@style/ButtonPrimaryColor"
         android:layout_width="match_parent"
-        android:text="退出登录"
         android:layout_margin="16dp"
-        />
+        android:text="退出登录" />
 
 </LinearLayout>

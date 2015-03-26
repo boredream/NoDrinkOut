@@ -13,7 +13,7 @@ import android.widget.TextView;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.activity.UserActivity;
 import com.boredream.nodrinkout.entity.UserBean;
-import com.boredream.nodrinkout.utils.ImageOptionsHelper;
+import com.boredream.nodrinkout.utils.ImageOptHelper;
 
 public class UserFragment extends BaseFragment implements OnClickListener {
 
@@ -56,7 +56,7 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 	private void setData() {
 		user = getCurrentUser();
 		imageLoader.displayImage(user.getAvatarUrl(), iv_avatar, 
-				ImageOptionsHelper.getAvatarOptions());
+				ImageOptHelper.getAvatarOptions());
 		tv_name.setText(user.getUsername());
 		tv_intro.setText(user.getDetail());
 	}

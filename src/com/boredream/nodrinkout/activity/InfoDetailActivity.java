@@ -12,22 +12,24 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
 import com.boredream.nodrinkout.adapter.InfoImagesAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
-import com.boredream.nodrinkout.bmob.FindSimpleListener;
-import com.boredream.nodrinkout.bmob.UpdateSimpleListener;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.InfoComment;
+import com.boredream.nodrinkout.entity.InterActive;
+import com.boredream.nodrinkout.listener.FindSimpleListener;
+import com.boredream.nodrinkout.listener.UpdateSimpleListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
-import com.boredream.nodrinkout.utils.ImageOptionsHelper;
-import com.boredream.nodrinkout.view.DrawableTextView;
+import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 
@@ -45,14 +47,20 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 	private TextView tv_content;
 	private ImageView iv_location;
 	private TextView tv_location;
-	private DrawableTextView tv_comment;
-	private DrawableTextView tv_like;
+	private TextView tv_comment;
+	private TextView tv_like;
 	
 	private Pull2RefreshListView plv_comment;
 	
-	private TextView bottom_tv_share;
-	private TextView bottom_tv_comment;
-	private TextView bottom_tv_like;
+	private LinearLayout ll_share_bottom;
+	private ImageView iv_share_bottom;
+	private TextView tv_share_bottom;
+	private LinearLayout ll_comment_bottom;
+	private ImageView iv_comment_bottom;
+	private TextView tv_comment_bottom;
+	private LinearLayout ll_like_bottom;
+	private ImageView iv_like_bottom;
+	private TextView tv_like_bottom;
 	
 	private Dialog addCommentDialog;
 	private EditText et_comment;
@@ -61,6 +69,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 	private List<InfoComment> comments;
 	private InfoCommentAdapter adapter;
 	private CoffeeInfo info;
+	
+	private boolean hasLiked;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +85,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		setData();
 		
 		loadComments();
+		loadLikeState();
 	}
 
 
@@ -92,17 +103,23 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		tv_content = (TextView) include_card_content.findViewById(R.id.tv_content);
 		iv_location = (ImageView) include_card_content.findViewById(R.id.iv_location);
 		tv_location = (TextView) include_card_content.findViewById(R.id.tv_location);
-		tv_comment = (DrawableTextView) include_card_content.findViewById(R.id.tv_comment);
-		tv_like = (DrawableTextView) include_card_content.findViewById(R.id.tv_like);
+		tv_comment = (TextView) include_card_content.findViewById(R.id.tv_comment);
+		tv_like = (TextView) include_card_content.findViewById(R.id.tv_like);
 		
 		plv_comment = (Pull2RefreshListView) findViewById(R.id.plv_comment);
 		
-		bottom_tv_share = (TextView) findViewById(R.id.tv_share);
-		bottom_tv_comment = (TextView) findViewById(R.id.tv_comment);
-		bottom_tv_like = (TextView) findViewById(R.id.tv_like);
-		bottom_tv_share.setOnClickListener(this);
-		bottom_tv_comment.setOnClickListener(this);
-		bottom_tv_like.setOnClickListener(this);
+		ll_share_bottom = (LinearLayout) findViewById(R.id.ll_share_bottom);
+		iv_share_bottom = (ImageView) findViewById(R.id.iv_share_bottom);
+		tv_share_bottom = (TextView) findViewById(R.id.tv_share_bottom);
+		ll_comment_bottom = (LinearLayout) findViewById(R.id.ll_comment_bottom);
+		iv_comment_bottom = (ImageView) findViewById(R.id.iv_comment_bottom);
+		tv_comment_bottom = (TextView) findViewById(R.id.tv_comment_bottom);
+		ll_like_bottom = (LinearLayout) findViewById(R.id.ll_like_bottom);
+		iv_like_bottom = (ImageView) findViewById(R.id.iv_like_bottom);
+		tv_like_bottom = (TextView) findViewById(R.id.tv_like_bottom);
+		ll_share_bottom.setOnClickListener(this);
+		ll_comment_bottom.setOnClickListener(this);
+		ll_like_bottom.setOnClickListener(this);
 		
 		addCommentDialog = DialogUtils.createCommentDialog(this);
 		et_comment = (EditText) addCommentDialog.findViewById(R.id.et_comment);
@@ -112,7 +129,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 	
 	private void setData() {
 		imageLoader.displayImage(info.getImgUrls(), iv_avatar,
-				ImageOptionsHelper.getAvatarOptions());
+				ImageOptHelper.getAvatarOptions());
 		tv_subhead.setText(user.getUsername());
 		tv_body.setText(user.isMale()?"男":"女");
 		
@@ -172,8 +189,23 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 					}
 		});
 	}
+	
+	private void setLikeState() {
+		if(hasLiked) {
+			iv_like_bottom.setColorFilter(getResources().getColor(R.color.red));
+			tv_like_bottom.setText("已赞");
+		} else {
+			iv_like_bottom.clearColorFilter();
+			tv_like_bottom.setText("点赞");
+		}
+	}
 
 	private void sendLike() {
+		if(hasLiked) {
+			showToast("已经赞过了");
+			return;
+		}
+		
 		progressDialog.show();
 		BmobApi.likeInfo(this, info, 
 				new UpdateSimpleListener(this, progressDialog){
@@ -181,7 +213,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 			public void onSuccess() {
 				super.onSuccess();
 				
-				
+				hasLiked = true;
+				setLikeState();
 			}
 		});
 	}
@@ -201,20 +234,34 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 					}
 		});
 	}
+	
+	private void loadLikeState() {
+		BmobApi.isLikeInfo(this, info, 
+				new FindSimpleListener<InterActive>(this, progressDialog){
+
+					@Override
+					public void onSuccess(List<InterActive> arg0) {
+						super.onSuccess(arg0);
+						
+						hasLiked = arg0.size() > 0;
+						setLikeState();
+					}
+		});
+	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.tv_share:
+		case R.id.ll_share_bottom:
 			break;
-		case R.id.tv_comment:
+		case R.id.ll_comment_bottom:
 			addCommentDialog.show();
+			break;
+		case R.id.ll_like_bottom:
+			sendLike();
 			break;
 		case R.id.btn_send:
 			sendComment();
-			break;
-		case R.id.tv_like:
-			sendLike();
 			break;
 
 		default:

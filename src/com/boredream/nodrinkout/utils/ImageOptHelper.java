@@ -6,7 +6,7 @@ import com.boredream.nodrinkout.R;
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.display.RoundedBitmapDisplayer;
 
-public class ImageOptionsHelper {
+public class ImageOptHelper {
 	
 	private static DisplayImageOptions imgOptions;
 	private static DisplayImageOptions avatarOptions;

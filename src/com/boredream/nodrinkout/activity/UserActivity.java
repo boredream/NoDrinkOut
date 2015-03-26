@@ -12,10 +12,10 @@ import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
-import com.boredream.nodrinkout.bmob.FindSimpleListener;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.UserBean;
-import com.boredream.nodrinkout.utils.ImageOptionsHelper;
+import com.boredream.nodrinkout.listener.FindSimpleListener;
+import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.utils.ViewUtils;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
@@ -60,7 +60,7 @@ public class UserActivity extends BaseActivity {
 	private void setData() {
 		user = getCurrentUser();
 		imageLoader.displayImage(user.getAvatarUrl(), iv_avatar, 
-				ImageOptionsHelper.getAvatarOptions());
+				ImageOptHelper.getAvatarOptions());
 //		imageLoader.displayImage(user.getAvatarUrl(), iv_userinfo_head);
 		tv_name.setText(user.getUsername());
 		tv_intro.setText(user.getDetail());

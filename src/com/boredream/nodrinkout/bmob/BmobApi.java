@@ -3,11 +3,8 @@ package com.boredream.nodrinkout.bmob;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.json.JSONArray;
-
 import android.content.Context;
 import cn.bmob.v3.BmobQuery;
-import cn.bmob.v3.listener.FindCallback;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -16,6 +13,7 @@ import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.listener.SaveSimpleListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 
 public class BmobApi {
@@ -214,7 +212,7 @@ public class BmobApi {
 		query1.addWhereEqualTo("user", UserBean.getCurrentUser(context, UserBean.class));
 		
 		BmobQuery<InterActive> query2 = new BmobQuery<InterActive>();
-		query2.addWhereEqualTo("type", "1");
+		query2.addWhereEqualTo("type", 1);
 		
 		BmobQuery<InterActive> query3 = new BmobQuery<InterActive>();
 		query3.addWhereEqualTo("tarId", info.getObjectId());

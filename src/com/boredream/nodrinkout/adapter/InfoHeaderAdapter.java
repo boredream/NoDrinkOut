@@ -16,8 +16,7 @@ import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.utils.CommonConstants;
-import com.boredream.nodrinkout.utils.ImageOptionsHelper;
-import com.boredream.nodrinkout.view.DrawableTextView;
+import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -66,8 +65,8 @@ public class InfoHeaderAdapter extends BaseAdapter {
 			holder.tv_content = (TextView) convertView.findViewById(R.id.tv_content);
 			holder.iv_location = (ImageView) convertView.findViewById(R.id.iv_location);
 			holder.tv_location = (TextView) convertView.findViewById(R.id.tv_location);
-			holder.tv_comment = (DrawableTextView) convertView.findViewById(R.id.tv_comment);
-			holder.tv_like = (DrawableTextView) convertView.findViewById(R.id.tv_like);
+			holder.tv_comment = (TextView) convertView.findViewById(R.id.tv_comment);
+			holder.tv_like = (TextView) convertView.findViewById(R.id.tv_like);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -76,7 +75,7 @@ public class InfoHeaderAdapter extends BaseAdapter {
 		// set data
 		CoffeeInfo item = getItem(position);
 		imageLoader.displayImage(item.getImgUrls(), holder.iv_avatar,
-				ImageOptionsHelper.getAvatarOptions());
+				ImageOptHelper.getAvatarOptions());
 		holder.tv_subhead.setText(user.getUsername());
 		holder.tv_body.setText(user.isMale()?"ÄÐ":"Å®");
 		
@@ -120,8 +119,8 @@ public class InfoHeaderAdapter extends BaseAdapter {
 		public TextView tv_content;
 		public ImageView iv_location;
 		public TextView tv_location;
-		public DrawableTextView tv_comment;
-		public DrawableTextView tv_like;
+		public TextView tv_comment;
+		public TextView tv_like;
 	}
 
 }

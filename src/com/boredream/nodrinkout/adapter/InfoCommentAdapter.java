@@ -12,8 +12,7 @@ import android.widget.TextView;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.UserBean;
-import com.boredream.nodrinkout.utils.ImageOptionsHelper;
-import com.boredream.nodrinkout.view.DrawableTextView;
+import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class InfoCommentAdapter extends BaseAdapter {
@@ -55,7 +54,7 @@ public class InfoCommentAdapter extends BaseAdapter {
 					.findViewById(R.id.tv_subhead);
 			holder.tv_body = (TextView) convertView
 					.findViewById(R.id.tv_body);
-			holder.tv_like = (DrawableTextView) convertView
+			holder.tv_like = (TextView) convertView
 					.findViewById(R.id.tv_like);
 			holder.tv_comment = (TextView) convertView
 					.findViewById(R.id.tv_comment);
@@ -69,7 +68,7 @@ public class InfoCommentAdapter extends BaseAdapter {
 		UserBean user = bean.getUser();
 		
 		imageLoader.displayImage(user.getAvatarUrl(), holder.iv_avatar, 
-				ImageOptionsHelper.getAvatarOptions());
+				ImageOptHelper.getAvatarOptions());
 		holder.tv_subhead.setText(user.getUsername());
 		holder.tv_body.setText(bean.getCreatedAt());
 		holder.tv_like.setText(bean.getLikeCount()+"");
@@ -81,7 +80,7 @@ public class InfoCommentAdapter extends BaseAdapter {
 		public ImageView iv_avatar;
 		public TextView tv_subhead;
 		public TextView tv_body;
-		public DrawableTextView tv_like;
+		public TextView tv_like;
 		public TextView tv_comment;
 	}
 
