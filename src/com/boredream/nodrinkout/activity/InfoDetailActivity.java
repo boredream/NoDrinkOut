@@ -93,7 +93,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		ViewUtils.initTitleBack(this, "øß—∂œÍ«È", simpleOnClickListener);
 		
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
-		include_card_content = View.inflate(this, R.layout.include_card_content, null);
+		include_card_content = View.inflate(this, R.layout.include_item_info_content, null);
 		include_card_content.setBackgroundResource(R.color.transparent);
 		iv_avatar = (ImageView) include_card_content.findViewById(R.id.iv_avatar);
 		rl_content = (RelativeLayout) include_card_content.findViewById(R.id.rl_content);

@@ -6,6 +6,6 @@
     android:paddingLeft="8dp"
     android:paddingRight="8dp" >
 
-    <include layout="@layout/include_card_content"/>
+    <include layout="@layout/include_item_info_content"/>
 
 </FrameLayout>
