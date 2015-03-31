@@ -31,7 +31,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	private void initView() {
 		et_username = (EditText) findViewById(R.id.et_zhanghao);
 		et_psw = (EditText) findViewById(R.id.et_psw);
-		tx_register = (Button) findViewById(R.id.tx_register);
+		tx_register =  (TextView) findViewById(R.id.tx_register);
 		tx_register.setOnClickListener(this);
 		tx_login = (TextView) findViewById(R.id.sign_in);
 		tx_login.setOnClickListener(this);
