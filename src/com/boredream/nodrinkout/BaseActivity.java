@@ -1,6 +1,7 @@
 package com.boredream.nodrinkout;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.SimpleOnClickListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
+import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.Logger;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -21,7 +23,7 @@ public abstract class BaseActivity extends Activity {
 	protected SharedPreferences sp;
 	protected Intent intent;
 	protected ProgressDialog progressDialog;
-	
+	protected Dialog loadDialog;
 	// custom data
 	protected UserBean user;
 	protected ImageLoader imageLoader;
@@ -38,7 +40,7 @@ public abstract class BaseActivity extends Activity {
 		sp = getSharedPreferences(CommonConstants.SP_NAME, MODE_PRIVATE);
 		intent = getIntent();
 		progressDialog = new ProgressDialog(this);
-		
+		loadDialog = DialogUtils.createLoadingDialog(this);
 		application.addActivity(this);
 		
 		// custom data
