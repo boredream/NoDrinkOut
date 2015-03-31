@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/infodetail_rg"
+    android:layout_width="fill_parent"
+    android:layout_height="48dp"
+    android:orientation="horizontal" >
+
+    <RadioButton
+        android:id="@+id/rb_userinfo"
+        style="@style/RadioButtonDetailTab"
+        android:checked="true"
+        android:gravity="center"
+        android:text="个人信息" />
+
+    <RadioButton
+        android:id="@+id/rb_infos"
+        style="@style/RadioButtonDetailTab"
+        android:gravity="center"
+        android:text="咖讯" />
+
+    <RadioButton
+        android:id="@+id/rb_track"
+        style="@style/RadioButtonDetailTab"
+        android:gravity="center"
+        android:text="足迹" />
+
+</RadioGroup>

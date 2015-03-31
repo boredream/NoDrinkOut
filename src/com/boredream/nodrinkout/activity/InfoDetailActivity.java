@@ -13,8 +13,10 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
@@ -33,9 +35,10 @@ import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 
-public class InfoDetailActivity extends BaseActivity implements OnClickListener {
+public class InfoDetailActivity extends BaseActivity implements OnClickListener, OnCheckedChangeListener {
 	
 	private TextView include_tv_subhead;
+	private RadioGroup include_tab_infodetail;
 	private View include_card_content;
 	private ImageView iv_avatar;
 	private RelativeLayout rl_content;
@@ -93,6 +96,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		ViewUtils.initTitleBack(this, "øß—∂œÍ«È", simpleOnClickListener);
 		
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
+		include_tab_infodetail = (RadioGroup) View.inflate(this, R.layout.include_tab_infodetail, null);
 		include_card_content = View.inflate(this, R.layout.include_item_info_content, null);
 		include_card_content.setBackgroundResource(R.color.transparent);
 		iv_avatar = (ImageView) include_card_content.findViewById(R.id.iv_avatar);
@@ -107,6 +111,7 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 		tv_location = (TextView) include_card_content.findViewById(R.id.tv_location);
 		tv_comment = (TextView) include_card_content.findViewById(R.id.tv_comment);
 		tv_like = (TextView) include_card_content.findViewById(R.id.tv_like);
+		include_tab_infodetail.setOnCheckedChangeListener(this);
 		
 		plv_comment = (Pull2RefreshListView) findViewById(R.id.plv_comment);
 		
@@ -267,6 +272,22 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener 
 			break;
 
 		default:
+			break;
+		}
+	}
+
+
+	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		switch (checkedId) {
+		case R.id.rb_userinfo:
+			
+			break;
+		case R.id.rb_infos:
+			
+			break;
+		case R.id.rb_track:
+			
 			break;
 		}
 	}

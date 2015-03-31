@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 
 import com.boredream.nodrinkout.BaseActivity;
@@ -67,12 +69,12 @@ public class ShopDetailActivity extends BaseActivity implements OnClickListener 
 
 
 	private void initView() {
-		View view = ViewUtils.initTitleBack(this, "øßµÍœÍ«È", simpleOnClickListener);
-		view.setBackgroundResource(R.color.transparent);
+		ViewUtils.initTitleBack(this, "øßµÍœÍ«È", simpleOnClickListener);
 		
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
 		include_item_shop_content = View.inflate(this, R.layout.include_item_shop_content, null);
-		include_item_shop_content.setBackgroundResource(R.color.transparent);
+		include_item_shop_content.setBackgroundResource(R.color.white);
+		
 		iv_image = (ImageView) include_item_shop_content.findViewById(R.id.iv_image);
 		tv_subhead = (TextView) include_item_shop_content.findViewById(R.id.tv_subhead);
 		tv_body = (TextView) include_item_shop_content.findViewById(R.id.tv_body);
@@ -171,6 +173,7 @@ public class ShopDetailActivity extends BaseActivity implements OnClickListener 
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.ll_checkin_bottom:
+			
 			break;
 		case R.id.ll_sendinfo_bottom:
 			

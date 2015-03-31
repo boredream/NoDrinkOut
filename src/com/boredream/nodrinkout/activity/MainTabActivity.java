@@ -1,13 +1,16 @@
 package com.boredream.nodrinkout.activity;
 
+import android.content.IntentFilter;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 
+import com.baidu.mapapi.SDKInitializer;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.fragment.FragmentController;
+import com.boredream.nodrinkout.receiver.BMapSDKReceiver;
 
 public class MainTabActivity extends FragmentActivity implements
 		OnCheckedChangeListener {
@@ -19,7 +22,8 @@ public class MainTabActivity extends FragmentActivity implements
 	private RadioButton rb_user;
 	
 	private FragmentController fc;
-
+	
+	private BMapSDKReceiver mReceiver;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,9 +34,21 @@ public class MainTabActivity extends FragmentActivity implements
 		initView();
 		
 		initData();
+		
+		// ×¢²á SDK ¹ã²¥¼àÌýÕß
+		IntentFilter iFilter = new IntentFilter();
+		iFilter.addAction(SDKInitializer.SDK_BROADTCAST_ACTION_STRING_PERMISSION_CHECK_ERROR);
+		iFilter.addAction(SDKInitializer.SDK_BROADCAST_ACTION_STRING_NETWORK_ERROR);
+		mReceiver = new BMapSDKReceiver();
+		registerReceiver(mReceiver, iFilter);
 	}
 	
-
+	@Override
+	protected void onDestroy() {
+		super.onDestroy();
+		unregisterReceiver(mReceiver);
+	}
+	
 	private void initView() {
 		rg_tab = (RadioGroup) findViewById(R.id.rg_tab);
 		rb_home = (RadioButton) findViewById(R.id.rb_home);

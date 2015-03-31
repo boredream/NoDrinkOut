@@ -1,5 +1,6 @@
 package com.boredream.nodrinkout.entity;
 
+
 public class CoffeeShop extends BmobBaseObj {
 	private String name;
 	private String address;
