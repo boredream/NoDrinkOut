@@ -40,6 +40,7 @@
         <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.MainTabActivity" />
         <activity android:name=".activity.InfoDetailActivity" />
+        <activity android:name=".activity.ShopDetailActivity" />
         <activity android:name=".activity.InfoListActivity" />
         <activity android:name=".activity.UserActivity" />
         <activity android:name=".activity.SearchActivity" />
