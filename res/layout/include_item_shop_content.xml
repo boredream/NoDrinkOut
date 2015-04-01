@@ -26,6 +26,10 @@
         <TextView
             android:id="@+id/tv_body"
             style="@style/TextViewBody"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/ll_collect"
+            android:singleLine="true"
+            android:layout_marginRight="16dp"
             android:layout_alignParentBottom="true"
             android:text="100m" />
 

@@ -51,9 +51,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="16dp" >
+            android:padding="8dp" >
 
             <EditText
+                android:layout_margin="8dp"
                 android:id="@+id/et_info"
                 style="@style/TextViewSubhead"
                 android:layout_width="match_parent"

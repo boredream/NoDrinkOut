@@ -1,6 +1,7 @@
 package com.boredream.nodrinkout.bmob;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
@@ -8,6 +9,9 @@ import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
+import com.bmob.BmobProFile;
+import com.bmob.btp.callback.UploadBatchListener;
+import com.bmob.utils.BmobLog;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.entity.InfoComment;
@@ -283,4 +287,8 @@ public class BmobApi {
 		});
 	}
 	
+	//////////////////////////////ÆäËû //////////////////////////////
+	public static void uploadImage(Context context, String[] filePaths, UploadBatchListener uploadBatchListener) {
+		BmobProFile.getInstance(context).uploadBatch(filePaths, uploadBatchListener);
+	}
 }
