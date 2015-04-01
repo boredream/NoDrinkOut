@@ -45,7 +45,6 @@ public class UserActivity extends BaseActivity {
 
 	private void initView() {
 		new TitleBuilder(this).setTitleText("个人信息")
-				.setTitleBgRes(R.color.transparent)
 				.setLeftImage(R.drawable.ic_chevron_left)
 				.setLeftOnClickListener(simpleOnClickListener).build();
 		

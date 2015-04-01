@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
     
     <include 
-        android:id="@+id/include_titlebar"
+        android:id="@+id/rl_titlebar"
         layout="@layout/include_titlebar"/>
 
     <LinearLayout
@@ -100,7 +100,7 @@
 
     <com.boredream.nodrinkout.view.Pull2RefreshListView
         android:id="@+id/plv_comment"
-        android:layout_below="@id/include_titlebar"
+        android:layout_below="@id/rl_titlebar"
         style="@style/ListViewCommon"
         android:layout_above="@id/ll_bottom_control"
         android:divider="@color/divider_black" >

@@ -94,7 +94,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener,
 
 
 	private void initView() {
-		new TitleBuilder(this).setTitleText("咖讯详情")
+		new TitleBuilder(this)
+				.setTitleText("咖讯详情")
 				.setLeftImage(R.drawable.ic_chevron_left)
 				.setLeftOnClickListener(simpleOnClickListener).build();
 		

@@ -20,11 +20,22 @@ public class AddInfoActivity extends BaseActivity implements OnClickListener {
 	private EditText et_info;
 	private WrapHeightGridView gv_info_images;
 
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+
+		setContentView(R.layout.activity_add_info);
+		
+		initView();
+	}
+	
 	private void initView() {
-		new TitleBuilder(this).setTitleText("个人信息")
-				.setTitleBgRes(R.color.transparent)
-				.setLeftImage(R.drawable.ic_chevron_left)
-				.setLeftOnClickListener(simpleOnClickListener).build();
+		new TitleBuilder(this).setTitleText("发咖讯")
+				.setLeftText("取消")
+				.setLeftOnClickListener(this)
+				.setRightText("发布")
+				.setRightOnClickListener(this)
+				.build();
 
 		ll_checkin = (LinearLayout) findViewById(R.id.ll_checkin);
 		tv_checkin = (TextView) findViewById(R.id.tv_checkin);
@@ -37,14 +48,13 @@ public class AddInfoActivity extends BaseActivity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.titlebar_tv_left:
+			
+			break;
+		case R.id.titlebar_tv_right:
+			
+			break;
 		}
-	}
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
-		super.onCreate(savedInstanceState);
-
-		setContentView(R.layout.activity_add_info);
 	}
 
 }

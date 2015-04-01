@@ -1,6 +1,6 @@
 package com.boredream.nodrinkout.utils;
 
-import android.content.Context;
+import android.app.Activity;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -18,8 +18,17 @@ public class TitleBuilder {
 	private TextView tvLeft;
 	private TextView tvRight;
 
-	public TitleBuilder(Context context) {
-		viewTitle = View.inflate(context, R.layout.include_titlebar, null);
+	public TitleBuilder(Activity context) {
+		viewTitle = context.findViewById(R.id.rl_titlebar);
+		tvTitle = (TextView) viewTitle.findViewById(R.id.titlebar_tv);
+		ivLeft = (ImageView) viewTitle.findViewById(R.id.titlebar_iv_left);
+		ivRight = (ImageView) viewTitle.findViewById(R.id.titlebar_iv_right);
+		tvLeft = (TextView) viewTitle.findViewById(R.id.titlebar_tv_left);
+		tvRight = (TextView) viewTitle.findViewById(R.id.titlebar_tv_right);
+	}
+	
+	public TitleBuilder(View context) {
+		viewTitle = context.findViewById(R.id.rl_titlebar);
 		tvTitle = (TextView) viewTitle.findViewById(R.id.titlebar_tv);
 		ivLeft = (ImageView) viewTitle.findViewById(R.id.titlebar_iv_left);
 		ivRight = (ImageView) viewTitle.findViewById(R.id.titlebar_iv_right);
