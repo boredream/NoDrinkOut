@@ -99,11 +99,11 @@
         android:background="@color/divider_black" />
 
     <com.boredream.nodrinkout.view.Pull2RefreshListView
+        android:background="@color/bg_light_gray"
         android:id="@+id/plv_shop"
         android:layout_below="@id/include_titlebar"
-        style="@style/ListViewCommon"
-        android:layout_above="@id/ll_bottom_control"
-        android:divider="@color/divider_black" >
+        style="@style/ListViewCard"
+        android:layout_above="@id/ll_bottom_control" >
     </com.boredream.nodrinkout.view.Pull2RefreshListView>
 
 </RelativeLayout>

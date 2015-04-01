@@ -50,5 +50,16 @@ public class ImageOptHelper {
 				.displayer(new RoundedBitmapDisplayer(cornerRadiusPixels)).build();
 		return options;
 	}
+	
+	public static DisplayImageOptions getShopOptions(int cornerRadiusPixels) {
+		DisplayImageOptions options = new DisplayImageOptions.Builder()
+		.cacheOnDisk(true).cacheInMemory(true)
+		.bitmapConfig(Bitmap.Config.RGB_565)
+		.showImageForEmptyUri(R.drawable.coffee_shop_def)
+		.showImageOnFail(R.drawable.coffee_shop_def)
+		.showImageOnLoading(R.drawable.coffee_shop_loading)
+		.displayer(new RoundedBitmapDisplayer(cornerRadiusPixels)).build();
+		return options;
+	}
 
 }

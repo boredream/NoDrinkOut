@@ -13,6 +13,7 @@ import android.widget.TextView;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.activity.UserActivity;
 import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.map.PoiSearchActivity;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 
 public class UserFragment extends BaseFragment implements OnClickListener {
@@ -69,7 +70,8 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 			startActivity(intent);
 			break;
 		case R.id.ll_about_us:
-
+			Intent intent2 = new Intent(activity, PoiSearchActivity.class);
+			startActivity(intent2);
 			break;
 		case R.id.ll_check_update:
 

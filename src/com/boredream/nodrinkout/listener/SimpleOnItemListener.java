@@ -7,7 +7,9 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 
 import com.boredream.nodrinkout.activity.InfoDetailActivity;
+import com.boredream.nodrinkout.activity.ShopDetailActivity;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
+import com.boredream.nodrinkout.entity.CoffeeShop;
 
 public class SimpleOnItemListener implements OnItemClickListener {
 	
@@ -26,6 +28,12 @@ public class SimpleOnItemListener implements OnItemClickListener {
 			
 			Intent intent = new Intent(context, InfoDetailActivity.class);
 			intent.putExtra("info", info);
+			context.startActivity(intent);
+		} else if(obj instanceof CoffeeShop) {
+			CoffeeShop shop = (CoffeeShop) obj;
+			
+			Intent intent = new Intent(context, ShopDetailActivity.class);
+			intent.putExtra("shop", shop);
 			context.startActivity(intent);
 		}
 		

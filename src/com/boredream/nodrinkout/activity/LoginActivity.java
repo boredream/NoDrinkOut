@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import cn.bmob.v3.listener.SaveListener;
@@ -31,7 +30,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	private void initView() {
 		et_username = (EditText) findViewById(R.id.et_zhanghao);
 		et_psw = (EditText) findViewById(R.id.et_psw);
-		tx_register =  (TextView) findViewById(R.id.tx_register);
+		tx_register = (TextView) findViewById(R.id.tx_register);
 		tx_register.setOnClickListener(this);
 		tx_login = (TextView) findViewById(R.id.sign_in);
 		tx_login.setOnClickListener(this);

@@ -10,6 +10,7 @@ import cn.bmob.v3.listener.UpdateListener;
 
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
+import com.boredream.nodrinkout.entity.CoffeeShopOfBD;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.entity.UserBean;
@@ -60,6 +61,41 @@ public class BmobApi {
 	public static void queryShopsWhere(Context context,
 			String order, int page, FindListener<CoffeeShop> listener) {
 		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
+		if(order != null) {
+			query.order(order);
+		}
+		query.include("user,shop");
+		query.setLimit(CommonConstants.COUNT_PER_PAGE);
+		query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
+		query.findObjects(context, listener);
+	}
+	
+	////////////////////////////// 咖啡店BD //////////////////////////////
+	
+	/**
+	 * 查询咖啡店(根据咖啡店名模糊查询)
+	 * @param context
+	 * @param nameLike 模糊查询的咖啡店名
+	 * @param listener
+	 */
+	public static void queryBDShopsNameLike(Context context, String nameLike, 
+			FindListener<CoffeeShopOfBD> listener) {
+		BmobQuery<CoffeeShopOfBD> query = new BmobQuery<CoffeeShopOfBD>();
+		query.include("user");
+		query.addWhereContains("name", nameLike);
+		query.findObjects(context, listener);
+	}
+	
+	/**
+	 * 查询咖啡店(根据全部条件过滤,不需要改条件时传null)
+	 * @param context
+	 * @param order
+	 * @param page 
+	 * @param listener
+	 */
+	public static void queryBDShopsWhere(Context context,
+			String order, int page, FindListener<CoffeeShopOfBD> listener) {
+		BmobQuery<CoffeeShopOfBD> query = new BmobQuery<CoffeeShopOfBD>();
 		if(order != null) {
 			query.order(order);
 		}
