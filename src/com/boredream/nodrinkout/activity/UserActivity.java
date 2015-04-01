@@ -16,7 +16,7 @@ import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
-import com.boredream.nodrinkout.utils.ViewUtils;
+import com.boredream.nodrinkout.utils.TitleBuilder;
 import com.handmark.pulltorefresh.library.PullToRefreshListView;
 
 public class UserActivity extends BaseActivity {
@@ -44,8 +44,10 @@ public class UserActivity extends BaseActivity {
 	}
 
 	private void initView() {
-		View titlebar = ViewUtils.initTitleBack(this, "个人信息", simpleOnClickListener);
-		titlebar.setBackgroundColor(getResources().getColor(R.color.transparent));
+		new TitleBuilder(this).setTitleText("个人信息")
+				.setTitleBgRes(R.color.transparent)
+				.setLeftImage(R.drawable.ic_chevron_left)
+				.setLeftOnClickListener(simpleOnClickListener).build();
 		
 		headView = View.inflate(this, R.layout.include_user_head, null);
 		iv_userinfo_head = (ImageView) headView.findViewById(R.id.iv_userinfo_head);

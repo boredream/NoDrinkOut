@@ -31,6 +31,7 @@ import com.boredream.nodrinkout.listener.UpdateSimpleListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
+import com.boredream.nodrinkout.utils.TitleBuilder;
 import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
@@ -93,7 +94,9 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener,
 
 
 	private void initView() {
-		ViewUtils.initTitleBack(this, "咖讯详情", simpleOnClickListener);
+		new TitleBuilder(this).setTitleText("咖讯详情")
+				.setLeftImage(R.drawable.ic_chevron_left)
+				.setLeftOnClickListener(simpleOnClickListener).build();
 		
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
 		include_tab_infodetail = (RadioGroup) View.inflate(this, R.layout.include_tab_infodetail, null);

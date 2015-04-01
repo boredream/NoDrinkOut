@@ -18,6 +18,7 @@ import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
+import com.boredream.nodrinkout.utils.TitleBuilder;
 import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 
@@ -67,7 +68,9 @@ public class ShopDetailActivity extends BaseActivity implements OnClickListener 
 	}
 
 	private void initView() {
-		ViewUtils.initTitleBack(this, "øßµÍœÍ«È", simpleOnClickListener);
+		new TitleBuilder(this).setTitleText("øßµÍœÍ«È")
+				.setLeftImage(R.drawable.ic_chevron_left)
+				.setLeftOnClickListener(simpleOnClickListener).build();
 
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead,
 				null);
