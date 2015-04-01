@@ -27,9 +27,8 @@ import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapapi.search.sug.SuggestionSearch;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.entity.CoffeeShopOfBD;
+import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.listener.SaveSimpleListener;
-import com.google.gson.Gson;
 
 /**
  * 演示poi搜索功能
@@ -148,39 +147,25 @@ public class PoiSearchActivity extends FragmentActivity implements
 	
 	// 上传店铺信息
 	public void upload(View v) {
-//		// baidu info
-//		private String address;
-//		private String city;
-//		private String uid;
-//		private String type;
-//		private String location; // latitude-longitude
-//		private String name;
-//		private String phoneNum;
-//		private boolean isPano;
-//		private boolean hasCaterDetails;
-//		// customer info
-//		private String imgUrl;
-//		private int infoCount;
-//		private int followCount;
-		CoffeeShopOfBD shopBD;
-		for(PoiInfo info : result.getAllPoi()) {
-			shopBD = new CoffeeShopOfBD();
-			shopBD.address = info.address;
-			shopBD.city = info.city;
-			shopBD.uid = info.uid;
-			shopBD.setType(info.type.toString());
-			shopBD.setLocation(info.location.latitude + "-" + info.location.longitude);
-			shopBD.name = info.name;
-			shopBD.phoneNum = info.phoneNum;
-			shopBD.isPano = info.isPano;
-			shopBD.hasCaterDetails = info.hasCaterDetails;
-			
-			// customer
-			shopBD.setFollowCount(0);
-			shopBD.setInfoCount(0);
-			shopBD.setImgUrl("");
-			shopBD.save(this, new SaveSimpleListener(this, null){ });
-		}
+//		CoffeeShop shopBD;
+//		for(PoiInfo info : result.getAllPoi()) {
+//			shopBD = new CoffeeShop();
+//			shopBD.address = info.address;
+//			shopBD.city = info.city;
+//			shopBD.uid = info.uid;
+//			shopBD.setType(info.type.toString());
+//			shopBD.setLocation(info.location.latitude + "-" + info.location.longitude);
+//			shopBD.name = info.name;
+//			shopBD.phoneNum = info.phoneNum;
+//			shopBD.isPano = info.isPano;
+//			shopBD.hasCaterDetails = info.hasCaterDetails;
+//			
+//			// customer
+//			shopBD.setFollowCount(0);
+//			shopBD.setInfoCount(0);
+//			shopBD.setImgUrl("");
+//			shopBD.save(this, new SaveSimpleListener(this, null){ });
+//		}
 	}
 
 	public void onGetPoiResult(PoiResult result) {

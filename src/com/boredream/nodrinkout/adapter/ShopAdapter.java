@@ -68,7 +68,6 @@ public class ShopAdapter extends BaseAdapter {
 		return convertView;
 	}
 
-
 	public static class ViewHolder{
 		public ImageView iv_image;
 		public TextView tv_subhead;

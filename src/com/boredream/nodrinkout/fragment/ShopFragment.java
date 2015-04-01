@@ -9,9 +9,9 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.adapter.ShopBDAdapter;
+import com.boredream.nodrinkout.adapter.ShopAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
-import com.boredream.nodrinkout.entity.CoffeeShopOfBD;
+import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.listener.SimpleOnItemListener;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
@@ -21,8 +21,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 public class ShopFragment extends BaseFragment {
 
 	private Pull2RefreshListView plv_home;
-//	private ShopAdapter shopAdapter;
-	private ShopBDAdapter shopAdapter;
+	private ShopAdapter shopAdapter;
 	
 	private int curPage = 1;
 	
@@ -46,31 +45,18 @@ public class ShopFragment extends BaseFragment {
 	}
 	
 	private void loadData() {
-//		BmobApi.queryShopsWhere(activity, null, curPage,
-//				new FindSimpleListener<CoffeeShop>(activity, loadDialog){
-//
-//					@Override
-//					public void onSuccess(List<CoffeeShop> arg0) {
-//						super.onSuccess(arg0);
-//						
-//						shopAdapter = new ShopAdapter(activity, arg0);
-//						plv_home.setAdapter(shopAdapter);
-//						
-//						plv_home.onRefreshComplete();
-//					}
-//		});
-		BmobApi.queryBDShopsWhere(activity, null, curPage,
-				new FindSimpleListener<CoffeeShopOfBD>(activity, loadDialog){
-			
-			@Override
-			public void onSuccess(List<CoffeeShopOfBD> arg0) {
-				super.onSuccess(arg0);
-				
-				shopAdapter = new ShopBDAdapter(activity, arg0);
-				plv_home.setAdapter(shopAdapter);
-				
-				plv_home.onRefreshComplete();
-			}
+		BmobApi.queryShopsWhere(activity, null, curPage,
+				new FindSimpleListener<CoffeeShop>(activity, loadDialog){
+
+					@Override
+					public void onSuccess(List<CoffeeShop> arg0) {
+						super.onSuccess(arg0);
+						
+						shopAdapter = new ShopAdapter(activity, arg0);
+						plv_home.setAdapter(shopAdapter);
+						
+						plv_home.onRefreshComplete();
+					}
 		});
 	}
 }
