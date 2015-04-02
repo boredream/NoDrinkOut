@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
+import android.text.TextUtils;
 import cn.bmob.v3.BmobQuery;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
@@ -19,6 +20,7 @@ import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.SaveSimpleListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
+import com.boredream.nodrinkout.utils.Logger;
 
 public class BmobApi {
 	
@@ -76,18 +78,48 @@ public class BmobApi {
 	////////////////////////////// 图文状态 //////////////////////////////
 
 	/**
+	 * 发表某个咖啡店所属全部图文状态,带图
+	 * @param context
+	 */
+	public static void insertInfo(final Context context, final CoffeeInfo info,
+			String[] filePaths, final UpdateListener updateListener) {
+		
+		if(filePaths != null && filePaths.length > 0) {
+			uploadImage(context, filePaths, new UploadBatchListener() {
+				@Override
+				public void onError(int arg0, String arg1) {
+					updateListener.onFailure(arg0, arg1);
+				}
+				
+				@Override
+				public void onSuccess(boolean arg0, String[] arg1, String[] arg2) {
+					insertInfo(context, info, updateListener);
+				}
+				
+				@Override
+				public void onProgress(int arg0, int arg1, int arg2, int arg3) {
+					Logger.show("DDD", "upload img onProgress " + arg0 + " : "
+							+ arg1 + " : " + arg2 + " : " + arg3);
+				}
+			});
+		} else {
+			insertInfo(context, info, updateListener);
+		}
+	}
+	
+	/**
 	 * 发表某个咖啡店所属全部图文状态
 	 * @param context
 	 */
 	public static void insertInfo(final Context context, final CoffeeInfo info,
 			final UpdateListener updateListener) {
 		info.save(context, new SaveSimpleListener(context, null){
-
+			
 			@Override
 			public void onFailure(int arg0, String arg1) {
 				updateListener.onFailure(arg0, arg1);
 			}
-
+			
 			@Override
 			public void onSuccess() {
 				super.onSuccess();

@@ -54,6 +54,11 @@ public abstract class BaseActivity extends Activity {
 		return UserBean.getCurrentUser(this, UserBean.class);
 	}
 	
+	protected void intent2Activity(Class<? extends Activity> tarActivity) {
+		Intent intent = new Intent(this, tarActivity);
+		startActivity(intent);
+	}
+	
 	@Override
 	protected void onStart() {
 		super.onStart();

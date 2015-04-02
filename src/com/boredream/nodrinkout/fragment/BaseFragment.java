@@ -1,6 +1,8 @@
 package com.boredream.nodrinkout.fragment;
 
+import android.app.Activity;
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
@@ -29,5 +31,9 @@ public class BaseFragment extends Fragment {
 	protected UserBean getCurrentUser() {
 		return UserBean.getCurrentUser(activity, UserBean.class);
 	}
-
+	
+	protected void intent2Activity(Class<? extends Activity> tarActivity) {
+		Intent intent = new Intent(activity, tarActivity);
+		startActivity(intent);
+	}
 }

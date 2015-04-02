@@ -3,6 +3,7 @@ package com.boredream.nodrinkout.activity;
 import java.util.ArrayList;
 import java.util.List;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -19,7 +20,6 @@ import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.utils.TitleBuilder;
-import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 
 public class ShopDetailActivity extends BaseActivity implements OnClickListener {
@@ -187,7 +187,9 @@ public class ShopDetailActivity extends BaseActivity implements OnClickListener 
 			System.out.println(BaseApplication.curLocation + " : " + shop.getLocation());
 			break;
 		case R.id.ll_sendinfo_bottom:
-
+			Intent intent = new Intent(this, AddInfoActivity.class);
+			intent.putExtra("shop", shop);
+			startActivity(intent);
 			break;
 		case R.id.ll_collect_bottom:
 			sendLike();

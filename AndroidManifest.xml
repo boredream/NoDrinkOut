@@ -83,6 +83,9 @@
             android:name=".activity.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.AddInfoActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".map.PoiSearchActivity"
             android:screenOrientation="portrait" />
 

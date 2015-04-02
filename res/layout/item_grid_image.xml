@@ -10,4 +10,13 @@
         android:scaleType="centerCrop" >
     </ImageView>
 
+    <ImageView
+        android:id="@+id/iv_remove_img"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_alignRight="@id/iv_image"
+        android:padding="6dp"
+        android:src="@drawable/ic_favorite_outline"
+        android:visibility="gone" />
+
 </RelativeLayout>
