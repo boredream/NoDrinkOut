@@ -40,8 +40,6 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 		ll_check_update.setOnClickListener(this);
 	}
 	
-	private UserBean user;
-
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
@@ -55,7 +53,6 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 
 	
 	private void setData() {
-		user = getCurrentUser();
 		imageLoader.displayImage(user.getAvatarUrl(), iv_avatar, 
 				ImageOptHelper.getAvatarOptions());
 		tv_name.setText(user.getUsername());
@@ -67,6 +64,7 @@ public class UserFragment extends BaseFragment implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.ll_userinfo:
 			Intent intent = new Intent(activity, UserActivity.class);
+			intent.putExtra("user", user);
 			startActivity(intent);
 			break;
 		case R.id.ll_about_us:

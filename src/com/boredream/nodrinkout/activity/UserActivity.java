@@ -32,6 +32,9 @@ public class UserActivity extends BaseActivity {
 	private List<CoffeeInfo> infos;
 	private InfoAdapter adapter;
 	
+	private UserBean tarUser;
+	private boolean iCurrentUser;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -59,12 +62,14 @@ public class UserActivity extends BaseActivity {
 	}
 	
 	private void setData() {
-		user = getCurrentUser();
-		imageLoader.displayImage(user.getAvatarUrl(), iv_avatar, 
+		tarUser = (UserBean) intent.getSerializableExtra("user");
+		iCurrentUser = tarUser.getObjectId().equals(user.getObjectId());
+		
+		imageLoader.displayImage(tarUser.getAvatarUrl(), iv_avatar, 
 				ImageOptHelper.getAvatarOptions());
 //		imageLoader.displayImage(user.getAvatarUrl(), iv_userinfo_head);
-		tv_name.setText(user.getUsername());
-		tv_intro.setText(user.getDetail());
+		tv_name.setText(tarUser.getUsername());
+		tv_intro.setText(tarUser.getDetail());
 		
 		infos = new ArrayList<CoffeeInfo>();
 		adapter = new InfoAdapter(this, infos);

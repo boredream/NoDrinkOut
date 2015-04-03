@@ -123,5 +123,7 @@ public class InfoAdapter extends BaseAdapter {
 		public TextView tv_comment;
 		public TextView tv_like;
 	}
+	
+	public static interface 
 
 }

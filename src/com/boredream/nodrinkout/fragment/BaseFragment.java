@@ -17,6 +17,7 @@ public class BaseFragment extends Fragment {
 	protected Dialog loadDialog;
 	
 	protected ImageLoader imageLoader;
+	protected UserBean user;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -26,10 +27,7 @@ public class BaseFragment extends Fragment {
 		loadDialog = DialogUtils.createLoadingDialog(activity);
 		
 		imageLoader = ImageLoader.getInstance();
-	}
-	
-	protected UserBean getCurrentUser() {
-		return UserBean.getCurrentUser(activity, UserBean.class);
+		user = UserBean.getCurrentUser(activity, UserBean.class);
 	}
 	
 	protected void intent2Activity(Class<? extends Activity> tarActivity) {
