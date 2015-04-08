@@ -4,19 +4,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
@@ -32,11 +35,11 @@ import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.utils.TitleBuilder;
-import com.boredream.nodrinkout.utils.ViewUtils;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 
-public class InfoDetailActivity extends BaseActivity implements OnClickListener, OnCheckedChangeListener {
+public class InfoDetailActivity extends BaseActivity 
+	implements OnClickListener, OnCheckedChangeListener, OnItemClickListener {
 	
 	private TextView include_tv_subhead;
 	private RadioGroup include_tab_infodetail;
@@ -115,6 +118,8 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener,
 		tv_location = (TextView) include_card_content.findViewById(R.id.tv_location);
 		tv_comment = (TextView) include_card_content.findViewById(R.id.tv_comment);
 		tv_like = (TextView) include_card_content.findViewById(R.id.tv_like);
+		gv_images.setOnItemClickListener(this);
+		iv_image.setOnClickListener(this);
 		include_tab_infodetail.setOnCheckedChangeListener(this);
 		
 		plv_comment = (Pull2RefreshListView) findViewById(R.id.plv_comment);
@@ -261,8 +266,30 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener,
 	}
 
 	@Override
+	public void onCheckedChanged(RadioGroup group, int checkedId) {
+		switch (checkedId) {
+		case R.id.rb_userinfo:
+			
+			break;
+		case R.id.rb_infos:
+			
+			break;
+		case R.id.rb_track:
+			
+			break;
+		}
+	}
+
+	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
+		case R.id.iv_image:
+			Intent intent = new Intent(this, ImageBrowserActivity.class);
+			intent.putExtra("info", info);
+			startActivity(intent);
+			
+			overridePendingTransition(R.anim.zoom_enter, 0);
+			break;
 		case R.id.ll_share_bottom:
 			break;
 		case R.id.ll_comment_bottom:
@@ -280,19 +307,13 @@ public class InfoDetailActivity extends BaseActivity implements OnClickListener,
 		}
 	}
 
-
 	@Override
-	public void onCheckedChanged(RadioGroup group, int checkedId) {
-		switch (checkedId) {
-		case R.id.rb_userinfo:
-			
-			break;
-		case R.id.rb_infos:
-			
-			break;
-		case R.id.rb_track:
-			
-			break;
-		}
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		Intent intent = new Intent(this, ImageBrowserActivity.class); 
+		intent.putExtra("info", info);
+		intent.putExtra("position", position);
+		startActivity(intent);
+		overridePendingTransition(R.anim.zoom_enter, 0);
 	}
 }

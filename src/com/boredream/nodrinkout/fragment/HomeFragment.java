@@ -13,7 +13,7 @@ import com.boredream.nodrinkout.adapter.InfoAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
-import com.boredream.nodrinkout.listener.SimpleOnItemListener;
+import com.boredream.nodrinkout.listener.SimpleOnItemClickListener;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
@@ -38,7 +38,7 @@ public class HomeFragment extends BaseFragment {
 				loadData();
 			}
 		});
-		plv_home.setOnItemClickListener(new SimpleOnItemListener(activity));
+		plv_home.setOnItemClickListener(new SimpleOnItemClickListener(activity));
 		
 		loadData();
 		

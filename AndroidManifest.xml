@@ -71,6 +71,9 @@
             android:name=".activity.InfoDetailActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name=".activity.ImageBrowserActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name=".activity.ShopDetailActivity"
             android:screenOrientation="portrait" />
         <activity

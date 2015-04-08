@@ -15,6 +15,7 @@
 
         <com.boredream.nodrinkout.view.WrapHeightGridView
             android:id="@+id/gv_images"
+            android:focusable="false"
             style="@style/GridViewImages" />
 
         <ImageView

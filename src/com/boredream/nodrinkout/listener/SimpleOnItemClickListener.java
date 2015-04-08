@@ -11,11 +11,11 @@ import com.boredream.nodrinkout.activity.ShopDetailActivity;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
 
-public class SimpleOnItemListener implements OnItemClickListener {
+public class SimpleOnItemClickListener implements OnItemClickListener {
 	
 	private Context context;
 
-	public SimpleOnItemListener(Context context) {
+	public SimpleOnItemClickListener(Context context) {
 		this.context = context;
 	}
 

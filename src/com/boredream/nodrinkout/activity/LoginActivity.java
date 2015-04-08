@@ -2,6 +2,8 @@ package com.boredream.nodrinkout.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.EditText;
@@ -37,6 +39,28 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 		
 		et_username.setText("loveghs");
 		et_psw.setText("58421314");
+		
+		et_username.addTextChangedListener(new TextWatcher() {
+			
+			CharSequence beforeS;
+			
+			@Override
+			public void onTextChanged(CharSequence s, int start, int before, int count) {
+				System.out.println(beforeS);
+				System.out.println(s);
+			}
+			
+			@Override
+			public void beforeTextChanged(CharSequence s, int start, int count,
+					int after) {
+				beforeS = s;
+			}
+			
+			@Override
+			public void afterTextChanged(Editable s) {
+				
+			}
+		});
 	}
 
 	@Override

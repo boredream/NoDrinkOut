@@ -3,9 +3,13 @@ package com.boredream.nodrinkout.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.BaseAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
@@ -13,8 +17,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.activity.ImageBrowserActivity;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.listener.OnAdapterMultiClickListener;
 import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
@@ -26,12 +32,15 @@ public class InfoAdapter extends BaseAdapter {
 	private List<CoffeeInfo> datas;
 	private ImageLoader imageLoader;
 	private UserBean user;
+	
+	private OnAdapterMultiClickListener onAdapterMultiClickListener;
 
 	public InfoAdapter(Context context, List<CoffeeInfo> datas) {
 		this.context = context;
 		this.datas = datas;
 		imageLoader = ImageLoader.getInstance();
 		user = UserBean.getCurrentUser(context, UserBean.class);
+		onAdapterMultiClickListener = new OnAdapterMultiClickListener(context);
 	}
 
 	@Override
@@ -73,7 +82,7 @@ public class InfoAdapter extends BaseAdapter {
 		}
 		
 		// set data
-		CoffeeInfo item = getItem(position);
+		final CoffeeInfo item = getItem(position);
 		imageLoader.displayImage(item.getImgUrls(), holder.iv_avatar,
 				ImageOptHelper.getAvatarOptions());
 		holder.tv_subhead.setText(user.getUsername());
@@ -105,9 +114,28 @@ public class InfoAdapter extends BaseAdapter {
 		holder.tv_comment.setText(item.getCommentCount()+"");
 		holder.tv_like.setText(item.getLikeCount()+"");
 		
+		holder.gv_images.setOnItemClickListener(new OnItemClickListener() {
+
+			@Override
+			public void onItemClick(AdapterView<?> parent, View view,
+					int position, long id) {
+				Intent intent = new Intent(context, ImageBrowserActivity.class);
+				intent.putExtra("info", item);
+				intent.putExtra("position", position);
+				context.startActivity(intent);
+			}
+		});
+		
+		convertView.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				onAdapterMultiClickListener.onItemClick(
+						OnAdapterMultiClickListener.TYPE_INFO_DETAIL, item);
+			}
+		});
+		
 		return convertView;
 	}
-
 
 	public static class ViewHolder{
 		public ImageView iv_avatar;
@@ -123,7 +151,5 @@ public class InfoAdapter extends BaseAdapter {
 		public TextView tv_comment;
 		public TextView tv_like;
 	}
-	
-	public static interface 
 
 }
