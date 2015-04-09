@@ -26,12 +26,12 @@ import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoCommentAdapter;
 import com.boredream.nodrinkout.adapter.InfoImagesAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
+import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.listener.UpdateSimpleListener;
-import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.utils.TitleBuilder;
@@ -264,7 +264,7 @@ public class InfoDetailActivity extends BaseActivity
 					}
 		});
 	}
-
+	
 	@Override
 	public void onCheckedChanged(RadioGroup group, int checkedId) {
 		switch (checkedId) {

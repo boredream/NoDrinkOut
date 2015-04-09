@@ -5,7 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewGroup.LayoutParams;
 
-import com.immomo.momo.android.view.photoview.PhotoView;
+import com.boredream.nodrinkout.view.photoview.PhotoView;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ImageBrowserAdapter extends PagerAdapter {

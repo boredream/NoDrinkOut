@@ -2,6 +2,8 @@ package com.boredream.nodrinkout.utils;
 
 import java.io.IOException;
 
+import com.boredream.nodrinkout.constants.CommonConstants;
+
 import android.util.Log;
 
 public class Logger {

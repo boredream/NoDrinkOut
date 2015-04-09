@@ -13,13 +13,13 @@ import cn.bmob.v3.listener.UpdateListener;
 import com.bmob.BmobProFile;
 import com.bmob.btp.callback.UploadBatchListener;
 import com.bmob.utils.BmobLog;
+import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
 import com.boredream.nodrinkout.entity.InfoComment;
 import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.SaveSimpleListener;
-import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.Logger;
 
 public class BmobApi {

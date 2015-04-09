@@ -18,10 +18,10 @@ import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.activity.ImageBrowserActivity;
+import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.OnAdapterMultiClickListener;
-import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 import com.nostra13.universalimageloader.core.ImageLoader;

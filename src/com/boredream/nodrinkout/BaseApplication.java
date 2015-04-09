@@ -4,19 +4,21 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
+import com.baidu.frontia.Frontia;
+import com.baidu.frontia.FrontiaApplication;
 import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MyLocationData;
 import com.boredream.nodrinkout.bmob.BmobInit;
+import com.boredream.nodrinkout.constants.SocialConstants;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 
-public class BaseApplication extends Application {
+public class BaseApplication extends FrontiaApplication {
 
 	private List<Activity> activityList = new LinkedList<Activity>();
 
@@ -39,6 +41,7 @@ public class BaseApplication extends Application {
 		BmobInit.init(this);
 		initImageLoader(this);
 		SDKInitializer.initialize(this);
+		Frontia.init(this, SocialConstants.APIKEY);
 	}
 	
 	// 初始化图片处理

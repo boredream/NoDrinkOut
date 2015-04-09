@@ -8,10 +8,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
+import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.listener.SimpleOnClickListener;
 import com.boredream.nodrinkout.listener.SimpleOnItemClickListener;
-import com.boredream.nodrinkout.utils.CommonConstants;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.boredream.nodrinkout.utils.Logger;
 import com.nostra13.universalimageloader.core.ImageLoader;

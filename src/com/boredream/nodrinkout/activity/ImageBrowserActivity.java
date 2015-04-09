@@ -8,8 +8,8 @@ import android.widget.TextView;
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.ImageBrowserAdapter;
+import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
-import com.boredream.nodrinkout.utils.CommonConstants;
 
 public class ImageBrowserActivity extends BaseActivity implements OnPageChangeListener{
 

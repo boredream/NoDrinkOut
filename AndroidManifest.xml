@@ -91,12 +91,55 @@
         <activity
             android:name=".map.PoiSearchActivity"
             android:screenOrientation="portrait" />
-
+        
         <service
             android:name="com.baidu.location.f"
             android:enabled="true"
             android:process=":remote" >
         </service>
+        
+        <!-- Frontia -->
+        <activity android:name="com.baidu.frontia.demo.push.PushActivity"></activity>
+		<activity android:name="com.baidu.frontia.demo.social.SocialActivity"></activity>
+		<activity android:name="com.baidu.frontia.demo.storage.AppDataActivity"></activity>
+		<activity android:name="com.baidu.frontia.demo.storage.AppFileActivity"></activity>
+		<activity android:name="com.baidu.frontia.demo.storage.PersonalFileActivity"></activity>
+		<activity android:name="com.baidu.frontia.demo.role.AccountActivity"></activity>
+    	<activity android:name="com.baidu.frontia.demo.acl.ACLActivity"></activity>
+    	<activity android:name="com.baidu.frontia.demo.lbs.LBSActivity"></activity>   
+    	<activity android:name="com.baidu.frontia.demo.share.ShareActivity"
+    	    android:launchMode="singleTask"></activity>
+        <activity
+            android:name="com.baidu.frontia.activity.share.FrontiaSocialOAuthActivity"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+	            android:name="com.baidu.frontia.activity.share.FrontiaLocalShareActivity"
+	            android:configChanges="orientation|keyboardHidden"
+	            android:launchMode="singleTask">
+	    </activity>
+        <activity
+            android:name="com.baidu.frontia.activity.share.FrontiaQQFriendShareReceiverActivity"
+            android:launchMode="singleTask" >
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="tencent100358052" />
+            </intent-filter>
+        </activity>
+
+        <!-- 用户微信回调的 activity -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar.Fullscreen" >
+        </activity>
     </application>
 
 </manifest>
