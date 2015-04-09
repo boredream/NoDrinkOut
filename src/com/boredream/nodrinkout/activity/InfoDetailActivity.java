@@ -54,8 +54,6 @@ public class InfoDetailActivity extends BaseActivity
 	private TextView tv_content;
 	private ImageView iv_location;
 	private TextView tv_location;
-	private TextView tv_comment;
-	private TextView tv_like;
 	
 	private Pull2RefreshListView plv_comment;
 	
@@ -105,7 +103,7 @@ public class InfoDetailActivity extends BaseActivity
 		include_tv_subhead = (TextView) View.inflate(this, R.layout.tv_subhead, null);
 		include_tab_infodetail = (RadioGroup) View.inflate(this, R.layout.include_tab_infodetail, null);
 		include_card_content = View.inflate(this, R.layout.include_item_info_content, null);
-		include_card_content.setBackgroundResource(R.color.transparent);
+		include_card_content.findViewById(R.id.ll_bottom_control).setVisibility(View.GONE);
 		iv_avatar = (ImageView) include_card_content.findViewById(R.id.iv_avatar);
 		rl_content = (RelativeLayout) include_card_content.findViewById(R.id.rl_content);
 		tv_subhead = (TextView) include_card_content.findViewById(R.id.tv_subhead);
@@ -116,8 +114,6 @@ public class InfoDetailActivity extends BaseActivity
 		tv_content = (TextView) include_card_content.findViewById(R.id.tv_content);
 		iv_location = (ImageView) include_card_content.findViewById(R.id.iv_location);
 		tv_location = (TextView) include_card_content.findViewById(R.id.tv_location);
-		tv_comment = (TextView) include_card_content.findViewById(R.id.tv_comment);
-		tv_like = (TextView) include_card_content.findViewById(R.id.tv_like);
 		gv_images.setOnItemClickListener(this);
 		iv_image.setOnClickListener(this);
 		include_tab_infodetail.setOnCheckedChangeListener(this);
@@ -172,8 +168,6 @@ public class InfoDetailActivity extends BaseActivity
 				View.GONE : View.VISIBLE);
 		tv_content.setText(info.getContent());
 		tv_location.setText(info.getShop().getName());
-		tv_comment.setText(info.getCommentCount()+"");
-		tv_like.setText(info.getLikeCount()+"");
 		
 		comments = new ArrayList<InfoComment>();
 		adapter = new InfoCommentAdapter(this, comments);

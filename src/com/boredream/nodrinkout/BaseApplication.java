@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
 import android.util.Log;
 
@@ -40,7 +41,7 @@ public class BaseApplication extends FrontiaApplication {
 		
 		BmobInit.init(this);
 		initImageLoader(this);
-		SDKInitializer.initialize(this);
+//		SDKInitializer.initialize(this);
 		Frontia.init(this, SocialConstants.APIKEY);
 	}
 	

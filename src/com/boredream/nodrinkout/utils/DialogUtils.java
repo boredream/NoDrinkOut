@@ -21,7 +21,7 @@ import com.boredream.nodrinkout.R;
 
 public class DialogUtils {
 
-	public static Dialog createLoadingDialog(Context context) {
+	public static ProgressDialog createLoadingDialog(Context context) {
 		ProgressDialog progressDialog = new ProgressDialog(context);
 		return progressDialog;
 	}

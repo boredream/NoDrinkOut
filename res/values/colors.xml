@@ -6,6 +6,12 @@
     <color name="white">#ffffff</color>
     <color name="black">#000000</color>
     <color name="red">#ff403c</color>
+    
+    <!-- lofter -->
+    <color name="divider_gray">#d5d5d5</color>
+    <color name="bg_gray">#dddddd</color>
+    <color name="bg_item_bar">#f3f3f3</color>
+    <color name="bg_item_bar_pressed">#e8e8e8</color>
 
     <!-- material design -->
     <color name="txt_black">#de000000</color>

@@ -24,7 +24,6 @@ public abstract class BaseActivity extends Activity {
 	protected SharedPreferences sp;
 	protected Intent intent;
 	protected ProgressDialog progressDialog;
-	protected Dialog loadDialog;
 	// custom data
 	protected UserBean user;
 	protected ImageLoader imageLoader;
@@ -41,8 +40,7 @@ public abstract class BaseActivity extends Activity {
 		application = (BaseApplication) getApplication();
 		sp = getSharedPreferences(CommonConstants.SP_NAME, MODE_PRIVATE);
 		intent = getIntent();
-		progressDialog = new ProgressDialog(this);
-		loadDialog = DialogUtils.createLoadingDialog(this);
+		progressDialog = DialogUtils.createLoadingDialog(this);
 		application.addActivity(this);
 		
 		// custom data
