@@ -8,22 +8,24 @@
     <color name="red">#ff403c</color>
     
     <!-- lofter -->
-    <color name="divider_gray">#d5d5d5</color>
+    <color name="divider_gray">#d7d7d7</color>
     <color name="bg_gray">#dddddd</color>
     <color name="bg_item_bar">#f3f3f3</color>
     <color name="bg_item_bar_pressed">#e8e8e8</color>
+    <color name="dashboard_common_default">#fff3f3f3</color>
+    <color name="dashboard_common_pressed">#ffe1e1e1</color>
 
     <!-- material design -->
-    <color name="txt_black">#de000000</color>
-    <color name="txt_gray">#8d000000</color>
-    <color name="txt_light_gray">#49000000</color>
-    <color name="divider_black">#23000000</color>
+    <color name="txt_black_alpha">#de000000</color>
+    <color name="txt_gray_alpha">#8d000000</color>
+    <color name="txt_light_gray_alpha">#49000000</color>
+    <color name="divider_black_alpha">#23000000</color>
     
-    <color name="txt_white">#deffffff</color>
-    <color name="txt_whitegray">#8dffffff</color>
-    <color name="txt_light_white">#49ffffff</color>
-    <color name="bg_light_gray">#e3e3e3</color>
-    <color name="divider_white">#23ffffff</color>
+    <color name="txt_white_alpha">#deffffff</color>
+    <color name="txt_whitegray_alpha">#8dffffff</color>
+    <color name="txt_light_white_alpha">#49ffffff</color>
+    <color name="bg_light_gray_alpha">#e3e3e3</color>
+    <color name="divider_white_alpha">#23ffffff</color>
 
     <!-- primary color -->
     <color name="coffee_dark">#5d4037</color>
@@ -31,15 +33,6 @@
     <color name="coffee_light">#d7ccc8</color>
     <!-- accent color -->
     <color name="orange">#ff5722</color>
-
-    <!-- Background color for light CardView. -->
-    <color name="cardview_light_background">#FFFAFAFA</color>
-    <!-- Background color for dark CardView. -->
-    <color name="cardview_dark_background">#FF202020</color>
-    <!-- Shadow color for the first pixels around CardView. -->
-    <color name="cardview_shadow_start_color">#37000000</color>
-    <!-- Shadow color for the furthest pixels around CardView. -->
-    <color name="cardview_shadow_end_color">#03000000</color>
 
     <!-- customer -->
     <color name="bg_gray_pressed">#d2d2d2</color>

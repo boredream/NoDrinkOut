@@ -18,8 +18,8 @@
 
         <ImageView
             android:id="@+id/iv_share_bottom"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_share" />
 
         <TextView
@@ -27,14 +27,13 @@
             style="@style/TextViewBody"
             android:layout_marginLeft="8dp"
             android:text="分享"
-            android:textColor="@color/txt_gray" />
+            android:textColor="@color/txt_gray_alpha" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_comment_bottom"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="-1dp"
         android:layout_weight="1"
         android:background="@drawable/shape_rect_grey_selector"
         android:gravity="center"
@@ -42,8 +41,8 @@
 
         <ImageView
             android:id="@+id/iv_comment_bottom"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_comment" />
 
         <TextView
@@ -51,14 +50,14 @@
             style="@style/TextViewBody"
             android:layout_marginLeft="8dp"
             android:text="评论"
-            android:textColor="@color/txt_gray" />
+            android:textColor="@color/txt_gray_alpha" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/ll_like_bottom"
         android:layout_width="0dp"
         android:layout_height="match_parent"
-        android:layout_marginLeft="-1dp"
+        android:layout_marginLeft="-1px"
         android:layout_weight="1"
         android:background="@drawable/shape_rect_grey_selector"
         android:gravity="center"
@@ -66,8 +65,8 @@
 
         <ImageView
             android:id="@+id/iv_like_bottom"
-            android:layout_width="16dp"
-            android:layout_height="16dp"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
             android:src="@drawable/ic_thumb_up" />
 
         <TextView
@@ -75,7 +74,7 @@
             style="@style/TextViewBody"
             android:layout_marginLeft="8dp"
             android:text="点赞"
-            android:textColor="@color/txt_gray" />
+            android:textColor="@color/txt_gray_alpha" />
     </LinearLayout>
 
 </LinearLayout>
