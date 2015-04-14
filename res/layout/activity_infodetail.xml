@@ -13,11 +13,11 @@
         style="@style/ListViewCommon"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:divider="@color/divider_black" >
+        android:divider="@color/divider_black_alpha" >
     </com.boredream.nodrinkout.view.Pull2RefreshListView>
 
     <include
         android:id="@+id/ll_bottom_control"
-        layout="@layout/include_info_controlbar" />
+        layout="@layout/include_info_controlbar_lofter" />
 
 </LinearLayout>

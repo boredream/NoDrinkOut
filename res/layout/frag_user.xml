@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/bg_light_gray"
+    android:background="@color/bg_light_gray_alpha"
     android:orientation="vertical" >
 
     <include layout="@layout/include_titlebar" />
@@ -42,7 +42,7 @@
                 style="@style/TextViewBody"
                 android:layout_alignParentBottom="true"
                 android:text="没错,我就是油坊桥吴彦祖"
-                android:textColor="@color/txt_gray" />
+                android:textColor="@color/txt_gray_alpha" />
         </RelativeLayout>
 
         <ImageView
@@ -91,7 +91,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/divider_black" />
+            android:background="@color/divider_black_alpha" />
 
         <LinearLayout
             android:id="@+id/ll_check_update"
