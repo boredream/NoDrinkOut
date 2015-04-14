@@ -14,15 +14,12 @@ import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.listener.SimpleOnItemClickListener;
-import com.boredream.nodrinkout.utils.TitleBuilder;
 import com.boredream.nodrinkout.view.Pull2RefreshListView;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 
 public class HomeFragment extends BaseFragment {
 
-	private View view;
-	
 	private Pull2RefreshListView plv_home;
 	private InfoAdapter infoAdapter;
 	
@@ -31,17 +28,7 @@ public class HomeFragment extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		view = View.inflate(getActivity(), R.layout.frag_home, null);
-		
-		initView();
-		
-		loadData();
-		
-		return view;
-	}
-
-	private void initView() {
-		new TitleBuilder(view).setTitleText("Ê×Ò³").build();
+		View view = View.inflate(getActivity(), R.layout.frag_home, null);
 		
 		plv_home = (Pull2RefreshListView) view.findViewById(R.id.plv_home);
 		plv_home.setOnRefreshListener(new OnRefreshListener<ListView>() {
@@ -52,6 +39,10 @@ public class HomeFragment extends BaseFragment {
 			}
 		});
 		plv_home.setOnItemClickListener(new SimpleOnItemClickListener(activity));
+		
+		loadData();
+		
+		return view;
 	}
 	
 	private void loadData() {

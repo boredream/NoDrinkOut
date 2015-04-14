@@ -20,7 +20,7 @@ import com.handmark.pulltorefresh.library.PullToRefreshBase.OnRefreshListener;
 
 public class ShopFragment extends BaseFragment {
 
-	private Pull2RefreshListView plv_shop;
+	private Pull2RefreshListView plv_home;
 	private ShopAdapter shopAdapter;
 	
 	private int curPage = 1;
@@ -28,17 +28,17 @@ public class ShopFragment extends BaseFragment {
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View view = View.inflate(getActivity(), R.layout.frag_shop, null);
+		View view = View.inflate(getActivity(), R.layout.frag_home, null);
 		
-		plv_shop = (Pull2RefreshListView) view.findViewById(R.id.plv_shop);
-		plv_shop.setOnRefreshListener(new OnRefreshListener<ListView>() {
+		plv_home = (Pull2RefreshListView) view.findViewById(R.id.plv_home);
+		plv_home.setOnRefreshListener(new OnRefreshListener<ListView>() {
 
 			@Override
 			public void onRefresh(PullToRefreshBase<ListView> refreshView) {
 				loadData();
 			}
 		});
-		plv_shop.setOnItemClickListener(new SimpleOnItemClickListener(activity));
+		plv_home.setOnItemClickListener(new SimpleOnItemClickListener(activity));
 		loadData();
 		
 		return view;
@@ -53,9 +53,9 @@ public class ShopFragment extends BaseFragment {
 						super.onSuccess(arg0);
 						
 						shopAdapter = new ShopAdapter(activity, arg0);
-						plv_shop.setAdapter(shopAdapter);
+						plv_home.setAdapter(shopAdapter);
 						
-						plv_shop.onRefreshComplete();
+						plv_home.onRefreshComplete();
 					}
 		});
 	}

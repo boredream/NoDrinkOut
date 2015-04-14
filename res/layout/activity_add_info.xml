@@ -40,7 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="1dp"
         android:layout_alignTop="@id/ll_checkin"
-        android:background="@color/divider_black_alpha" />
+        android:background="@color/divider_black" />
 
     <ScrollView
         android:layout_width="match_parent"

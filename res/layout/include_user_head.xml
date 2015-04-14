@@ -45,6 +45,6 @@
         android:layout_margin="8dp"
         android:layout_toRightOf="@+id/iv_avatar"
         android:text="没错,我就是油坊桥吴彦祖"
-        android:textColor="@color/txt_gray_alpha" />
+        android:textColor="@color/txt_gray" />
 
 </RelativeLayout>

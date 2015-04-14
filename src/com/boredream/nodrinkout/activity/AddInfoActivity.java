@@ -3,7 +3,6 @@ package com.boredream.nodrinkout.activity;
 import java.util.ArrayList;
 import java.util.List;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -125,6 +124,48 @@ public class AddInfoActivity extends BaseActivity
 	}
 
 	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.titlebar_tv_left:
+			finish();
+			break;
+		case R.id.titlebar_tv_right:
+			addInfo();
+			break;
+		}
+	}
+	
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		if (resultCode == RESULT_CANCELED) {
+			return;
+		}
+
+		switch (requestCode) {
+		// 拍照获取图片
+		case ImageUtils.GET_IMAGE_BY_CAMERA:
+			if(ImageUtils.imageUriFromCamera != null) {
+				imgUris.add(ImageUtils.imageUriFromCamera);
+				adapter.notifyDataSetChanged();
+			}
+			break;
+		// 手机相册获取图片
+		case ImageUtils.GET_IMAGE_FROM_PHONE:
+			if(data != null && data.getData() != null) {
+				imgUris.add(data.getData());
+				adapter.notifyDataSetChanged();
+			}
+			break;
+		// 裁剪图片后结果
+//		case ImageUtils.CROP_IMAGE:
+//			if(ImageUtils.cropImageUri != null) {
+//				// 可以直接显示图片,或者进行其他处理(如压缩等)
+//			}
+//			break;
+		}
+	}
+
+	@Override
 	public void onBodyClick(View v, int position) {
 		if(position == adapter.getCount() - 1) {
 			DialogUtils.showImagePickDialog(this);
@@ -138,65 +179,5 @@ public class AddInfoActivity extends BaseActivity
 		imgUris.remove(position);
 		adapter.notifyDataSetChanged();
 	}
-	
-	private void showIfNeedEditDialog(final Uri imageUri) {
-		DialogUtils.showListDialog(this, "是否需要编辑图片?", new String[]{"编辑图片", "使用原图"}, 
-				new DialogInterface.OnClickListener() {
-					@Override
-					public void onClick(DialogInterface dialog, int which) {
-						if(which == 0) {
-							intent2editImage(imageUri);
-						} else {
-							imgUris.add(imageUri);
-							adapter.notifyDataSetChanged();
-						}
-					}
-				});
-	}
-	
-	private void intent2editImage(Uri uri) {
-		Intent intent = new Intent(this, ImageFilterActivity.class);
-		intent.putExtra("path", ImageUtils.getImageAbsolutePath(this, uri));
-		startActivity(intent);
-	}
-	
-	@Override
-	public void onClick(View v) {
-		switch (v.getId()) {
-		case R.id.titlebar_tv_left:
-			finish();
-			break;
-		case R.id.titlebar_tv_right:
-			addInfo();
-			break;
-		}
-	}
 
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		if (resultCode == RESULT_CANCELED) {
-			return;
-		}
-
-		switch (requestCode) {
-		// 拍照获取图片
-		case ImageUtils.GET_IMAGE_BY_CAMERA:
-			if(ImageUtils.imageUriFromCamera != null) {
-				showIfNeedEditDialog(ImageUtils.imageUriFromCamera);
-			}
-			break;
-		// 手机相册获取图片
-		case ImageUtils.GET_IMAGE_FROM_PHONE:
-			if(data != null && data.getData() != null) {
-				showIfNeedEditDialog(data.getData());
-			}
-			break;
-		// 裁剪图片后结果
-//		case ImageUtils.CROP_IMAGE:
-//			if(ImageUtils.cropImageUri != null) {
-//				// 可以直接显示图片,或者进行其他处理(如压缩等)
-//			}
-//			break;
-		}
-	}
 }
