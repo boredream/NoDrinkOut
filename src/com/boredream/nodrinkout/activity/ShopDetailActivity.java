@@ -187,7 +187,7 @@ public class ShopDetailActivity extends BaseActivity implements OnClickListener 
 			System.out.println(BaseApplication.curLocation + " : " + shop.getLocation());
 			break;
 		case R.id.ll_sendinfo_bottom:
-			Intent intent = new Intent(this, AddInfoActivity.class);
+			Intent intent = new Intent(this, WriteInfoActivity.class);
 			intent.putExtra("shop", shop);
 			startActivity(intent);
 			break;

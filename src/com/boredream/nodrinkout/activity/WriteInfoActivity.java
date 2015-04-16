@@ -30,7 +30,7 @@ import com.boredream.nodrinkout.utils.MapUtils;
 import com.boredream.nodrinkout.utils.TitleBuilder;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 
-public class AddInfoActivity extends BaseActivity 
+public class WriteInfoActivity extends BaseActivity 
 	implements OnClickListener, OnAddImgItemClickListener {
 	private LinearLayout ll_checkin;
 	private TextView tv_checkin;
@@ -86,8 +86,8 @@ public class AddInfoActivity extends BaseActivity
 	 * @return
 	 */
 	private boolean isAtShop() {
-		double shopLatitude = Double.parseDouble(shop.getLocation().split("-")[0]);
-		double shopLongitude = Double.parseDouble(shop.getLocation().split("-")[1]);
+		double shopLatitude = shop.getLocation().getLatitude();
+		double shopLongitude = shop.getLocation().getLongitude();
 		
 		double distance = MapUtils.getDistance(shopLatitude, shopLongitude, 
 				BaseApplication.curLocation.latitude, BaseApplication.curLocation.longitude);

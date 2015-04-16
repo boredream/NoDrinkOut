@@ -1,6 +1,11 @@
 package com.boredream.nodrinkout.map;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.FragmentActivity;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -9,6 +14,8 @@ import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import cn.bmob.v3.datatype.BmobGeoPoint;
 
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.SupportMapFragment;
@@ -26,8 +33,11 @@ import com.baidu.mapapi.search.sug.OnGetSuggestionResultListener;
 import com.baidu.mapapi.search.sug.SuggestionResult;
 import com.baidu.mapapi.search.sug.SuggestionSearch;
 import com.baidu.mapapi.search.sug.SuggestionSearchOption;
+import com.baidu.navisdk.ui.routeguide.subview.E;
 import com.boredream.nodrinkout.R;
+import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeShop;
+import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.listener.SaveSimpleListener;
 
 /**
@@ -35,7 +45,7 @@ import com.boredream.nodrinkout.listener.SaveSimpleListener;
  */
 public class PoiSearchActivity extends FragmentActivity implements
 		OnGetPoiSearchResultListener, OnGetSuggestionResultListener {
-
+	
 	private PoiSearch mPoiSearch = null;
 	private SuggestionSearch mSuggestionSearch = null;
 	private BaiduMap mBaiduMap = null;
@@ -44,9 +54,42 @@ public class PoiSearchActivity extends FragmentActivity implements
 	 */
 	private AutoCompleteTextView keyWorldsView = null;
 	private ArrayAdapter<String> sugAdapter = null;
-	private int load_Index = 0;
+	// 当前页
+	private int pageIndex = 0;
+	// 当前上传的数据临时index,检测是否成功上传10条数据
+	private int tempCompleteCount = 0;
+	// 当前上传的数据index
+	private int uploadCount = 0;
+	// 当前搜索的数据index
+	private int loadCount = 0;
 	
 	private PoiResult result;
+	
+	
+	////////////////////////////////////////
+	private List<CoffeeShop> allShops = new ArrayList<CoffeeShop>();
+	// 当前页
+	private int pageIndexDetail = 0;
+	// 当前上传的数据临时index,检测是否成功上传10条数据
+	private int tempCompleteCountDetail = 0;
+	// 当前上传的数据index
+	private int uploadCountDetail = 0;
+	// 当前搜索的数据index
+	private int loadCountDetail = 0;
+	
+	
+	private Handler handler = new Handler() {
+
+		@Override
+		public void handleMessage(Message msg) {
+			super.handleMessage(msg);
+			
+			if(msg.what == 110) {
+				goToNextPage(null);
+			}
+		}
+		
+	};
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -127,9 +170,7 @@ public class PoiSearchActivity extends FragmentActivity implements
 	}
 
 	/**
-	 * 影响搜索按钮点击事件
-	 * 
-	 * @param v
+	 * 开始按条件搜索列表结果
 	 */
 	public void searchButtonProcess(View v) {
 		EditText editCity = (EditText) findViewById(R.id.city);
@@ -137,35 +178,99 @@ public class PoiSearchActivity extends FragmentActivity implements
 		mPoiSearch.searchInCity((new PoiCitySearchOption())
 				.city(editCity.getText().toString())
 				.keyword(editSearchKey.getText().toString())
-				.pageNum(load_Index));
+				.pageNum(pageIndex));
+	}
+	
+	/**
+	 * 开始按条件搜索详情结果
+	 */
+	public void searchDetailButtonProcess(View v) {
+		BmobApi.queryShopsWhere(this, null, -1, 
+				new FindSimpleListener<CoffeeShop>(this, null){
+
+					@Override
+					public void onSuccess(List<CoffeeShop> arg0) {
+						super.onSuccess(arg0);
+						
+						allShops = arg0;
+					}
+		});
+		
+		for(int i=uploadCountDetail; i<uploadCountDetail+10; i++) {
+			CoffeeShop coffeeShop = allShops.get(i);
+			if(coffeeShop.isHasCaterDetails()) {
+				mPoiSearch.searchPoiDetail((new PoiDetailSearchOption())
+						.poiUid(coffeeShop.getUid()));
+			}
+			
+		}
 	}
 
 	public void goToNextPage(View v) {
-		load_Index++;
+		pageIndex++;
 		searchButtonProcess(null);
 	}
 	
 	// 上传店铺信息
 	public void upload(View v) {
-//		CoffeeShop shopBD;
-//		for(PoiInfo info : result.getAllPoi()) {
-//			shopBD = new CoffeeShop();
-//			shopBD.address = info.address;
-//			shopBD.city = info.city;
-//			shopBD.uid = info.uid;
-//			shopBD.setType(info.type.toString());
-//			shopBD.setLocation(info.location.latitude + "-" + info.location.longitude);
-//			shopBD.name = info.name;
-//			shopBD.phoneNum = info.phoneNum;
-//			shopBD.isPano = info.isPano;
-//			shopBD.hasCaterDetails = info.hasCaterDetails;
-//			
-//			// customer
-//			shopBD.setFollowCount(0);
-//			shopBD.setInfoCount(0);
-//			shopBD.setImgUrl("");
-//			shopBD.save(this, new SaveSimpleListener(this, null){ });
-//		}
+		CoffeeShop shopBD;
+		for(PoiInfo info : result.getAllPoi()) {
+			shopBD = new CoffeeShop();
+			shopBD.setAddress(info.address);
+			shopBD.setCity(info.city);
+			shopBD.setUid(info.uid);
+			shopBD.setType(info.type.toString());
+			shopBD.setLocation(new BmobGeoPoint(
+					info.location.longitude, info.location.latitude));
+			shopBD.setName(info.name);
+			shopBD.setPhoneNum(info.phoneNum);
+			shopBD.setPano(info.isPano);
+			shopBD.setHasCaterDetails(info.hasCaterDetails);
+			
+			// customer
+			shopBD.setFollowCount(0);
+			shopBD.setInfoCount(0);
+			shopBD.setImgUrl("");
+			shopBD.save(this, new SaveSimpleListener(this, null){
+
+				@Override
+				public void onFailure(int arg0, String arg1) {
+					super.onFailure(arg0, arg1);
+					
+					uploadCount ++;
+					tempCompleteCount ++;
+					if(isTempComplete()) {
+						handler.sendEmptyMessageDelayed(110, 1000);
+					}
+					System.out.println("upload failure " + uploadCount);
+				}
+
+				@Override
+				public void onSuccess() {
+					super.onSuccess();
+					
+					uploadCount ++;
+					tempCompleteCount ++;
+					if(isTempComplete()) {
+						handler.sendEmptyMessageDelayed(110, 1000);
+					}
+					System.out.println("upload success " + uploadCount);
+				}
+				
+				private boolean isTempComplete() {
+					if(tempCompleteCount == 10) {
+						tempCompleteCount = 0;
+						return true;
+					}
+					return false;
+				}
+				
+			});
+		}
+	}
+	
+	public void uploadAllDetailInfo() {
+		
 	}
 
 	public void onGetPoiResult(PoiResult result) {
@@ -184,6 +289,10 @@ public class PoiSearchActivity extends FragmentActivity implements
 			overlay.zoomToSpan();
 			
 			this.result = result;
+			loadCount += result.getAllPoi().size();
+			System.out.println("获取数据" + result.getAllPoi().size() +", 加上后共" + loadCount);
+			
+			upload(null);
 			
 			return;
 		}
@@ -206,8 +315,7 @@ public class PoiSearchActivity extends FragmentActivity implements
 			Toast.makeText(PoiSearchActivity.this, "抱歉，未找到结果", Toast.LENGTH_SHORT)
 					.show();
 		} else {
-			Toast.makeText(PoiSearchActivity.this, result.getName() + ": " + result.getAddress(), Toast.LENGTH_SHORT)
-			.show();
+			
 		}
 	}
 

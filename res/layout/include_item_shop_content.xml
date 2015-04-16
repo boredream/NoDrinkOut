@@ -27,14 +27,14 @@
             android:id="@+id/tv_body"
             style="@style/TextViewBody"
             android:layout_alignParentLeft="true"
-            android:layout_toLeftOf="@+id/ll_collect"
+            android:layout_toLeftOf="@+id/ll_shop_right"
             android:singleLine="true"
             android:layout_marginRight="16dp"
             android:layout_alignParentBottom="true"
             android:text="100m" />
 
         <LinearLayout
-            android:id="@+id/ll_collect"
+            android:id="@+id/ll_shop_right"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"

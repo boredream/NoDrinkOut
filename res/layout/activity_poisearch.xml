@@ -32,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="0.88"
-            android:text="咖啡" />
+            android:text="咖啡厅" />
     </LinearLayout>
 
     <LinearLayout
@@ -47,7 +47,16 @@
             android:layout_weight="12"
             android:onClick="searchButtonProcess"
             android:padding="10dip"
-            android:text="开始" />
+            android:text="搜列表" />
+
+        <Button
+            android:id="@+id/search_detail"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="12"
+            android:onClick="searchDetailButtonProcess"
+            android:padding="10dip"
+            android:text="搜详情" />
 
         <Button
             android:id="@+id/map_next_data"

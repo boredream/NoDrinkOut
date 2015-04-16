@@ -5,9 +5,10 @@
     android:background="@color/bg_gray" >
 
     <com.boredream.nodrinkout.view.Pull2RefreshListView
-        android:id="@+id/plv_shop"
-        style="@style/ListViewCard"
-        android:layout_below="@+id/ll_title" >
+        android:id="@+id/plv_shop_most_follow"
+        style="@style/ListViewCommon"
+        android:divider="@color/divider_gray"
+        android:dividerHeight="1px" >
     </com.boredream.nodrinkout.view.Pull2RefreshListView>
 
     <LinearLayout

@@ -1,18 +1,17 @@
 package com.boredream.nodrinkout.bmob;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import android.content.Context;
-import android.text.TextUtils;
+import cn.bmob.v3.BmobObject;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobGeoPoint;
 import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.UpdateListener;
 
 import com.bmob.BmobProFile;
 import com.bmob.btp.callback.UploadBatchListener;
-import com.bmob.utils.BmobLog;
 import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
@@ -57,7 +56,7 @@ public class BmobApi {
 	}
 	
 	/**
-	 * 查询咖啡店(根据全部条件过滤,不需要改条件时传null)
+	 * 查询咖啡店(根据全部条件过滤,不需要改条件时传null, -1)
 	 * @param context
 	 * @param order
 	 * @param page 
@@ -70,9 +69,36 @@ public class BmobApi {
 			query.order(order);
 		}
 		query.include("user,shop");
-		query.setLimit(CommonConstants.COUNT_PER_PAGE);
-		query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
+		if(page != -1) {
+			query.setLimit(CommonConstants.COUNT_PER_PAGE);
+			query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
+		}
 		query.findObjects(context, listener);
+	}
+	
+	/**
+	 * 查询附近咖啡店(根据全部条件过滤,不需要改条件时传null, -1)
+	 * @param context
+	 * @param geo 中心点位置
+	 * @param page 
+	 * @param listener
+	 */
+	public static void queryShopsWhereNear(Context context,
+			BmobGeoPoint geo, int page, FindListener<CoffeeShop> listener) {
+		BmobQuery<CoffeeShop> query = new BmobQuery<CoffeeShop>();
+		query.addWhereNear("location", geo);
+		query.include("user,shop");
+		if(page != -1) {
+			query.setLimit(CommonConstants.COUNT_PER_PAGE);
+			query.setSkip((page - 1) * CommonConstants.COUNT_PER_PAGE);
+		}
+		query.findObjects(context, listener);
+	}
+	
+	public static void updateShopsBatch(Context context, List<BmobObject> shops,
+			UpdateListener updateListener) {
+		CoffeeShop shopUpdateBatch = new CoffeeShop();
+		shopUpdateBatch.updateBatch(context, shops, updateListener);
 	}
 	
 	////////////////////////////// 图文状态 //////////////////////////////

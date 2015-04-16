@@ -6,7 +6,7 @@
 
     <uses-sdk
         android:minSdkVersion="8"
-        android:targetSdkVersion="20" />
+        android:targetSdkVersion="21" />
 
     <uses-permission android:name="android.permission.CAMERA" />
 
@@ -89,7 +89,7 @@
             android:name=".activity.SearchActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".activity.AddInfoActivity"
+            android:name=".activity.WriteInfoActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name=".activity.ImageFilterActivity"

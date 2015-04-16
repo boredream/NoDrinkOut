@@ -11,20 +11,28 @@ import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.entity.CoffeeShop;
-import com.boredream.nodrinkout.utils.DisplayUtils;
-import com.boredream.nodrinkout.utils.ImageOptHelper;
-import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class ShopAdapter extends BaseAdapter {
 
 	private Context context;
 	private List<CoffeeShop> datas;
-	private ImageLoader imageLoader;
+	// 1- ’≤ÿ 2-æ‡¿Î
+	private int type;
+
+	public void setDatas(List<CoffeeShop> datas) {
+		this.datas = datas;
+	}
 
 	public ShopAdapter(Context context, List<CoffeeShop> datas) {
 		this.context = context;
 		this.datas = datas;
-		imageLoader = ImageLoader.getInstance();
+		this.type = 1;
+	}
+	
+	public ShopAdapter(Context context, List<CoffeeShop> datas, int type) {
+		this.context = context;
+		this.datas = datas;
+		this.type = type;
 	}
 
 	@Override
@@ -48,10 +56,10 @@ public class ShopAdapter extends BaseAdapter {
 		if(convertView == null) {
 			holder = new ViewHolder();
 			convertView = View.inflate(context, R.layout.item_shop, null);
-			holder.iv_image = (ImageView) convertView.findViewById(R.id.iv_image);
 			holder.tv_subhead = (TextView) convertView.findViewById(R.id.tv_subhead);
 			holder.tv_body = (TextView) convertView.findViewById(R.id.tv_body);
-			holder.tv_collect = (TextView) convertView.findViewById(R.id.tv_collect);
+			holder.iv_shop_right = (ImageView) convertView.findViewById(R.id.iv_shop_right);
+			holder.tv_shop_right = (TextView) convertView.findViewById(R.id.tv_shop_right);
 			convertView.setTag(holder);
 		} else {
 			holder = (ViewHolder) convertView.getTag();
@@ -59,20 +67,24 @@ public class ShopAdapter extends BaseAdapter {
 
 		// set data
 		CoffeeShop item = getItem(position);
-		imageLoader.displayImage(item.getImgUrl(), holder.iv_image, 
-				ImageOptHelper.getCornerOptions(DisplayUtils.dip2px(context, 2)));
 		holder.tv_subhead.setText(item.getName());
 		holder.tv_body.setText(item.getAddress());
-		holder.tv_collect.setText(item.getFollowCount()+"");
+		if(type == 1) {
+			holder.iv_shop_right.setImageResource(R.drawable.ic_favorite);
+			holder.tv_shop_right.setText(item.getFollowCount()+"");
+		} else if(type == 2) {
+			holder.iv_shop_right.setImageResource(R.drawable.ic_location_on);
+			holder.tv_shop_right.setText("100m");
+		}
 		
 		return convertView;
 	}
 
 	public static class ViewHolder{
-		public ImageView iv_image;
 		public TextView tv_subhead;
 		public TextView tv_body;
-		public TextView tv_collect;
+		public ImageView iv_shop_right;
+		public TextView tv_shop_right;
 	}
 
 }

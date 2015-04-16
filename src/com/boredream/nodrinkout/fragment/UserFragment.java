@@ -12,7 +12,6 @@ import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.activity.UserActivity;
-import com.boredream.nodrinkout.entity.UserBean;
 import com.boredream.nodrinkout.map.PoiSearchActivity;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 

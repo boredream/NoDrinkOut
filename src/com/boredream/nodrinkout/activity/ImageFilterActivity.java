@@ -177,7 +177,7 @@ public class ImageFilterActivity extends BaseActivity implements OnClickListener
 					setResult(RESULT_OK, intent);
 				} else {
 					// 根据是否选择旧图片添加一个新的图片并跳转到上传图片界面
-					Intent intent = new Intent(this, AddInfoActivity.class);
+					Intent intent = new Intent(this, WriteInfoActivity.class);
 					intent.putExtra("image", mIsOld ? mOldBitmap : mNewBitmap);
 					startActivity(intent);
 				}

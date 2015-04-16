@@ -1,5 +1,7 @@
 package com.boredream.nodrinkout.entity;
 
+import cn.bmob.v3.datatype.BmobGeoPoint;
+
 public class CoffeeShop extends BmobBaseObj {
 	private static final long serialVersionUID = 1541611980033948795L;
 
@@ -8,7 +10,7 @@ public class CoffeeShop extends BmobBaseObj {
 	private String city;
 	private String uid;
 	private String type;
-	private String location; // latitude-longitude
+	private BmobGeoPoint location; // lon,lat
 	private String name;
 	private String phoneNum;
 	private boolean isPano;
@@ -50,11 +52,11 @@ public class CoffeeShop extends BmobBaseObj {
 		this.type = type;
 	}
 
-	public String getLocation() {
+	public BmobGeoPoint getLocation() {
 		return location;
 	}
 
-	public void setLocation(String location) {
+	public void setLocation(BmobGeoPoint location) {
 		this.location = location;
 	}
 
@@ -116,6 +118,11 @@ public class CoffeeShop extends BmobBaseObj {
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+
+	@Override
+	public String toString() {
+		return "CoffeeShop [name=" + name + "address=" + address + "]";
 	}
 
 }

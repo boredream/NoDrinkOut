@@ -37,11 +37,10 @@ public class BaseApplication extends FrontiaApplication {
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		Log.i("DDD", "oncreate app");
 		
 		BmobInit.init(this);
 		initImageLoader(this);
-//		SDKInitializer.initialize(this);
+		SDKInitializer.initialize(this);
 		Frontia.init(this, SocialConstants.APIKEY);
 	}
 	
