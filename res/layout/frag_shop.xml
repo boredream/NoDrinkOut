@@ -4,12 +4,25 @@
     android:layout_height="match_parent"
     android:background="@color/bg_gray" >
 
-    <com.boredream.nodrinkout.view.Pull2RefreshListView
-        android:id="@+id/plv_shop_most_follow"
-        style="@style/ListViewCommon"
-        android:divider="@color/divider_gray"
-        android:dividerHeight="1px" >
-    </com.boredream.nodrinkout.view.Pull2RefreshListView>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/ll_title" >
+
+        <com.boredream.nodrinkout.view.Pull2RefreshListView
+            android:id="@+id/plv_shop_nearest"
+            style="@style/ListViewCommon"
+            android:divider="@color/divider_gray"
+            android:dividerHeight="1px" >
+        </com.boredream.nodrinkout.view.Pull2RefreshListView>
+
+        <com.boredream.nodrinkout.view.Pull2RefreshListView
+            android:id="@+id/plv_shop_most_follow"
+            style="@style/ListViewCommon"
+            android:divider="@color/divider_gray"
+            android:dividerHeight="1px" >
+        </com.boredream.nodrinkout.view.Pull2RefreshListView>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/ll_title"
