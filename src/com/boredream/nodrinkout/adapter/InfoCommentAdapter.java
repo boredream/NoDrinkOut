@@ -10,18 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.entity.InfoComment;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.StatusComment;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class InfoCommentAdapter extends BaseAdapter {
 
 	private Context context;
-	private List<InfoComment> datas;
+	private List<StatusComment> datas;
 	private ImageLoader imageLoader;
 
-	public InfoCommentAdapter(Context context, List<InfoComment> datas) {
+	public InfoCommentAdapter(Context context, List<StatusComment> datas) {
 		this.context = context;
 		this.datas = datas;
 		this.imageLoader = ImageLoader.getInstance();
@@ -33,7 +33,7 @@ public class InfoCommentAdapter extends BaseAdapter {
 	}
 
 	@Override
-	public InfoComment getItem(int position) {
+	public StatusComment getItem(int position) {
 		return datas.get(position);
 	}
 
@@ -64,8 +64,8 @@ public class InfoCommentAdapter extends BaseAdapter {
 		}
 
 		// set data
-		InfoComment bean = getItem(position);
-		UserBean user = bean.getUser();
+		StatusComment bean = getItem(position);
+		User user = bean.getUser();
 		
 		imageLoader.displayImage(user.getAvatarUrl(), holder.iv_avatar, 
 				ImageOptHelper.getAvatarOptions());

@@ -8,7 +8,7 @@ import com.boredream.nodrinkout.activity.ShopDetailActivity;
 import com.boredream.nodrinkout.activity.UserActivity;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 
 public class OnAdapterMultiClickListener {
 
@@ -35,7 +35,7 @@ public class OnAdapterMultiClickListener {
 			context.startActivity(intent);
 			break;
 		case TYPE_USER_DETAIL:
-			UserBean user = (UserBean) obj;
+			User user = (User) obj;
 			Intent intent2 = new Intent(context, UserActivity.class);
 			intent2.putExtra("user", user);
 			context.startActivity(intent2);

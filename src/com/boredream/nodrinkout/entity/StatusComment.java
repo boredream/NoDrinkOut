@@ -1,26 +1,26 @@
 package com.boredream.nodrinkout.entity;
 
 @SuppressWarnings("serial")
-public class InfoComment extends BmobBaseObj {
-	private UserBean user;
-	private UserBean replyUser;
+public class StatusComment extends BmobBaseObj {
+	private User user;
+	private User replyUser;
 	private CoffeeInfo info;
 	private String content;
 	private int likeCount;
 
-	public UserBean getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserBean user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 
-	public UserBean getReplyUser() {
+	public User getReplyUser() {
 		return replyUser;
 	}
 
-	public void setReplyUser(UserBean replyUser) {
+	public void setReplyUser(User replyUser) {
 		this.replyUser = replyUser;
 	}
 

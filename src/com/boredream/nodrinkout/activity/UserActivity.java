@@ -13,7 +13,7 @@ import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.adapter.InfoAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.utils.TitleBuilder;
@@ -32,7 +32,7 @@ public class UserActivity extends BaseActivity {
 	private List<CoffeeInfo> infos;
 	private InfoAdapter adapter;
 	
-	private UserBean tarUser;
+	private User tarUser;
 	private boolean iCurrentUser;
 	
 	@Override
@@ -62,7 +62,7 @@ public class UserActivity extends BaseActivity {
 	}
 	
 	private void setData() {
-		tarUser = (UserBean) intent.getSerializableExtra("user");
+		tarUser = (User) intent.getSerializableExtra("user");
 		iCurrentUser = tarUser.getObjectId().equals(user.getObjectId());
 		
 		imageLoader.displayImage(tarUser.getAvatarUrl(), iv_avatar, 
@@ -79,7 +79,7 @@ public class UserActivity extends BaseActivity {
 	
 	private void loadData() {
 		progressDialog.show();
-		BmobApi.queryInfosWhere(this, null, UserBean.getCurrentUser(this, UserBean.class), null, 1, 
+		BmobApi.queryInfosWhere(this, null, User.getCurrentUser(this, User.class), null, 1, 
 				new FindSimpleListener<CoffeeInfo>(this, progressDialog) {
 
 					@Override

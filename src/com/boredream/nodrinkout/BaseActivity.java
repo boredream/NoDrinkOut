@@ -9,7 +9,7 @@ import android.os.Bundle;
 import android.widget.Toast;
 
 import com.boredream.nodrinkout.constants.CommonConstants;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.listener.SimpleOnClickListener;
 import com.boredream.nodrinkout.listener.SimpleOnItemClickListener;
 import com.boredream.nodrinkout.utils.DialogUtils;
@@ -25,7 +25,7 @@ public abstract class BaseActivity extends Activity {
 	protected Intent intent;
 	protected ProgressDialog progressDialog;
 	// custom data
-	protected UserBean user;
+	protected User user;
 	protected ImageLoader imageLoader;
 	protected SimpleOnClickListener simpleOnClickListener;
 	protected SimpleOnItemClickListener simpleOnItemClickListener;
@@ -44,15 +44,15 @@ public abstract class BaseActivity extends Activity {
 		application.addActivity(this);
 		
 		// custom data
-		user = UserBean.getCurrentUser(this, UserBean.class);
+		user = User.getCurrentUser(this, User.class);
 		imageLoader = ImageLoader.getInstance();
 		simpleOnClickListener = new SimpleOnClickListener(this);
 		simpleOnItemClickListener = new SimpleOnItemClickListener(this);
 	}
 	
 	// custom
-	protected UserBean getCurrentUser() {
-		return UserBean.getCurrentUser(this, UserBean.class);
+	protected User getCurrentUser() {
+		return User.getCurrentUser(this, User.class);
 	}
 	
 	protected void intent2Activity(Class<? extends Activity> tarActivity) {

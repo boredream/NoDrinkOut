@@ -12,7 +12,7 @@ import cn.bmob.v3.listener.SaveListener;
 
 import com.boredream.nodrinkout.BaseActivity;
 import com.boredream.nodrinkout.R;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 
 public class LoginActivity extends BaseActivity implements OnClickListener {
 	private EditText et_username;
@@ -67,7 +67,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.tx_register:
-			UserBean rUser = new UserBean();
+			User rUser = new User();
 			rUser.setUsername(et_username.getText().toString());
 			rUser.setPassword(et_psw.getText().toString());
 			rUser.setAge(24);
@@ -84,7 +84,7 @@ public class LoginActivity extends BaseActivity implements OnClickListener {
 			});
 			break;
 		case R.id.sign_in:
-			UserBean user = new UserBean();
+			User user = new User();
 			user.setUsername(et_username.getText().toString());
 			user.setPassword(et_psw.getText().toString());
 			user.login(this, new SaveListener() {

@@ -28,7 +28,7 @@ import com.boredream.nodrinkout.adapter.InfoImagesAdapter;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
-import com.boredream.nodrinkout.entity.InfoComment;
+import com.boredream.nodrinkout.entity.StatusComment;
 import com.boredream.nodrinkout.entity.InterActive;
 import com.boredream.nodrinkout.listener.FindSimpleListener;
 import com.boredream.nodrinkout.listener.UpdateSimpleListener;
@@ -71,7 +71,7 @@ public class InfoDetailActivity extends BaseActivity
 	private EditText et_comment;
 	private Button btn_send;
 	
-	private List<InfoComment> comments;
+	private List<StatusComment> comments;
 	private InfoCommentAdapter adapter;
 	private CoffeeInfo info;
 	
@@ -169,7 +169,7 @@ public class InfoDetailActivity extends BaseActivity
 		tv_content.setText(info.getContent());
 		tv_location.setText(info.getShop().getName());
 		
-		comments = new ArrayList<InfoComment>();
+		comments = new ArrayList<StatusComment>();
 		adapter = new InfoCommentAdapter(this, comments);
 		plv_comment.setAdapter(adapter);
 		include_tv_subhead.setText("ÆÀÂÛ");
@@ -232,10 +232,10 @@ public class InfoDetailActivity extends BaseActivity
 	private void loadComments() {
 		progressDialog.show();
 		BmobApi.queryComments(this, info, 
-				new FindSimpleListener<InfoComment>(this, progressDialog){
+				new FindSimpleListener<StatusComment>(this, progressDialog){
 
 					@Override
-					public void onSuccess(List<InfoComment> arg0) {
+					public void onSuccess(List<StatusComment> arg0) {
 						super.onSuccess(arg0);
 						
 						comments.clear();

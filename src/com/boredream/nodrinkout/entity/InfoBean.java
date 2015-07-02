@@ -11,7 +11,7 @@ public class InfoBean extends BmobBaseObj {
 	 */
 	private int cateId;
 
-	private UserBean user;
+	private User user;
 	private int commentsCount;
 	private int likesCount;
 
@@ -47,11 +47,11 @@ public class InfoBean extends BmobBaseObj {
 		this.cateId = cateId;
 	}
 
-	public UserBean getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserBean user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

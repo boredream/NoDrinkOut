@@ -24,7 +24,7 @@ import com.boredream.nodrinkout.activity.InfoDetailActivity;
 import com.boredream.nodrinkout.bmob.BmobApi;
 import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.listener.OnAdapterMultiClickListener;
 import com.boredream.nodrinkout.listener.UpdateSimpleListener;
 import com.boredream.nodrinkout.utils.DialogUtils;
@@ -37,7 +37,7 @@ public class InfoAdapter extends BaseAdapter {
 	private Context context;
 	private List<CoffeeInfo> datas;
 	private ImageLoader imageLoader;
-	private UserBean user;
+	private User user;
 	
 	private OnAdapterMultiClickListener onAdapterMultiClickListener;
 	private ProgressDialog progressDialog;
@@ -46,7 +46,7 @@ public class InfoAdapter extends BaseAdapter {
 		this.context = context;
 		this.datas = datas;
 		imageLoader = ImageLoader.getInstance();
-		user = UserBean.getCurrentUser(context, UserBean.class);
+		user = User.getCurrentUser(context, User.class);
 		onAdapterMultiClickListener = new OnAdapterMultiClickListener(context);
 		progressDialog = DialogUtils.createLoadingDialog(context);
 	}

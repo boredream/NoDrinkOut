@@ -4,7 +4,7 @@ public class CoffeeInfo extends BmobBaseObj {
 
 	private String content;
 	private String imgUrls;
-	private UserBean user;
+	private User user;
 	private CoffeeShop shop;
 	private int commentCount;
 	private int likeCount;
@@ -26,11 +26,11 @@ public class CoffeeInfo extends BmobBaseObj {
 		this.imgUrls = imgUrls;
 	}
 
-	public UserBean getUser() {
+	public User getUser() {
 		return user;
 	}
 
-	public void setUser(UserBean user) {
+	public void setUser(User user) {
 		this.user = user;
 	}
 

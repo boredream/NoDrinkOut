@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.boredream.nodrinkout.R;
 import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.utils.ImageOptHelper;
 import com.boredream.nodrinkout.view.WrapHeightGridView;
 import com.nostra13.universalimageloader.core.ImageLoader;
@@ -25,13 +25,13 @@ public class InfoHeaderAdapter extends BaseAdapter {
 	private Context context;
 	private List<CoffeeInfo> datas;
 	private ImageLoader imageLoader;
-	private UserBean user;
+	private User user;
 
 	public InfoHeaderAdapter(Context context, List<CoffeeInfo> datas) {
 		this.context = context;
 		this.datas = datas;
 		imageLoader = ImageLoader.getInstance();
-		user = UserBean.getCurrentUser(context, UserBean.class);
+		user = User.getCurrentUser(context, User.class);
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.boredream.nodrinkout.activity.MainTabActivity;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.utils.DialogUtils;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
@@ -17,7 +17,7 @@ public class BaseFragment extends Fragment {
 	protected Dialog loadDialog;
 	
 	protected ImageLoader imageLoader;
-	protected UserBean user;
+	protected User user;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class BaseFragment extends Fragment {
 		loadDialog = DialogUtils.createLoadingDialog(activity);
 		
 		imageLoader = ImageLoader.getInstance();
-		user = UserBean.getCurrentUser(activity, UserBean.class);
+		user = User.getCurrentUser(activity, User.class);
 	}
 	
 	protected void intent2Activity(Class<? extends Activity> tarActivity) {

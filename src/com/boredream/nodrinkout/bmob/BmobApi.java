@@ -15,9 +15,9 @@ import com.bmob.btp.callback.UploadBatchListener;
 import com.boredream.nodrinkout.constants.CommonConstants;
 import com.boredream.nodrinkout.entity.CoffeeInfo;
 import com.boredream.nodrinkout.entity.CoffeeShop;
-import com.boredream.nodrinkout.entity.InfoComment;
+import com.boredream.nodrinkout.entity.StatusComment;
 import com.boredream.nodrinkout.entity.InterActive;
-import com.boredream.nodrinkout.entity.UserBean;
+import com.boredream.nodrinkout.entity.User;
 import com.boredream.nodrinkout.listener.SaveSimpleListener;
 import com.boredream.nodrinkout.utils.Logger;
 
@@ -33,8 +33,8 @@ public class BmobApi {
 	 * @param listener
 	 */
 	public static void queryUserInfo(Context context, String objectId,
-			FindListener<UserBean> listener) {
-		BmobQuery<UserBean> query = new BmobQuery<UserBean>();
+			FindListener<User> listener) {
+		BmobQuery<User> query = new BmobQuery<User>();
 		query.addWhereEqualTo("objectId", objectId);
 		query.findObjects(context, listener);
 	}
@@ -171,7 +171,7 @@ public class BmobApi {
 	 * @param page 
 	 * @param listener
 	 */
-	public static void queryInfosWhere(Context context, CoffeeShop shop, UserBean user,
+	public static void queryInfosWhere(Context context, CoffeeShop shop, User user,
 			String order, int page, FindListener<CoffeeInfo> listener) {
 		
 		BmobQuery<CoffeeInfo> query = new BmobQuery<CoffeeInfo>();
@@ -201,10 +201,10 @@ public class BmobApi {
 	 */
 	public static void insertComment(final Context context, final CoffeeInfo info, String comment,
 			final UpdateListener listener) {
-		final InfoComment infoComment = new InfoComment();
+		final StatusComment infoComment = new StatusComment();
 		infoComment.setContent(comment);
 		infoComment.setInfo(info);
-		infoComment.setUser(UserBean.getCurrentUser(context, UserBean.class));
+		infoComment.setUser(User.getCurrentUser(context, User.class));
 		infoComment.save(context, new SaveSimpleListener(context, null){
 
 			@Override
@@ -225,8 +225,8 @@ public class BmobApi {
 	}
 	
 	public static void queryComments(Context context, CoffeeInfo info,
-			FindListener<InfoComment> listener) {
-		BmobQuery<InfoComment> query = new BmobQuery<InfoComment>();
+			FindListener<StatusComment> listener) {
+		BmobQuery<StatusComment> query = new BmobQuery<StatusComment>();
 		query.include("user,info");
 		query.addWhereEqualTo("info", info);
 		query.findObjects(context, listener);
@@ -244,7 +244,7 @@ public class BmobApi {
 	public static void likeInfo(final Context context, final CoffeeInfo info,
 			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
-		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
+		interActive.setUser(User.getCurrentUser(context, User.class));
 		interActive.setType(1);
 		interActive.setTarId(info.getObjectId());
 		interActive.save(context, new SaveSimpleListener(context, null){
@@ -271,7 +271,7 @@ public class BmobApi {
 		BmobQuery<InterActive> query = new BmobQuery<InterActive>();
 		
 		BmobQuery<InterActive> query1 = new BmobQuery<InterActive>();
-		query1.addWhereEqualTo("user", UserBean.getCurrentUser(context, UserBean.class));
+		query1.addWhereEqualTo("user", User.getCurrentUser(context, User.class));
 		
 		BmobQuery<InterActive> query2 = new BmobQuery<InterActive>();
 		query2.addWhereEqualTo("type", 1);
@@ -298,7 +298,7 @@ public class BmobApi {
 	public static void followShop(final Context context, final CoffeeShop shop,
 			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
-		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
+		interActive.setUser(User.getCurrentUser(context, User.class));
 		interActive.setType(2);
 		interActive.setTarId(shop.getObjectId());
 		interActive.save(context, new SaveSimpleListener(context, null){
@@ -320,10 +320,10 @@ public class BmobApi {
 		});
 	}
 		
-	public static void likeComment(final Context context, final InfoComment comment,
+	public static void likeComment(final Context context, final StatusComment comment,
 			final UpdateListener listener) {
 		final InterActive interActive = new InterActive();
-		interActive.setUser(UserBean.getCurrentUser(context, UserBean.class));
+		interActive.setUser(User.getCurrentUser(context, User.class));
 		interActive.setType(3);
 		interActive.setTarId(comment.getObjectId());
 		interActive.save(context, new SaveSimpleListener(context, null){
